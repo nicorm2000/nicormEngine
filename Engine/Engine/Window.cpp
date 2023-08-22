@@ -1,7 +1,7 @@
 #include "Window.h"
 #include "Render.h"
 
-Renderer* renderer = new Renderer();
+Render* render = new Render();
 
 int Window::WindowChecker()
 {
@@ -11,6 +11,8 @@ int Window::WindowChecker()
 
         return -1;
     }
+
+    return 0;
 }
 
 void Window::CloseWindow()
@@ -31,16 +33,21 @@ int Window::InitWindow()
 
     MakeCurrentContext(glfwWindow);
 
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+
     while (!glfwWindowShouldClose(glfwWindow))
     {
-        renderer->ClearScreen();
+        render->ClearScreen();
 
-        renderer->PostRender(glfwWindow);
+        render->DrawTriangle(0, 0, 0);
+
+        render->PostRender(glfwWindow);
     }
 
     CloseWindow();
 
-    delete renderer;
+    delete render;
 
     return 0;
 }
