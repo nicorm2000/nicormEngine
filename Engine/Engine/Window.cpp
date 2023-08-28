@@ -33,8 +33,8 @@ int Window::InitWindow()
 
     MakeCurrentContext(glfwWindow);
 
-    unsigned int buffer;
-    glGenBuffers(1, &buffer);
+    //unsigned int buffer;
+    //glGenBuffers(1, &buffer);
 
     while (!glfwWindowShouldClose(glfwWindow))
     {
