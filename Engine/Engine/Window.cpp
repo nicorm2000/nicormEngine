@@ -33,14 +33,31 @@ int Window::InitWindow()
 
     MakeCurrentContext(glfwWindow);
 
-    //unsigned int buffer;
-    //glGenBuffers(1, &buffer);
+    if (glewInit() != GLEW_OK) {
+        return -1;
+    }
+
+    float positions[6] = {
+        -0.5f, -0.5f,
+         0.5f, 0.5f,
+         0.5f, -0.5f
+    };
+
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     while (!glfwWindowShouldClose(glfwWindow))
     {
         render->ClearScreen();
 
-        render->DrawTriangle(0, 0, 0);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         render->PostRender(glfwWindow);
     }
