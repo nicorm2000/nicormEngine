@@ -9,5 +9,5 @@ public:
 	void ClearScreen();
 
 	void PostRender(GLFWwindow* window);
-	void DrawTriangle(float x, float y, float z);
+	void DrawTriangle(float x, float y);
 };
