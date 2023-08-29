@@ -41,7 +41,7 @@ int Window::InitWindow()
     {
         render->ClearScreen();
 
-        render->DrawTriangle(-0.5f, 0.5f);
+        render->DrawTriangle(0.0f, 0.0f);
 
         render->PostRender(glfwWindow);
     }
