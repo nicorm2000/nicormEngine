@@ -19,7 +19,10 @@ public:
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
 	void SwapBuffers(GLFWwindow* window);
+
 	int InitGLEW();
+	void InitMaterial();
+
 	void CreateBuffers(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);
 	void BindBuffers(GLsizeiptr sizeVertices, GLsizeiptr sizeIndices, const GLvoid* vertices, const GLvoid* indices, unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);
 	void UnBindVertex(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);

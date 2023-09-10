@@ -41,6 +41,14 @@ int Render::InitGLEW()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
+void Render::InitMaterial()
+{
+    material = new Material();
+    ShaderProgramSource source = material->ParseShader("Basic.shader");
+    material->CreateMaterial(source.VertexSource, source.FragmentSource);
+    material->UseMaterial();
+}
+
 void Render::CreateBuffers(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO)
 {
     glGenVertexArrays(1, &VAO);

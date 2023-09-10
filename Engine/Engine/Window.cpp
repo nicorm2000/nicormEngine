@@ -38,7 +38,7 @@ void Window::CloseWindow()
     glfwTerminate();
 }
 
-void Window::MakeCurrentContext(GLFWwindow* glfwWindow)
+void Window::MakeCurrentContext()
 {
     glfwMakeContextCurrent(glfwWindow);
 }

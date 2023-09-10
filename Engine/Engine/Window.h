@@ -26,7 +26,7 @@ public:
 	int GetHeight();
 
 	void CloseWindow();
-	void MakeCurrentContext(GLFWwindow* glfwWindow);
+	void MakeCurrentContext();
 };
 
 #endif

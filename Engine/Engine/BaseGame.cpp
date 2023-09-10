@@ -27,9 +27,32 @@ int BaseGame::Run()
 
 	renderer = new Render(window);
 
+	window->InitLibrary();
+
 	window->CreateWindow();
 
+	window->MakeCurrentContext();
 
+	renderer->InitGLEW();
+
+	renderer->InitMaterial();
+
+	Start();
+
+	while (!window->WindowShouldClose())
+	{
+		renderer->ClearScreen();
+
+		Update();
+
+		renderer->SwapBuffers(window->GetWindow());
+
+		window->PollEvents();
+	}
+
+	End();
+
+	window->CloseWindow();
 
 	return 0;
 }
