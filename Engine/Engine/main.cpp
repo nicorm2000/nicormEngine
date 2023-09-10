@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "Export.h"
 
 Window* window = new Window();
 
