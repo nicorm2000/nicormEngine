@@ -1,10 +1,11 @@
-#pragma once
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Window.h"
+#include "Export.h"
 
-class Window
+class DllApi Window
 {
 private:
 	int width = 640;
@@ -19,3 +20,5 @@ public:
 	void CloseWindow();
 	void MakeCurrentContext(GLFWwindow* glfwWindow);
 };
+
+#endif

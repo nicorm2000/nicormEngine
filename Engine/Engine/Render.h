@@ -1,5 +1,8 @@
-#pragma once
+#ifndef RENDERER_H
+#define RENDERER_H
+
 #include "Window.h"
+#include "Export.h"
 #include <string>
 
 struct ShaderProgramSource
@@ -8,7 +11,7 @@ struct ShaderProgramSource
 	std::string FragmentSource;
 };
 
-class Render
+class DllApi Render
 {
 private:
 	
@@ -22,3 +25,5 @@ public:
 	static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 	void DeleteShader();
 };
+
+#endif
