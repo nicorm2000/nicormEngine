@@ -3,6 +3,20 @@
 #include <iostream>
 #include <sstream>
 
+Render::Render(Window* window)
+{
+    window = this->window;
+}
+
+Render::~Render()
+{
+    if (window != nullptr)
+    {
+        window = nullptr;
+        delete window;
+    }
+}
+
 ShaderProgramSource Render::ParseShader(const std::string& filePath)
 {
     std::ifstream stream(filePath);

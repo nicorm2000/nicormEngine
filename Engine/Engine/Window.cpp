@@ -1,18 +1,36 @@
 #include "Window.h"
-#include "Render.h"
 
-Render* render = new Render();
-
-int Window::WindowChecker()
+Window::Window(int width, int height)
 {
+    glfwWindow = nullptr;
+    width = this->width;
+    height = this->height;
+}
+
+Window::~Window()
+{
+    if (glfwWindow != nullptr)
+    {
+        glfwWindow = nullptr;
+        delete glfwWindow;
+    }
+}
+
+int Window::InitLibrary()
+{
+    if (!glfwInit()) return -1;
+}
+
+int Window::CreateWindow()
+{
+    glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL);
+
     if (!glfwWindow)
     {
         CloseWindow();
 
         return -1;
     }
-
-    return 0;
 }
 
 void Window::CloseWindow()
@@ -25,30 +43,53 @@ void Window::MakeCurrentContext(GLFWwindow* glfwWindow)
     glfwMakeContextCurrent(glfwWindow);
 }
 
-int Window::InitWindow()
+void Window::PollEvents()
 {
-    glfwWindow = glfwCreateWindow(width, height, title, NULL, glfwWindow);
+    glfwPollEvents();
+}
 
-    WindowChecker();
+bool Window::WindowShouldClose()
+{
+    return glfwWindowShouldClose(glfwWindow);
+}
 
-    MakeCurrentContext(glfwWindow);
+//int Window::InitWindow()
+//{
+//    CreateWindow();
+//
+//    MakeCurrentContext(glfwWindow);
+//
+//    if (glewInit() != GLEW_OK) {
+//        return -1;
+//    }
+//
+//    while (!glfwWindowShouldClose(glfwWindow))
+//    {
+//        render->ClearScreen();
+//
+//        render->DrawTriangle(0.0f, 0.0f);
+//
+//        render->PostRender(glfwWindow);
+//    }
+//
+//    CloseWindow();
+//
+//    delete render;
+//
+//    return 0;
+//}
 
-    if (glewInit() != GLEW_OK) {
-        return -1;
-    }
+GLFWwindow* Window::GetWindow()
+{
+    return glfwWindow;
+}
 
-    while (!glfwWindowShouldClose(glfwWindow))
-    {
-        render->ClearScreen();
+int Window::GetWidth()
+{
+    return width;
+}
 
-        render->DrawTriangle(0.0f, 0.0f);
-
-        render->PostRender(glfwWindow);
-    }
-
-    CloseWindow();
-
-    delete render;
-
-    return 0;
+int Window::GetHeight()
+{
+    return height;
 }

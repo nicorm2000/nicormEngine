@@ -8,14 +8,23 @@
 class DllApi Window
 {
 private:
-	int width = 640;
-	int height = 480;
+	int width;
+	int height;
 	const char* title = "Engine";
 	GLFWwindow* glfwWindow;
 
 public:
-	int InitWindow();
-	int WindowChecker();
+	Window(int width, int height);
+	~Window();
+	int InitLibrary();
+	//int InitWindow();
+	int CreateWindow();
+	void PollEvents();
+	bool WindowShouldClose();
+
+	GLFWwindow* GetWindow();
+	int GetWidth();
+	int GetHeight();
 
 	void CloseWindow();
 	void MakeCurrentContext(GLFWwindow* glfwWindow);

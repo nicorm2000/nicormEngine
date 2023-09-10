@@ -14,8 +14,10 @@ struct ShaderProgramSource
 class DllApi Render
 {
 private:
-	
+	Window* window;
 public:
+	Render(Window* window);
+	~Render();
 	static ShaderProgramSource ParseShader(const std::string& filePath);
 	void ClearScreen();
 
