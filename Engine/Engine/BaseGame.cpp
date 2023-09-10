@@ -27,7 +27,7 @@ int BaseGame::Run()
 
 	renderer = new Render(window);
 
-	window->WindowChecker();
+	window->CreateWindow();
 
 
 
