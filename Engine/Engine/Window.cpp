@@ -53,32 +53,6 @@ bool Window::WindowShouldClose()
     return glfwWindowShouldClose(glfwWindow);
 }
 
-//int Window::InitWindow()
-//{
-//    CreateWindow();
-//
-//    MakeCurrentContext(glfwWindow);
-//
-//    if (glewInit() != GLEW_OK) {
-//        return -1;
-//    }
-//
-//    while (!glfwWindowShouldClose(glfwWindow))
-//    {
-//        render->ClearScreen();
-//
-//        render->DrawTriangle(0.0f, 0.0f);
-//
-//        render->PostRender(glfwWindow);
-//    }
-//
-//    CloseWindow();
-//
-//    delete render;
-//
-//    return 0;
-//}
-
 GLFWwindow* Window::GetWindow()
 {
     return glfwWindow;

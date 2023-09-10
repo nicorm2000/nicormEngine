@@ -17,7 +17,6 @@ public:
 	Window(int width, int height);
 	~Window();
 	int InitLibrary();
-	//int InitWindow();
 	int CreateWindow();
 	void PollEvents();
 	bool WindowShouldClose();

@@ -3,24 +3,19 @@
 
 #include "Window.h"
 #include "Export.h"
+#include "Material.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <string>
-
-struct ShaderProgramSource
-{
-	std::string VertexSource;
-	std::string FragmentSource;
-};
 
 class DllApi Render
 {
 private:
 	Window* window;
+	Material* material;
 public:
 	Render(Window* window);
 	~Render();
-	static ShaderProgramSource ParseShader(const std::string& filePath);
+
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
 	void SwapBuffers(GLFWwindow* window);
@@ -31,12 +26,7 @@ public:
 	void EnableVertexAttributes(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* offset);
 	void DrawWithoutIndexBuffer(GLenum primitive, GLint offset, GLsizei count);
 	void DrawWithIndexBuffer(GLenum primitive, GLsizei count, GLenum type, const GLvoid* indices, unsigned int& VAO);
-
-	/*void PostRender(GLFWwindow* window);
-	void DrawTriangle(float x, float y);
-	static unsigned int CompilerShader(unsigned int type, const std::string& source);
-	static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
-	void DeleteShader();*/
+	Material* GetMaterial();
 };
 
 #endif
