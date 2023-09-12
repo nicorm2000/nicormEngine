@@ -79,7 +79,8 @@ unsigned int Material::CompilerShader(unsigned int type, const std::string& sour
 
 void Material::CreateMaterial(const std::string& vertexShader, const std::string& fragmentShader)
 {
-	unsigned int program = glCreateProgram();
+	unsigned int program = NULL;
+	program = glCreateProgram();
 	unsigned int vs = CompilerShader(GL_VERTEX_SHADER, vertexShader);
 	unsigned int fs = CompilerShader(GL_FRAGMENT_SHADER, fragmentShader);
 

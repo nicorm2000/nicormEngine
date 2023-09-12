@@ -21,6 +21,8 @@ BaseGame::~BaseGame()
 	}
 }
 
+
+
 int BaseGame::Run()
 {
 	window = new Window(1080, 720);

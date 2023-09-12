@@ -3,8 +3,8 @@
 Window::Window(int width, int height)
 {
     glfwWindow = nullptr;
-    width = this->width;
-    height = this->height;
+    this->width = width;
+    this->height = height;
 }
 
 Window::~Window()

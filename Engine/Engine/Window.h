@@ -8,10 +8,10 @@
 class DllApi Window
 {
 private:
-	int width;
-	int height;
-	const char* title = "Engine";
 	GLFWwindow* glfwWindow;
+	int width = 0;
+	int height = 0;
+	const char* title = "Engine";
 
 public:
 	Window(int width, int height);
