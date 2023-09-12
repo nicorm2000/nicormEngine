@@ -25,6 +25,8 @@ int main()
 
 	game->Run();
 
+	delete game;
+
 	system("pause");
 	return 0;
 }
