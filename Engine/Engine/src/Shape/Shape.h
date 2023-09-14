@@ -1,7 +1,8 @@
-#pragma once
+#ifndef SHAPE_H
+#define SHAPE_H
 
+#include "Entity2D/Entity2D.h"
 #include "Vectors.h"
-#include "Entity2D.h"
 
 class Shape : public Entity2D
 {
@@ -26,3 +27,5 @@ public:
 
 	void Draw();
 };
+
+#endif

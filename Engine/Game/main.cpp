@@ -1,5 +1,5 @@
 #include <iostream>
-#include "BaseGame.h"
+#include "BaseGame/BaseGame.h"
 
 class Game : public BaseGame
 {

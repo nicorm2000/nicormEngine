@@ -1,11 +1,11 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Window.h"
-#include "Export.h"
-#include "Material.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "Window/Window.h"
+#include "Material/Material.h"
+#include "Export.h"
 
 class DllApi Render
 {

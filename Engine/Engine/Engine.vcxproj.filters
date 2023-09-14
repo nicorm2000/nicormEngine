@@ -21,25 +21,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Render.cpp">
+    <ClCompile Include="src\Renderer\Render.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="src\Window\Window.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="BaseGame.cpp">
+    <ClCompile Include="src\BaseGame\BaseGame.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Material.cpp">
+    <ClCompile Include="src\Material\Material.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
+    <ClCompile Include="src\Entity\Entity.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Entity2D.cpp">
+    <ClCompile Include="src\Entity2D\Entity2D.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Shape.cpp">
+    <ClCompile Include="src\Shape\Shape.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="vendor\glm\detail\glm.cpp">
@@ -47,31 +47,31 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Render.h">
+    <ClInclude Include="src\Renderer\Render.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="src\Window\Window.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Export.h">
+    <ClInclude Include="src\Export.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="BaseGame.h">
+    <ClInclude Include="src\BaseGame\BaseGame.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
+    <ClInclude Include="src\Material\Material.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="src\Entity\Entity.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Entity2D.h">
+    <ClInclude Include="src\Entity2D\Entity2D.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Shape.h">
+    <ClInclude Include="src\Shape\Shape.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Vectors.h">
+    <ClInclude Include="src\Vectors.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\detail\_features.hpp">
@@ -922,7 +922,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.shader">
+    <None Include="res\shaders\Basic.shader">
       <Filter>Res\Shaders</Filter>
     </None>
     <None Include="vendor\glm\detail\func_common.inl">

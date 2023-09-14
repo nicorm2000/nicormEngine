@@ -19,24 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BaseGame.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="Entity2D.cpp" />
-    <ClCompile Include="Material.cpp" />
-    <ClCompile Include="Render.cpp" />
-    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="src\BaseGame\BaseGame.cpp" />
+    <ClCompile Include="src\Entity\Entity.cpp" />
+    <ClCompile Include="src\Entity2D\Entity2D.cpp" />
+    <ClCompile Include="src\Material\Material.cpp" />
+    <ClCompile Include="src\Renderer\Render.cpp" />
+    <ClCompile Include="src\Shape\Shape.cpp" />
     <ClCompile Include="vendor\glm\detail\glm.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseGame.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="Entity2D.h" />
-    <ClInclude Include="Export.h" />
-    <ClInclude Include="Material.h" />
-    <ClInclude Include="Render.h" />
-    <ClInclude Include="Shape.h" />
-    <ClInclude Include="Vectors.h" />
+    <ClInclude Include="src\BaseGame\BaseGame.h" />
+    <ClInclude Include="src\Entity\Entity.h" />
+    <ClInclude Include="src\Entity2D\Entity2D.h" />
+    <ClInclude Include="src\Export.h" />
+    <ClInclude Include="src\Material\Material.h" />
+    <ClInclude Include="src\Renderer\Render.h" />
+    <ClInclude Include="src\Shape\Shape.h" />
+    <ClInclude Include="src\Vectors.h" />
     <ClInclude Include="vendor\glm\common.hpp" />
     <ClInclude Include="vendor\glm\detail\compute_common.hpp" />
     <ClInclude Include="vendor\glm\detail\compute_vector_relational.hpp" />
@@ -319,10 +319,10 @@
     <ClInclude Include="vendor\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\vector_relational.hpp" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.shader" />
+    <None Include="res\shaders\Basic.shader" />
     <None Include="vendor\glm\detail\func_common.inl" />
     <None Include="vendor\glm\detail\func_common_simd.inl" />
     <None Include="vendor\glm\detail\func_exponential.inl" />
@@ -512,13 +512,17 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\vendor;$(SolutionDir)\Dependecies\GLEW\include;$(SolutionDir)\Dependecies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Engine\src;$(SolutionDir)Engine\vendor;$(SolutionDir)\Dependecies\GLEW\include;$(SolutionDir)\Dependecies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

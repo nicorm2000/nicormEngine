@@ -3,8 +3,8 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Export.h"
 #include <string>
+#include "Export.h"
 
 struct ShaderProgramSource
 {
