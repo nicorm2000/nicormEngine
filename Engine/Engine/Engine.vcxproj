@@ -520,16 +520,28 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;DllApi;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Engine\src;$(SolutionDir)Engine\vendor;$(SolutionDir)\Dependecies\GLEW\include;$(SolutionDir)\Dependecies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\src;$(SolutionDir)Engine\vendor;$(SolutionDir)Dependecies\GLEW\include;$(SolutionDir)Dependecies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Dependecies\GLEW\lib\Release\Win32;$(SolutionDir)\Dependecies\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependecies\GLEW\lib\Release\Win32;$(SolutionDir)Engine\src;$(SolutionDir)Dependecies\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;User32.lib;Gdi32.lib;Shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>if not exist "$(SolutionDir)bin\$(configuration)" MKDIR "$(SolutionDir)bin\$(configuration)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>XCOPY "$(ProjectDir)bin\$(Configuration)\Engine.dll" "$(SolutionDir)bin\$(Configuration)" /e /h /y /s
+
+XCOPY "$(SolutionDir)Dependencies\GLFW\lib\glfw3.lib" "$(SolutionDir)bin\$(Configuration)" /e /h /y /s
+
+MKDIR "$(SolutionDir)bin\$(Configuration)\shaders"
+
+XCOPY "$(ProjectDir)res\shaders" "$(SolutionDir)bin\$(Configuration)\shaders" /e /h /y /s</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

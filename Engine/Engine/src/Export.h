@@ -1,7 +1,7 @@
 #pragma once
 
-#ifdef EXPORT
+#ifdef DllApi
 #define DllApi   __declspec(dllexport)
 #else
-#define DllApi   __declspec(dllexport)
+#define DllApi   __declspec(dllimport)
 #endif
