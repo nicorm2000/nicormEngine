@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include "Export.h"
 #include "Renderer/Render.h"
+#include "Shape/Shape.h"
 #include "Window/Window.h"
 
 class DllApi BaseGame

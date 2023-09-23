@@ -6,6 +6,7 @@
 Render::Render(Window* window)
 {
     window = this->window;
+    view = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 }
 
 Render::~Render()
@@ -93,6 +94,11 @@ void Render::DrawWithIndexBuffer(GLenum primitive, GLsizei count, GLenum type, c
 
     glDrawElements(primitive, count, type, indices);
     glBindVertexArray(0);
+}
+
+glm::mat4 Render::GetViewMatrix()
+{
+    return view;
 }
 
 Material* Render::GetMaterial()

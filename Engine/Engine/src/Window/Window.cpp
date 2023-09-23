@@ -1,10 +1,11 @@
 #include "Window.h"
 
-Window::Window(int width, int height)
+Window::Window(int newWidth, int newHeight)
 {
     glfwWindow = nullptr;
-    this->width = width;
-    this->height = height;
+
+    width = newWidth;
+    height = newHeight;
 }
 
 Window::~Window()

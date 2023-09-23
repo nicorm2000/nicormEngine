@@ -86,8 +86,8 @@ void Material::CreateMaterial(const std::string& vertexShader, const std::string
 
 	glAttachShader(program, vs); // Atachea los dos shaders al programa
 	glAttachShader(program, fs);
-	glLinkProgram(program); // Lo linkea
-	glValidateProgram(program); // Valida que este todo bien
+	glLinkProgram(program);		 // Lo linkea
+	glValidateProgram(program);  // Valida que este todo bien
 
 	ID = program;
 }
@@ -96,6 +96,20 @@ void Material::UseMaterial()
 {
 	glUseProgram(ID);
 }
+
+//void Material::ModifyMaterial(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::mat4 modelMatrix, glm::vec3 colorVector, unsigned int texture)
+//{
+//	unsigned int projectionUbication = glGetUniformLocation(ID, "projection");
+//	glUniformMatrix4fv(projectionUbication, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
+//	unsigned int viewUbication = glGetUniformLocation(ID, "view");
+//	glUniformMatrix4fv(viewUbication, 1, GL_FALSE, glm::value_ptr(viewMatrix));
+//	unsigned int modelUbication = glGetUniformLocation(ID, "model");
+//	glUniformMatrix4fv(modelUbication, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+//	unsigned int colorUbication = glGetUniformLocation(ID, "color");
+//	glUniform3fv(colorUbication, 1, glm::value_ptr(colorVector));
+//	unsigned int textureUbication = glGetUniformLocation(ID, "ourTexture");
+//	glUniform1f(textureUbication, (float)texture);
+//}
 
 void Material::DeleteMaterial()
 {

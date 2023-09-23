@@ -2,9 +2,8 @@
 #define SHAPE_H
 
 #include "Entity2D/Entity2D.h"
-#include "Vectors.h"
 
-class Shape : public Entity2D
+class DllApi Shape : public Entity2D
 {
 private:
 	int TRIANGLE_POSITIONS_ARRAY_COUNT = 18;
@@ -14,13 +13,16 @@ private:
 
 	const int VERTEX_SIZE = 6;
 
-	Vec3 colorVector;
+	glm::vec3 colorVector;
 public:
-	Shape();
+	Shape(Render* newRenderer);
 	~Shape();
 
-	void SetColor(Vec3 color);
-	Vec3 GetColor();
+	void SetColor(glm::vec3 color);
+	glm::vec3 GetColor();
+
+	void AttachMaterial();
+	void DetachMaterial();
 
 	void CreateSquare();
 	void CreateTriangle();

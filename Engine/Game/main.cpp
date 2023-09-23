@@ -3,19 +3,22 @@
 
 class Game : public BaseGame
 {
+	Shape* shape;
+
 	void Start() override
 	{
-
+		shape = new Shape(renderer);
+		shape->CreateTriangle();
 	}
 
 	void Update() override
 	{
-
+		shape->Draw();
 	}
 
 	void End() override
 	{
-
+		delete shape;
 	}
 };
 

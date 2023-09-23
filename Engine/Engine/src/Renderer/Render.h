@@ -3,9 +3,9 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
+//#include "glm/glm.hpp"
+//#include "glm/gtc/matrix_transform.hpp"
+//#include "glm/gtc/type_ptr.hpp"
 #include "Window/Window.h"
 #include "Material/Material.h"
 #include "Export.h"
@@ -15,6 +15,8 @@ class DllApi Render
 private:
 	Window* window;
 	Material* material;
+
+	glm::mat4 view;
 public:
 	Render(Window* window);
 	~Render();
@@ -32,6 +34,8 @@ public:
 	void EnableVertexAttributes(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* offset);
 	void DrawWithoutIndexBuffer(GLenum primitive, GLint offset, GLsizei count);
 	void DrawWithIndexBuffer(GLenum primitive, GLsizei count, GLenum type, const GLvoid* indices, unsigned int& VAO);
+
+	glm::mat4 GetViewMatrix();
 	Material* GetMaterial();
 };
 
