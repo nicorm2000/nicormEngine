@@ -1,9 +1,13 @@
 #ifndef ENTITY2D_H
 #define ENTITY2D_H
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "Entity/Entity.h"
+#include "Material/Material.h"
+#include "Export.h"
 
-class Entity2D : public Entity
+class DllApi Entity2D : public Entity
 {
 protected:
 	Material* material;

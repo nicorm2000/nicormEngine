@@ -1,9 +1,11 @@
 #pragma once
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "Renderer/Render.h"
-#include "Vectors.h"
+#include "Export.h"
 
-class Entity
+class DllApi Entity
 {
 protected:
 	Render* renderer;

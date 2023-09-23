@@ -1,7 +1,10 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "Entity2D/Entity2D.h"
+#include "Export.h"
 
 class DllApi Shape : public Entity2D
 {

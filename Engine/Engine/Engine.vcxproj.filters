@@ -71,9 +71,6 @@
     <ClInclude Include="src\Shape\Shape.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vectors.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="vendor\glm\detail\_features.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

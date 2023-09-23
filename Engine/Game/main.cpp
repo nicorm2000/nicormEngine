@@ -14,6 +14,7 @@ class Game : public BaseGame
 	void Update() override
 	{
 		shape->Draw();
+		shape->Rotate(90.0f, 0.0f, 0.0f);
 	}
 
 	void End() override
