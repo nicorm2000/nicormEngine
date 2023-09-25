@@ -42,15 +42,17 @@ glm::mat4 Entity::GetModelMatrix()
 void Entity::SetPosition(float x, float y, float z)
 {
 	translateVector = glm::vec3(x, y, z); //Va a modificar la mat
-	translateMatrix[3].x = x;
-	translateMatrix[3].y = y;
-	translateMatrix[3].z = z;
+	translateMatrix[3].x += x;
+	translateMatrix[3].y += y;
+	translateMatrix[3].z += z;
+
 	UpdateModelMatrix();
 }
 
 void Entity::SetRotation(float x, float y, float z)
 {
 	rotateVector = glm::vec3(x, y, z);
+	translateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
 	UpdateModelMatrix();
 }
 
