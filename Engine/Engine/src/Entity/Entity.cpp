@@ -2,6 +2,27 @@
 #include <chrono>
 #include <thread>
 
+float getFrameTime()
+{
+	static auto previousTime = std::chrono::high_resolution_clock::now();
+	auto currentTime = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - previousTime).count();
+	previousTime = currentTime;
+
+	// Calculate frame time based on target frame rate
+	constexpr float targetFrameRate = 60.0f;
+	constexpr float targetFrameTime = 1.0f / targetFrameRate;
+
+	// Delay if frame finished faster than target frame time
+	if (duration < targetFrameTime)
+	{
+		std::this_thread::sleep_for(std::chrono::duration<float>(targetFrameTime - duration));
+		duration = targetFrameTime;
+	}
+
+	return duration;
+}
+
 Entity::Entity()
 {
 	model = glm::mat4(1.0f);
@@ -54,7 +75,7 @@ void Entity::SetPosition(float x, float y, float z)
 void Entity::SetRotation(float x, float y, float z)
 {
 	rotateVector = glm::vec3(x, y, z);
-	translateMatrix = glm::rotate(translateMatrix, glm::radians(getFrameTime()), glm::vec3(0.0, 0.0, 1.0));
+	translateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
 	
 	UpdateModelMatrix();
 }
@@ -103,25 +124,4 @@ void Entity::Scale(float x, float y, float z)
 	scaleMatrix = glm::scale(scaleMatrix, glm::vec3(x, y, z));
 	scaleVector = glm::vec3(scaleMatrix[0].x, scaleMatrix[1].y, scaleMatrix[2].z);
 	UpdateModelMatrix();
-}
-
-float getFrameTime()
-{
-	static auto previousTime = std::chrono::high_resolution_clock::now();
-	auto currentTime = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - previousTime).count();
-	previousTime = currentTime;
-
-	// Calculate frame time based on target frame rate
-	constexpr float targetFrameRate = 60.0f;
-	constexpr float targetFrameTime = 1.0f / targetFrameRate;
-
-	// Delay if frame finished faster than target frame time
-	if (duration < targetFrameTime)
-	{
-		std::this_thread::sleep_for(std::chrono::duration<float>(targetFrameTime - duration));
-		duration = targetFrameTime;
-	}
-
-	return duration;
 }
