@@ -919,9 +919,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\Basic.shader">
-      <Filter>Res\Shaders</Filter>
-    </None>
     <None Include="vendor\glm\detail\func_common.inl">
       <Filter>Archivos de encabezado</Filter>
     </None>

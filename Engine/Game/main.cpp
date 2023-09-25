@@ -9,18 +9,18 @@ class Game : public BaseGame
 	{
 		shape = new Shape(renderer);
 		shape->CreateTriangle();
-		shape->SetScale(0.1, 0.1, 0.1);
+		shape->SetScale(100.0, 500.4, 500.6);
 	}
 
 	void Update()
 	{
-		shape->SetColor(glm::vec3(1.0f, 0.0f, 0.0f));
+		shape->SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
 		shape->Draw();
 	}
 
 	void End()
 	{
-		//delete shape;
+		delete shape;
 	}
 };
 
@@ -31,7 +31,5 @@ int main()
 	game->Run();
 
 	delete game;
-
-	system("pause");
 	return 0;
 }

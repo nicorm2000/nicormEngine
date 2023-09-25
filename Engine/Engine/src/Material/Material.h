@@ -24,7 +24,7 @@ public:
 	Material();
 	~Material();
 
-	ShaderProgramSource ParseShader(const std::string& filePath);
+	ShaderProgramSource ParseShader(const std::string& filepath);
 	unsigned int CompilerShader(unsigned int type, const std::string& source);
 	void CreateMaterial(const std::string& vertexShader, const std::string& fragmentShader);
 	void UseMaterial();
