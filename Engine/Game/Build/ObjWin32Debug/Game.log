@@ -1,0 +1,28 @@
+﻿  C:\Users\Nico\Desktop\Engine\Engine\lib\Engine.dll
+  1 File(s) copied
+  main.cpp
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.h(18,12): warning C4251: 'Render::view': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Render'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.h(19,12): warning C4251: 'Render::projection': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Render'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(17,12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(19,12): warning C4251: 'Entity::translateMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(20,12): warning C4251: 'Entity::rotateMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(21,12): warning C4251: 'Entity::scaleMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(23,12): warning C4251: 'Entity::translateVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(24,12): warning C4251: 'Entity::rotateVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(25,12): warning C4251: 'Entity::scaleVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Shape\Shape.h(19,12): warning C4251: 'Shape::colorVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Shape'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Game\main.cpp(12,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Nico\Desktop\Engine\Engine\Game\main.cpp(17,1): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> C:\Users\Nico\Desktop\Engine\Engine\Game\Build\BinWin32Debug\Game.exe
+  C:\Users\Nico\Desktop\Engine\Engine\Game\lib\Engine.dll
+  1 File(s) copied

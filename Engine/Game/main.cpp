@@ -14,8 +14,7 @@ class Game : public BaseGame
 
 	void Update()
 	{
-		shape->SetPosition(10, 10, 10);
-		shape->SetRotation(90.0, 0.0, 0.0);
+		shape->SetRotation(0.1, 0.0, 0.0);
 		shape->SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
 		shape->Draw();
 	}
