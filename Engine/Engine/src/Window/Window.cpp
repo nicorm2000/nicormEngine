@@ -3,7 +3,6 @@
 Window::Window(int newWidth, int newHeight)
 {
     glfwWindow = nullptr;
-
     width = newWidth;
     height = newHeight;
 }
@@ -32,11 +31,7 @@ int Window::CreateWindow()
 
         return -1;
     }
-}
-
-void Window::CloseWindow()
-{
-    glfwTerminate();
+    return 0;
 }
 
 void Window::MakeCurrentContext()
@@ -44,14 +39,19 @@ void Window::MakeCurrentContext()
     glfwMakeContextCurrent(glfwWindow);
 }
 
+bool Window::WindowShouldClose()
+{
+    return glfwWindowShouldClose(glfwWindow);
+}
+
 void Window::PollEvents()
 {
     glfwPollEvents();
 }
 
-bool Window::WindowShouldClose()
+void Window::CloseWindow()
 {
-    return glfwWindowShouldClose(glfwWindow);
+    glfwTerminate();
 }
 
 GLFWwindow* Window::GetWindow()

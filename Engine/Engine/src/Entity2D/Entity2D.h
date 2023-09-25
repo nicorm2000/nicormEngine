@@ -11,6 +11,7 @@ class DllApi Entity2D : public Entity
 {
 protected:
 	Material* material;
+
 public:
 	Entity2D();
 	~Entity2D();

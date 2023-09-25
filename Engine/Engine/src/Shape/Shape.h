@@ -17,6 +17,7 @@ private:
 	const int VERTEX_SIZE = 6;
 
 	glm::vec3 colorVector;
+
 public:
 	Shape(Render* newRenderer);
 	~Shape();

@@ -15,6 +15,7 @@ protected:
 	unsigned int EBO; //Element Buffer Object
 
 	glm::mat4 model;
+
 	glm::mat4 translateMatrix;
 	glm::mat4 rotateMatrix;
 	glm::mat4 scaleMatrix;
@@ -34,13 +35,13 @@ public:
 	void SetRotation(float x, float y, float z);
 	void SetScale(float x, float y, float z);
 
-	void Translate(float x, float y, float z);
-	void Rotate(float x, float y, float z);
-	void Scale(float x, float y, float z);
-
 	glm::vec3 GetPosition();
 	glm::vec3 GetRotation();
 	glm::vec3 GetScale();
+
+	void Translate(float x, float y, float z);
+	void Rotate(float x, float y, float z);
+	void Scale(float x, float y, float z);
 
 	virtual void Draw() = 0;
 };

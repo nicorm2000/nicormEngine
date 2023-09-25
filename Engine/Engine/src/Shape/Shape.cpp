@@ -24,7 +24,7 @@ glm::vec3 Shape::GetColor()
 void Shape::AttachMaterial()
 {
     renderer->GetMaterial()->UseMaterial();
-    //renderer->GetMaterial()->ModifyMaterial(renderer->GetProjectionMatrix(), renderer->GetViewMatrix(), GetModelMatrix(), colorVector);
+    renderer->GetMaterial()->ModifyMaterial(renderer->GetProjectionMatrix(), renderer->GetViewMatrix(), GetModelMatrix(), colorVector);
 }
 
 void Shape::DetachMaterial()
@@ -42,10 +42,10 @@ void Shape::CreateTriangle()
 {
     float positions[] =
     {
-            //POSITIONS                 //COLORS
-        -0.5f,  -0.5f,   0.0f,      1.0f, 1.0f, 1.0f,
-         0.5f,  -0.5f,   0.0f,      1.0f, 1.0f, 1.0f,
-         0.5f,   0.5f,   0.0f,      1.0f, 1.0f, 1.0f
+        // Positions         // Colors
+        -0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f, // Lower-left corner  
+         0.0f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f, // Lower-right corner
+         0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f  // Top-center corner
     };
 
     unsigned int indices[] =
@@ -63,11 +63,11 @@ void Shape::CreateSquare()
 {
     float positions[] = 
     {
-            //POSITIONS                 //COLORS
-        -0.5f,  -0.5f,   0.0f,      1.0f, 1.0f, 1.0f,
-         0.5f,  -0.5f,   0.0f,      1.0f, 1.0f, 1.0f,
-         0.5f,   0.5f,   0.0f,      1.0f, 1.0f, 1.0f,
-        -0.5f,   0.5f,   0.0f,      1.0f, 1.0f, 1.0f
+        // Positions         // Colors
+         0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f, // Top right
+         0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f, // Bottom right
+        -0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f, // Bottom left
+        -0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f  // Top left
     };
 
     unsigned int indices[] = 

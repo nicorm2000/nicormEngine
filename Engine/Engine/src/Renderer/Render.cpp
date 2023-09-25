@@ -5,8 +5,10 @@
 
 Render::Render(Window* window)
 {
-    window = this->window;
-    view = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+    this->window = window;
+
+    view = glm::lookAt(glm::vec3(0, 0, (float)window->GetHeight()), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+    projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
 }
 
 Render::~Render()
@@ -44,8 +46,9 @@ int Render::InitGLEW()
 
 void Render::InitMaterial()
 {
+    //PUEDE TENER PROBLEMAS
     material = new Material();
-    ShaderProgramSource source = material->ParseShader("Basic.shader");
+    ShaderProgramSource source = material->ParseShader("res/shaders/Basic.shader");
     material->CreateMaterial(source.VertexSource, source.FragmentSource);
     material->UseMaterial();
 }
@@ -99,6 +102,11 @@ void Render::DrawWithIndexBuffer(GLenum primitive, GLsizei count, GLenum type, c
 glm::mat4 Render::GetViewMatrix()
 {
     return view;
+}
+
+glm::mat4 Render::GetProjectionMatrix()
+{
+    return projection;
 }
 
 Material* Render::GetMaterial()

@@ -2,18 +2,30 @@
 #version 330 core
 
 layout(location = 0) in vec4 position;
+layout(location = 1) in vec3 inColor;
+
+out vec3 outColor;
+
+uniform mat4 projection;
+uniform mat4 view;
+uniform mat4 model;
 
 void main()
 {
-   gl_Position = position;
+    gl_Position = projection * view * model * vec4(position, 1.0);
+    outColor = inColor;
 };
 
 #shader fragment
 #version 330 core
 
-layout(location = 0) out vec4 color;
+out vec4 fragColor;
+
+in vec3 outColor;
+
+uniform vec3 color;
 
 void main()
 {
-   color = vec4(0.2, 0.3, 0.8, 1.0);
+    fragColor = vec4(color * outColor, 1.0);
 };

@@ -3,23 +3,24 @@
 
 class Game : public BaseGame
 {
-	Shape* shape;
+	Shape* shape = nullptr;
 
-	void Start() override
+	void Start()
 	{
 		shape = new Shape(renderer);
 		shape->CreateTriangle();
+		shape->SetScale(0.1, 0.1, 0.1);
 	}
 
-	void Update() override
+	void Update()
 	{
+		shape->SetColor(glm::vec3(1.0f, 0.0f, 0.0f));
 		shape->Draw();
-		shape->Rotate(90.0f, 0.0f, 0.0f);
 	}
 
-	void End() override
+	void End()
 	{
-		delete shape;
+		//delete shape;
 	}
 };
 

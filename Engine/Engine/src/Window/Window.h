@@ -14,19 +14,19 @@ private:
 	const char* title = "Engine";
 
 public:
-	Window(int width, int height);
+	Window(int newWidth, int newHeight);
 	~Window();
 	int InitLibrary();
 	int CreateWindow();
-	void PollEvents();
+	void MakeCurrentContext();
 	bool WindowShouldClose();
+	void PollEvents();
+	void CloseWindow();
 
 	GLFWwindow* GetWindow();
+
 	int GetWidth();
 	int GetHeight();
-
-	void CloseWindow();
-	void MakeCurrentContext();
 };
 
 #endif

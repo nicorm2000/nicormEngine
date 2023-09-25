@@ -3,17 +3,19 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Export.h"
+#include "Window/Window.h"
 #include "Renderer/Render.h"
 #include "Shape/Shape.h"
-#include "Window/Window.h"
+#include "Export.h"
 
 class DllApi BaseGame
 {
 private:
 	Window* window;
+
 protected:
 	Render* renderer;
+
 public:
 	BaseGame();
 	~BaseGame();

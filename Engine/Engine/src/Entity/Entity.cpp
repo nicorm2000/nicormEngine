@@ -31,7 +31,7 @@ Entity::~Entity()
 void Entity::UpdateModelMatrix()
 {
 	model = glm::mat4(1.0f);
-	model *= translateMatrix * rotateMatrix * scaleMatrix;
+	model = translateMatrix * rotateMatrix * scaleMatrix;
 }
 
 glm::mat4 Entity::GetModelMatrix()
@@ -63,6 +63,21 @@ void Entity::SetScale(float x, float y, float z)
 	UpdateModelMatrix();
 }
 
+glm::vec3 Entity::GetPosition()
+{
+	return translateVector;
+}
+
+glm::vec3 Entity::GetRotation()
+{
+	return rotateVector;
+}
+
+glm::vec3 Entity::GetScale()
+{
+	return scaleVector;
+}
+
 void Entity::Translate(float x, float y, float z)
 {
 	translateMatrix = glm::translate(translateMatrix, glm::vec3(x, y, z));
@@ -83,19 +98,4 @@ void Entity::Scale(float x, float y, float z)
 	scaleMatrix = glm::scale(scaleMatrix, glm::vec3(x, y, z));
 	scaleVector = glm::vec3(scaleMatrix[0].x, scaleMatrix[1].y, scaleMatrix[2].z);
 	UpdateModelMatrix();
-}
-
-glm::vec3 Entity::GetPosition()
-{
-	return translateVector;
-}
-
-glm::vec3 Entity::GetRotation()
-{
-	return rotateVector;
-}
-
-glm::vec3 Entity::GetScale()
-{
-	return scaleVector;
 }

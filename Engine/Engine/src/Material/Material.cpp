@@ -79,8 +79,7 @@ unsigned int Material::CompilerShader(unsigned int type, const std::string& sour
 
 void Material::CreateMaterial(const std::string& vertexShader, const std::string& fragmentShader)
 {
-	unsigned int program = NULL;
-	program = glCreateProgram();
+	unsigned int program = glCreateProgram();
 	unsigned int vs = CompilerShader(GL_VERTEX_SHADER, vertexShader);
 	unsigned int fs = CompilerShader(GL_FRAGMENT_SHADER, fragmentShader);
 
@@ -97,19 +96,19 @@ void Material::UseMaterial()
 	glUseProgram(ID);
 }
 
-//void Material::ModifyMaterial(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::mat4 modelMatrix, glm::vec3 colorVector, unsigned int texture)
-//{
-//	unsigned int projectionUbication = glGetUniformLocation(ID, "projection");
-//	glUniformMatrix4fv(projectionUbication, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
-//	unsigned int viewUbication = glGetUniformLocation(ID, "view");
-//	glUniformMatrix4fv(viewUbication, 1, GL_FALSE, glm::value_ptr(viewMatrix));
-//	unsigned int modelUbication = glGetUniformLocation(ID, "model");
-//	glUniformMatrix4fv(modelUbication, 1, GL_FALSE, glm::value_ptr(modelMatrix));
-//	unsigned int colorUbication = glGetUniformLocation(ID, "color");
-//	glUniform3fv(colorUbication, 1, glm::value_ptr(colorVector));
-//	unsigned int textureUbication = glGetUniformLocation(ID, "ourTexture");
-//	glUniform1f(textureUbication, (float)texture);
-//}
+void Material::ModifyMaterial(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::mat4 modelMatrix, glm::vec3 colorVector, unsigned int texture)
+{
+	unsigned int projectionUbication = glGetUniformLocation(ID, "projection");
+	glUniformMatrix4fv(projectionUbication, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
+	unsigned int viewUbication = glGetUniformLocation(ID, "view");
+	glUniformMatrix4fv(viewUbication, 1, GL_FALSE, glm::value_ptr(viewMatrix));
+	unsigned int modelUbication = glGetUniformLocation(ID, "model");
+	glUniformMatrix4fv(modelUbication, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+	unsigned int colorUbication = glGetUniformLocation(ID, "color");
+	glUniform3fv(colorUbication, 1, glm::value_ptr(colorVector));
+	unsigned int textureUbication = glGetUniformLocation(ID, "ourTexture");
+	glUniform1f(textureUbication, (float)texture);
+}
 
 void Material::DeleteMaterial()
 {
