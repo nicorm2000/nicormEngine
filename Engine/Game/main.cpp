@@ -8,9 +8,7 @@ class Game : public BaseGame
 	void Start()
 	{
 		shape = new Shape(renderer);
-		shape->CreateTriangle();
-		shape->SetPosition(400, 300, 0);
-		shape->SetScale(10, 10, 1);
+		shape->CreateSquare();
 		std::cout << std::to_string(shape->GetPosition().x);
 		std::cout << std::to_string(shape->GetPosition().y);
 		std::cout << std::to_string(shape->GetPosition().z);
@@ -20,8 +18,6 @@ class Game : public BaseGame
 
 	void Update()
 	{
-		//shape->SetRotation(0.1, 0.0, 0.0);
-		//shape->SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
 		shape->Draw();
 	}
 
