@@ -7,8 +7,8 @@ Render::Render(Window* window)
 {
     this->window = window;
 
-    view = glm::lookAt(glm::vec3(0, 0, (float)window->GetHeight()), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-    projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
+    projection = glm::ortho(0.0f, (float)window->GetWidth(), 0.0f, (float)window->GetHeight(), 0.1f, 500.0f);
+    view = glm::lookAt(glm::vec3(0, 0, 1), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 }
 
 Render::~Render()

@@ -4,19 +4,21 @@
 class Game : public BaseGame
 {
 	Shape* shape = nullptr;
+	glm::vec3 red = { 1, 0, 0 };
 
 	void Start()
 	{
 		shape = new Shape(renderer);
 		shape->CreateTriangle();
-		shape->SetScale(100.0, 500.4, 500.6);
+		shape->SetColor(red);
+		shape->SetScale(100, 100, 1);
+		shape->SetPosition(0, 0, 0);
 	}
 
 	void Update()
 	{
-		shape->SetPosition(10, 10, 10);
-		shape->SetRotation(90.0, 0.0, 0.0);
-		shape->SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
+		shape->SetPosition(5, 5, 0);
+		shape->SetRotationZ(10);
 		shape->Draw();
 	}
 
