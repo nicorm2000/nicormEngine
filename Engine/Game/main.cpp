@@ -9,9 +9,6 @@ class Game : public BaseGame
 	{
 		shape = new Shape(renderer);
 		shape->CreateSquare();
-		std::cout << std::to_string(shape->GetPosition().x);
-		std::cout << std::to_string(shape->GetPosition().y);
-		std::cout << std::to_string(shape->GetPosition().z);
 
 		renderer->ClearScreenWithColor(1, 0, 0, 1);
 	}
