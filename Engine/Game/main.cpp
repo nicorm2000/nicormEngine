@@ -9,13 +9,19 @@ class Game : public BaseGame
 	{
 		shape = new Shape(renderer);
 		shape->CreateTriangle();
-		shape->SetScale(100.0, 500.4, 500.6);
+		shape->SetPosition(400, 300, 0);
+		shape->SetScale(10, 10, 1);
+		std::cout << std::to_string(shape->GetPosition().x);
+		std::cout << std::to_string(shape->GetPosition().y);
+		std::cout << std::to_string(shape->GetPosition().z);
+
+		renderer->ClearScreenWithColor(1, 0, 0, 1);
 	}
 
 	void Update()
 	{
-		shape->SetRotation(0.1, 0.0, 0.0);
-		shape->SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
+		//shape->SetRotation(0.1, 0.0, 0.0);
+		//shape->SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
 		shape->Draw();
 	}
 

@@ -1,24 +1,11 @@
-﻿  Entity.cpp
+﻿  Render.cpp
 C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Export.h(4,1): warning C4005: 'DllApi': macro redefinition
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.cpp : message : see previous definition of 'DllApi'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.cpp : message : see previous definition of 'DllApi'
 C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.h(18,12): warning C4251: 'Render::view': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Render'
 C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
 C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.h(19,12): warning C4251: 'Render::projection': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Render'
 C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(17,12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(19,12): warning C4251: 'Entity::translateMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(20,12): warning C4251: 'Entity::rotateMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(21,12): warning C4251: 'Entity::scaleMatrix': struct 'glm::mat<4,4,glm::f32,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(520): message : see declaration of 'glm::mat<4,4,glm::f32,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(23,12): warning C4251: 'Entity::translateVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(24,12): warning C4251: 'Entity::rotateVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Entity\Entity.h(25,12): warning C4251: 'Entity::scaleVector': struct 'glm::vec<3,float,glm::packed_highp>' needs to have dll-interface to be used by clients of class 'Entity'
-C:\Users\Nico\Desktop\Engine\Engine\Engine\vendor\glm\fwd.hpp(420): message : see declaration of 'glm::vec<3,float,glm::packed_highp>'
+C:\Users\Nico\Desktop\Engine\Engine\Engine\src\Renderer\Render.cpp(45): warning C4715: 'Render::InitGLEW': not all control paths return a value
   Engine.vcxproj -> C:\Users\Nico\Desktop\Engine\Engine\Engine\Build\BinWin32Debug\Engine.dll
   C:\Users\Nico\Desktop\Engine\Engine\Engine\Build\BinWin32Debug\Engine.dll
   1 File(s) copied

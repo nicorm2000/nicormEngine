@@ -23,7 +23,7 @@ BaseGame::~BaseGame()
 
 int BaseGame::Run()
 {
-	window = new Window(1080, 720);
+	window = new Window(800, 600);
 
 	renderer = new Render(window);
 

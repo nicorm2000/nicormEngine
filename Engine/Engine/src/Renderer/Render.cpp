@@ -7,8 +7,8 @@ Render::Render(Window* window)
 {
     this->window = window;
 
-    view = glm::lookAt(glm::vec3(0, 0, (float)window->GetHeight()), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-    projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
+    projection = glm::ortho(0.0f, 0.0f, 0.0f, 0.0f, 0.1f, 100.0f);
+    view = glm::lookAt(glm::vec3(0, 0, 1), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 }
 
 Render::~Render()
@@ -46,7 +46,6 @@ int Render::InitGLEW()
 
 void Render::InitMaterial()
 {
-    //PUEDE TENER PROBLEMAS
     material = new Material();
     ShaderProgramSource source = material->ParseShader("shaders/Basic.shader");
     material->CreateMaterial(source.VertexSource, source.FragmentSource);
