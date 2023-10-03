@@ -83,21 +83,21 @@ void Entity::SetRotation(float x, float y, float z)
 void Entity::SetRotationX(float x)
 {
 	rotateVector = glm::vec3(x, 0, 0);
-	translateMatrix = glm::rotate(translateMatrix, glm::radians(x), glm::vec3(0.0, 0.0, 1.0));
+	rotateMatrix = glm::rotate(rotateMatrix, glm::radians(x), glm::vec3(1.0, 0.0, 0.0));
 	UpdateModelMatrix();
 }
 
 void Entity::SetRotationY(float y)
 {
 	rotateVector = glm::vec3(0, y, 0);
-	translateMatrix = glm::rotate(translateMatrix, glm::radians(y), glm::vec3(0.0, 0.0, 1.0));
+	rotateMatrix = glm::rotate(rotateMatrix, glm::radians(y), glm::vec3(0.0, 1.0, 0.0));
 	UpdateModelMatrix();
 }
 
 void Entity::SetRotationZ(float z)
 {
 	rotateVector = glm::vec3(0, 0, z);
-	translateMatrix = glm::rotate(translateMatrix, glm::radians(z), glm::vec3(0.0, 0.0, 1.0));
+	rotateMatrix = glm::rotate(rotateMatrix, glm::radians(z), glm::vec3(0.0, 0.0, 1.0));
 	UpdateModelMatrix();
 }
 

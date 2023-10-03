@@ -17,8 +17,6 @@ class Game : public BaseGame
 
 	void Update()
 	{
-		shape->SetPosition(5, 5, 0);
-		shape->SetRotationZ(10);
 		shape->Draw();
 	}
 
