@@ -5,6 +5,7 @@
 #include "glm/glm.hpp"
 #include "Window/window.h"
 #include "Export.h"
+#include "Keycodes.h"
 
 class DllApi Input
 {
