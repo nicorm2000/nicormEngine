@@ -181,6 +181,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +190,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="lib\Engine.dll" />
     <None Include="shaders\Basic.shader" />
+    <None Include="shaders\Textures.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

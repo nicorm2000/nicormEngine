@@ -18,8 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Basic.shader" />
+    <None Include="shaders\Textures.shader" />
+    <None Include="lib\Engine.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
