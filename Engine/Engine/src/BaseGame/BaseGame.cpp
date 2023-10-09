@@ -4,6 +4,7 @@ BaseGame::BaseGame()
 {
 	renderer = nullptr;
 	window = nullptr;
+	input = nullptr;
 }
 
 BaseGame::~BaseGame()
@@ -18,6 +19,11 @@ BaseGame::~BaseGame()
 	{
 		renderer = nullptr;
 		delete renderer;
+	}
+
+	if (input != nullptr) {
+		input = nullptr;
+		delete input;
 	}
 }
 
@@ -55,4 +61,14 @@ int BaseGame::Run()
 	window->CloseWindow();
 
 	return 0;
+}
+
+bool BaseGame::IsKeyPressed(int keycode)
+{
+	return input->IsKeyPressed(keycode, window);
+}
+
+bool BaseGame::IsKeyDown(int keycode)
+{
+	return input->IsKeyDown(keycode, window);
 }
