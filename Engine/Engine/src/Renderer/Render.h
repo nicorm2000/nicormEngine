@@ -34,7 +34,7 @@ public:
 	void UnBindVertex(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);
 	void EnableVertexAttributes(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* offset);
 
-	//BindTexture();
+	void BindTexture(GLenum target, GLuint texture);
 
 	void DrawWithoutIndexBuffer(GLenum primitive, GLint offset, GLsizei count);
 	void DrawWithIndexBuffer(GLenum primitive, GLsizei count, GLenum type, const GLvoid* indices, unsigned int& VAO);
