@@ -1,5 +1,9 @@
 #include "Input.h"
 
+std::list<int> Input::currentKeysDown = std::list<int>();
+glm::vec2 Input::mousePosition = glm::vec2(0.f);
+bool Input::firstMouse = true;
+
 Input::Input(Window* window)
 {
 	glfwSetKeyCallback(window->GetWindow(), KeyCallback);
@@ -8,6 +12,7 @@ Input::Input(Window* window)
 
 Input::~Input()
 {
+
 }
 
 bool Input::IsKeyPressed(int keycode, Window* window)
