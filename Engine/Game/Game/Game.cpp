@@ -2,46 +2,48 @@
 
 Game::Game()
 {
-	
+	player = nullptr;
 }
 
 Game::~Game()
 {
-
+	if (player != nullptr) {
+		player = nullptr;
+		delete player;
+	}
 }
 
 void Game::Start()
 {
-	shape = new Shape(renderer);
-	shape->CreateTriangle();
-	shape->SetColor(red);
-	shape->SetScale(100, 100, 1);
-	shape->SetPosition(0, 0, 0);
+	player = new Sprite(renderer, "res/player.jpg");
+	player->SetColor(glm::vec3(1, 1, 1));
+	player->SetPosition(0, 0, 0);
+	player->SetScale(100, 100, 100);
 }
 
 void Game::Update()
 {
-	shape->Draw();
-
 	if (IsKeyPressed(KEY_W))
 	{
-		shape->SetPosition(0, 10, 0);
+		player->Translate(0, 5, 0);
 	}
 	if (IsKeyPressed(KEY_D))
 	{
-		shape->SetPosition(10, 0, 0);
+		player->Translate(5, 0, 0);
 	}
 	if (IsKeyPressed(KEY_S))
 	{
-		shape->SetPosition(0, -10, 0);
+		player->Translate(0, -5, 0);
 	}
 	if (IsKeyPressed(KEY_A))
 	{
-		shape->SetPosition(-10, 0, 0);
+		player->Translate(-5, 0, 0);
 	}
+
+	player->Draw();
 }
 
 void Game::End()
 {
-	delete shape;
+	delete player;
 }

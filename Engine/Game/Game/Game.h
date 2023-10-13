@@ -5,6 +5,7 @@
 class Game : public BaseGame
 {
 private:
+	Sprite* player;
 	Shape* shape = nullptr;
 	glm::vec3 red = { 1, 0, 0 };
 
