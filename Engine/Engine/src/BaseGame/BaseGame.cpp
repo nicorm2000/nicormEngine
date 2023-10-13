@@ -5,6 +5,7 @@ BaseGame::BaseGame()
 	renderer = nullptr;
 	window = nullptr;
 	input = nullptr;
+	collisionManager = nullptr;
 }
 
 BaseGame::~BaseGame()
@@ -24,6 +25,11 @@ BaseGame::~BaseGame()
 	if (input != nullptr) {
 		input = nullptr;
 		delete input;
+	}
+
+	if (collisionManager != nullptr) {
+		collisionManager = nullptr;
+		delete collisionManager;
 	}
 }
 

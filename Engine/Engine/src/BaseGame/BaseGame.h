@@ -6,7 +6,9 @@
 #include "Window/Window.h"
 #include "Renderer/Render.h"
 #include "Input/Input.h"
+#include "CollisionManager/CollisionManager.h"
 #include "Shape/Shape.h"
+#include "Sprite/Sprite.h"
 #include "Export.h"
 
 class DllApi BaseGame
@@ -14,6 +16,7 @@ class DllApi BaseGame
 private:
 	Window* window;
 	Input* input;
+	CollisionManager* collisionManager;
 
 protected:
 	Render* renderer;
@@ -21,14 +24,13 @@ protected:
 public:
 	BaseGame();
 	~BaseGame();
-
 	int Run();
+
 	virtual void Start() = 0;
 	virtual void Update() = 0;
 	virtual void End() = 0;
 
 	bool IsKeyPressed(int keycode);
-	bool IsKeyDown(int keycode);
 };
 
 #endif
