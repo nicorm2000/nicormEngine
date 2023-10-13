@@ -13,3 +13,23 @@ Entity2D::~Entity2D()
         delete material;
     }
 }
+
+void Entity2D::SetCollider(bool hasCollider)
+{
+    this->hasCollider = hasCollider;
+}
+
+void Entity2D::SetMoveable(bool moveable)
+{
+    this->moveable = moveable;
+}
+
+bool Entity2D::IsMoveable()
+{
+    return moveable;
+}
+
+bool Entity2D::HasCollider()
+{
+    return hasCollider;
+}

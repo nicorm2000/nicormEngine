@@ -48,7 +48,7 @@ void Render::InitMaterial()
 {
     //PUEDE TENER PROBLEMAS
     material = new Material();
-    ShaderProgramSource source = material->ParseShader("shaders/Basic.shader");
+    ShaderProgramSource source = material->ParseShader("shaders/Textures.shader");
     material->CreateMaterial(source.VertexSource, source.FragmentSource);
     material->UseMaterial();
 }
