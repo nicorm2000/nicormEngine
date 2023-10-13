@@ -67,8 +67,3 @@ bool BaseGame::IsKeyPressed(int keycode)
 {
 	return input->IsKeyPressed(keycode, window);
 }
-
-bool BaseGame::IsKeyDown(int keycode)
-{
-	return input->IsKeyDown(keycode, window);
-}

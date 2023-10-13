@@ -14,18 +14,12 @@ class Window;
 class DllApi Input
 {
 private:
-	static std::list<int> currentKeysDown;
-	static glm::vec2 mousePosition;
-	static bool firstMouse;
 
 public:
 	Input(Window* window);
 	~Input();
 
 	static bool IsKeyPressed(int keycode, Window* window);
-	static bool IsKeyDown(int keycode, Window* window);
-
-	static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };
 
 #endif
