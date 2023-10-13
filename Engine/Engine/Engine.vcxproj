@@ -20,18 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseGame\BaseGame.cpp" />
+    <ClCompile Include="src\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Entity2D\Entity2D.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Material\Material.cpp" />
     <ClCompile Include="src\Renderer\Render.cpp" />
     <ClCompile Include="src\Shape\Shape.cpp" />
+    <ClCompile Include="src\Sprite\Sprite.cpp" />
     <ClCompile Include="src\TextureImporter\TextureImporter.cpp" />
     <ClCompile Include="vendor\glm\detail\glm.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseGame\BaseGame.h" />
+    <ClInclude Include="src\CollisionManager\CollisionManager.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Entity2D\Entity2D.h" />
     <ClInclude Include="src\Export.h" />
@@ -40,6 +43,7 @@
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Renderer\Render.h" />
     <ClInclude Include="src\Shape\Shape.h" />
+    <ClInclude Include="src\Sprite\Sprite.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\TextureImporter\TextureImporter.h" />
     <ClInclude Include="vendor\glm\common.hpp" />
