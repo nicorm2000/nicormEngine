@@ -6,8 +6,13 @@ class Game : public BaseGame
 {
 private:
 	Sprite* player;
-	Shape* shape = nullptr;
-	glm::vec3 red = { 1, 0, 0 };
+	Animation* idle;
+	Animation* up;
+	Animation* down;
+	Animation* left;
+	Animation* right;
+
+	float time;
 
 public:
 	Game();
