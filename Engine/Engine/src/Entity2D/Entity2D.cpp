@@ -3,6 +3,9 @@
 Entity2D::Entity2D() : Entity()
 {
     material = new Material();
+
+    hasCollider = false;
+    moveable = false;
 }
 
 Entity2D::~Entity2D()
