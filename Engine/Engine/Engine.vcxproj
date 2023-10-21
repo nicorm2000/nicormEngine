@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animations\Animations.cpp" />
     <ClCompile Include="src\BaseGame\BaseGame.cpp" />
     <ClCompile Include="src\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
@@ -29,10 +30,12 @@
     <ClCompile Include="src\Shape\Shape.cpp" />
     <ClCompile Include="src\Sprite\Sprite.cpp" />
     <ClCompile Include="src\TextureImporter\TextureImporter.cpp" />
+    <ClCompile Include="src\Timer\Timer.cpp" />
     <ClCompile Include="vendor\glm\detail\glm.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animations\Animations.h" />
     <ClInclude Include="src\BaseGame\BaseGame.h" />
     <ClInclude Include="src\CollisionManager\CollisionManager.h" />
     <ClInclude Include="src\Entity\Entity.h" />
@@ -46,6 +49,7 @@
     <ClInclude Include="src\Sprite\Sprite.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\TextureImporter\TextureImporter.h" />
+    <ClInclude Include="src\Timer\Timer.h" />
     <ClInclude Include="vendor\glm\common.hpp" />
     <ClInclude Include="vendor\glm\detail\compute_common.hpp" />
     <ClInclude Include="vendor\glm\detail\compute_vector_relational.hpp" />
