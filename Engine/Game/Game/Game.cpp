@@ -4,6 +4,8 @@
 Game::Game()
 {
 	player = nullptr;
+	tallGrass = nullptr;
+	grass = nullptr;
 	idle = nullptr;
 	up = nullptr;
 	down = nullptr;
@@ -17,6 +19,16 @@ Game::~Game()
 	if (player != nullptr) {
 		player = nullptr;
 		delete player;
+	}
+
+	if (tallGrass != nullptr) {
+		tallGrass = nullptr;
+		delete tallGrass;
+	}
+
+	if (grass != nullptr) {
+		grass = nullptr;
+		delete grass;
 	}
 
 	if (idle != nullptr) {
@@ -47,33 +59,57 @@ Game::~Game()
 
 void Game::Start()
 {
-	player = new Sprite(renderer, "res/SpriteSheet.png");
+	grass = new Sprite(renderer, "res/grass.png");
+	grass->SetColor(glm::vec3(1, 1, 1));
+	grass->SetPosition(400, 400, 0);
+	grass->SetScale(800, 800, 100);
+
+	tallGrass = new Sprite(renderer, "res/tallgrass.png");
+	tallGrass->SetColor(glm::vec3(1, 1, 1));
+	tallGrass->SetPosition(400, 400, 0);
+	tallGrass->SetScale(100, 100, 100);
+
+	player = new Sprite(renderer, "res/SpriteSheet3.png");
 	player->SetColor(glm::vec3(1, 1, 1));
-	player->SetPosition(0, 0, 0);
+	player->SetPosition(400, 200, 0);
 	player->SetScale(100, 100, 100);
 
 	idle = new Animation();
-	idle->AddFrame(8, 15, 16, 10, 160, 256);
+	idle->AddFrame(4, 3, 4, 4, 2048, 2048);	
 
 	up = new Animation();
-	up->AddFrame(2, 15, 16, 10, 160, 256);
-	up->AddFrame(3, 15, 16, 10, 160, 256);
+	up->AddFrame(1, 4, 4, 4, 2048, 2048);
+	up->AddFrame(2, 4, 4, 4, 2048, 2048);
+	up->AddFrame(3, 4, 4, 4, 2048, 2048);
+	up->AddFrame(4, 4, 4, 4, 2048, 2048);
 
 	down = new Animation();
-	down->AddFrame(6, 15, 16, 10, 160, 256);
-	down->AddFrame(7, 15, 16, 10, 160, 256);
+	down->AddFrame(1, 3, 4, 4, 2048, 2048);
+	down->AddFrame(2, 3, 4, 4, 2048, 2048);
+	down->AddFrame(3, 3, 4, 4, 2048, 2048);
+	down->AddFrame(4, 3, 4, 4, 2048, 2048);
 
 	right = new Animation();
-	right->AddFrame(0, 15, 16, 10, 160, 256);
-	right->AddFrame(1, 15, 16, 10, 160, 256);
+	right->AddFrame(1, 1, 4, 4, 2048, 2048);
+	right->AddFrame(2, 1, 4, 4, 2048, 2048);
+	right->AddFrame(3, 1, 4, 4, 2048, 2048);
+	right->AddFrame(4, 1, 4, 4, 2048, 2048);
 
 	left = new Animation();
-	left->AddFrame(4, 15, 16, 10, 160, 256);
-	left->AddFrame(5, 15, 16, 10, 160, 256);
+	left->AddFrame(1, 2, 4, 4, 2048, 2048);
+	left->AddFrame(2, 2, 4, 4, 2048, 2048);
+	left->AddFrame(3, 2, 4, 4, 2048, 2048);
+	left->AddFrame(4, 2, 4, 4, 2048, 2048);
+
+	player->SetCollider(true);
+	tallGrass->SetCollider(true);
 }
 
 void Game::Update()
 {
+	glm::vec3 lastPosition = player->GetPosition();
+	std::cout << lastPosition.x << ", " << lastPosition.y << std::endl;
+
 	if (IsKeyPressed(KEY_W))
 	{
 		player->Translate(0, 5, 0);
@@ -99,10 +135,19 @@ void Game::Update()
 		player->UpdateAnimation(idle);
 	}
 
+	if (CollisionManager::CheckCollision(player, tallGrass))
+	{
+		player->SetPosition(lastPosition.x, lastPosition.y, lastPosition.z);
+	}
+
+	grass->Draw();
+	tallGrass->Draw();
 	player->Draw();
 }
 
 void Game::End()
 {
 	delete player;
+	delete tallGrass;
+	delete grass;
 }

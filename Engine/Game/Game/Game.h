@@ -6,6 +6,8 @@ class Game : public BaseGame
 {
 private:
 	Sprite* player;
+	Sprite* grass;
+	Sprite* tallGrass;
 	Animation* idle;
 	Animation* up;
 	Animation* down;
