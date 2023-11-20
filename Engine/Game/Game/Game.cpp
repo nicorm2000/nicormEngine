@@ -116,58 +116,36 @@ void Game::Start()
 	player2->SetScale(100, 100, 100);
 
 	idle = new Animation();
-	idle->AddFrame(4, 3, 4, 4, 2048, 2048);	
-
 	up = new Animation();
-	up->AddFrame(1, 4, 4, 4, 2048, 2048);
-	up->AddFrame(2, 4, 4, 4, 2048, 2048);
-	up->AddFrame(3, 4, 4, 4, 2048, 2048);
-	up->AddFrame(4, 4, 4, 4, 2048, 2048);
-
 	down = new Animation();
-	down->AddFrame(1, 3, 4, 4, 2048, 2048);
-	down->AddFrame(2, 3, 4, 4, 2048, 2048);
-	down->AddFrame(3, 3, 4, 4, 2048, 2048);
-	down->AddFrame(4, 3, 4, 4, 2048, 2048);
-
 	right = new Animation();
-	right->AddFrame(1, 1, 4, 4, 2048, 2048);
-	right->AddFrame(2, 1, 4, 4, 2048, 2048);
-	right->AddFrame(3, 1, 4, 4, 2048, 2048);
-	right->AddFrame(4, 1, 4, 4, 2048, 2048);
-
 	left = new Animation();
-	left->AddFrame(1, 2, 4, 4, 2048, 2048);
-	left->AddFrame(2, 2, 4, 4, 2048, 2048);
-	left->AddFrame(3, 2, 4, 4, 2048, 2048);
-	left->AddFrame(4, 2, 4, 4, 2048, 2048);
+
+	idle->AddFrame(0, 3, 4, 4, 2048, 2048);
+
+	for (int i = 1; i < 5; i++)
+	{
+		up->AddFrame(i, 0, 4, 4, 2048, 2048);
+		down->AddFrame(i, 3, 4, 4, 2048, 2048);
+		right->AddFrame(i, 1, 4, 4, 2048, 2048);
+		left->AddFrame(i, 2, 4, 4, 2048, 2048);
+	}
 
 	idle2 = new Animation();
-	idle2->AddFrame(4, 3, 4, 4, 2048, 2048);
-
 	up2 = new Animation();
-	up2->AddFrame(1, 4, 4, 4, 2048, 2048);
-	up2->AddFrame(2, 4, 4, 4, 2048, 2048);
-	up2->AddFrame(3, 4, 4, 4, 2048, 2048);
-	up2->AddFrame(4, 4, 4, 4, 2048, 2048);
-
 	down2 = new Animation();
-	down2->AddFrame(1, 3, 4, 4, 2048, 2048);
-	down2->AddFrame(2, 3, 4, 4, 2048, 2048);
-	down2->AddFrame(3, 3, 4, 4, 2048, 2048);
-	down2->AddFrame(4, 3, 4, 4, 2048, 2048);
-
 	right2 = new Animation();
-	right2->AddFrame(1, 1, 4, 4, 2048, 2048);
-	right2->AddFrame(2, 1, 4, 4, 2048, 2048);
-	right2->AddFrame(3, 1, 4, 4, 2048, 2048);
-	right2->AddFrame(4, 1, 4, 4, 2048, 2048);
-
 	left2 = new Animation();
-	left2->AddFrame(1, 2, 4, 4, 2048, 2048);
-	left2->AddFrame(2, 2, 4, 4, 2048, 2048);
-	left2->AddFrame(3, 2, 4, 4, 2048, 2048);
-	left2->AddFrame(4, 2, 4, 4, 2048, 2048);
+
+	idle2->AddFrame(0, 3, 4, 4, 2048, 2048);
+
+	for (int i = 1; i < 5; i++)
+	{
+		up2->AddFrame(i, 0, 4, 4, 2048, 2048);
+		down2->AddFrame(i, 3, 4, 4, 2048, 2048);
+		right2->AddFrame(i, 1, 4, 4, 2048, 2048);
+		left2->AddFrame(i, 2, 4, 4, 2048, 2048);
+	}
 
 	player->SetCollider(true);
 	player2->SetCollider(true);
@@ -178,8 +156,6 @@ void Game::Update()
 {
 	glm::vec3 lastPosition = player->GetPosition();
 	glm::vec3 lastPosition2 = player2->GetPosition();
-	std::cout << lastPosition.x << "player: , " << lastPosition.y << std::endl;
-	std::cout << lastPosition.x << "player 2: , " << lastPosition.y << std::endl;
 
 	if (IsKeyPressed(KEY_W))
 	{
