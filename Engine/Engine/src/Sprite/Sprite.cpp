@@ -67,12 +67,6 @@ void Sprite::Draw()
     renderer->DrawWithIndexBuffer(GL_TRIANGLES, VERTEX_SIZE, GL_UNSIGNED_INT, nullptr, VAO);
 }
 
-void Sprite::CreateAnimation(float speed)
-{
-    animation = new Animation();
-    animation->SetSpeed(speed);
-}
-
 void Sprite::AddFrames(int rows, int cols)
 {
     for (int y = 0; y < rows; y++)
@@ -96,7 +90,11 @@ void Sprite::AddFrame(float frameX, float frameY, float frameWidth, float frameH
 
 void Sprite::UpdateAnimation()
 {
-    if (animation != NULL)
+    if (!animation)
+    {
+        return;
+    }
+    else
     {
         animation->Update();
         SetUVCoords(animation->GetFrames()[animation->GetCurrentFrame()]);
@@ -107,6 +105,11 @@ void Sprite::UpdateAnimation(Animation* animation)
 {
     animation->Update();
     SetUVCoords(animation->GetFrames()[animation->GetCurrentFrame()]);
+}
+
+void Sprite::SetAnimation(Animation* animation)
+{
+    this->animation = animation;
 }
 
 void Sprite::LoadTexture(std::string path, bool invertImage)

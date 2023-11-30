@@ -6,7 +6,6 @@ class Game : public BaseGame
 {
 private:
 	Sprite* player;
-	Sprite* player2;
 	Sprite* grass;
 	Sprite* tallGrass;
 	Animation* idle;
@@ -14,11 +13,6 @@ private:
 	Animation* down;
 	Animation* left;
 	Animation* right;
-	Animation* idle2;
-	Animation* up2;
-	Animation* down2;
-	Animation* left2;
-	Animation* right2;
 
 	float time;
 
