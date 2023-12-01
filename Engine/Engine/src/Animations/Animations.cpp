@@ -28,9 +28,9 @@ Animation::~Animation()
 
 }
 
-void Animation::AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, float textureWidth, float textureHeight, float durationInSecs)
+void Animation::AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, float textureWidth, float textureHeight, float durationInMilisecs)
 {
-	animationDuration = durationInSecs;
+	animationDuration = durationInMilisecs;
 	currentTime = 0;
 	currentFrame = 0;
 	Frame frame;
@@ -50,9 +50,9 @@ void Animation::AddFrame(float frameX, float frameY, float frameWidth, float fra
 	frames.push_back(frame);
 }
 
-void Animation::AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, int textureWidth, int textureHeight, float durationInSecs, int frameCount)
+void Animation::AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, int textureWidth, int textureHeight, float durationInMilisecs, int frameCount)
 {
-	animationDuration = durationInSecs;
+	animationDuration = durationInMilisecs;
 	currentTime = 0;
 	currentFrame = 0;
 	int xCurrentFrame = 0;
@@ -82,12 +82,9 @@ void Animation::Update()
 {
 	currentTime += Timer::GetDeltaTime() * 1000;
 
-	std::cout << currentTime << " " << animationDuration << std::endl;
-
-	while (currentTime > -animationDuration)
+	while (currentTime > animationDuration)
 	{
-		std::cout << currentTime << " " << animationDuration << std::endl;
-		currentTime -= -animationDuration;
+		currentTime -= animationDuration;
 	}
 
 	float frameLength = animationDuration / frames.size();

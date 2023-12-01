@@ -35,8 +35,8 @@ public:
 	~Animation();
 
 	void Update();
-	void AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, float textureWidth, float textureHeight, float durationInSecs);
-	void AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, int textureWidth, int textureHeight, float durationInSecs, int frameCount);
+	void AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, float textureWidth, float textureHeight, float durationInMilisecs);
+	void AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, int textureWidth, int textureHeight, float durationInMilisecs, int frameCount);
 	int GetCurrentFrame();
 	std::vector<Frame> GetFrames();
 };

@@ -7,7 +7,8 @@ class Game : public BaseGame
 private:
 	Sprite* player;
 	Sprite* grass;
-	Sprite* tallGrass;
+	Sprite* sign;
+	Animation* signIdle;
 	Animation* idle;
 	Animation* up;
 	Animation* down;
