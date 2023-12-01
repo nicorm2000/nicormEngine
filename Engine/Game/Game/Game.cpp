@@ -4,19 +4,14 @@
 Game::Game()
 {
 	player = nullptr;
-	player2 = nullptr;
-	tallGrass = nullptr;
+	sign = nullptr;
 	grass = nullptr;
+	signIdle = nullptr;
 	idle = nullptr;
 	up = nullptr;
 	down = nullptr;
 	left = nullptr;
 	right = nullptr;
-	idle2 = nullptr;
-	up2 = nullptr;
-	down2 = nullptr;
-	left2 = nullptr;
-	right2 = nullptr;
 	time = 0;
 }
 
@@ -27,19 +22,19 @@ Game::~Game()
 		delete player;
 	}
 
-	if (player2 != nullptr) {
-		player2 = nullptr;
-		delete player2;
-	}
-
-	if (tallGrass != nullptr) {
-		tallGrass = nullptr;
-		delete tallGrass;
+	if (sign != nullptr) {
+		sign = nullptr;
+		delete sign;
 	}
 
 	if (grass != nullptr) {
 		grass = nullptr;
 		delete grass;
+	}
+
+	if (signIdle != nullptr) {
+		signIdle = nullptr;
+		delete signIdle;
 	}
 
 	if (idle != nullptr) {
@@ -66,167 +61,102 @@ Game::~Game()
 		right = nullptr;
 		delete right;
 	}
-
-	if (idle2 != nullptr) {
-		idle2 = nullptr;
-		delete idle2;
-	}
-
-	if (up2 != nullptr) {
-		up2 = nullptr;
-		delete up2;
-	}
-
-	if (down2 != nullptr) {
-		down2 = nullptr;
-		delete down2;
-	}
-
-	if (left2 != nullptr) {
-		left2 = nullptr;
-		delete left2;
-	}
-
-	if (right2 != nullptr) {
-		right2 = nullptr;
-		delete right2;
-	}
 }
 
 void Game::Start()
 {
-	grass = new Sprite(renderer, "res/grass.png");
+	grass = new Sprite(renderer, "res/bg.png");
 	grass->SetColor(glm::vec3(1, 1, 1));
 	grass->SetPosition(400, 400, 0);
 	grass->SetScale(800, 800, 100);
 
-	tallGrass = new Sprite(renderer, "res/tallgrass.png");
-	tallGrass->SetColor(glm::vec3(1, 1, 1));
-	tallGrass->SetPosition(400, 400, 0);
-	tallGrass->SetScale(100, 100, 100);
+	sign = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
+	sign->SetColor(glm::vec3(1, 1, 1));
+	sign->SetPosition(550, 550, 0);
+	sign->SetScale(100, 100, 100);
 
-	player = new Sprite(renderer, "res/SpriteSheet3.png");
+	player = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
 	player->SetColor(glm::vec3(1, 1, 1));
 	player->SetPosition(400, 200, 0);
 	player->SetScale(100, 100, 100);
 
-	player2 = new Sprite(renderer, "res/SpriteSheet4.png");
-	player2->SetColor(glm::vec3(1, 1, 1));
-	player2->SetPosition(400, 600, 0);
-	player2->SetScale(100, 100, 100);
-
+	signIdle = new Animation();
 	idle = new Animation();
 	up = new Animation();
 	down = new Animation();
 	right = new Animation();
 	left = new Animation();
 
-	idle->AddFrame(0, 3, 4, 4, 2048, 2048);
+	signIdle->AddFrame(133, 150, 49.5, 100, 832, 830, 1000, 4);
 
-	for (int i = 1; i < 5; i++)
-	{
-		up->AddFrame(i, 0, 4, 4, 2048, 2048);
-		down->AddFrame(i, 3, 4, 4, 2048, 2048);
-		right->AddFrame(i, 1, 4, 4, 2048, 2048);
-		left->AddFrame(i, 2, 4, 4, 2048, 2048);
-	}
+	idle->AddFrame(390, 98, 98 / 3, 43, 830, 465, 500, 3);
+	up->AddFrame(18, 203, 122 / 3, 33, 830, 465, 500, 3);
+	down->AddFrame(18, 203, 122 / 3, 33, 830, 465, 500, 3);
+	right->AddFrame(18, 203, 122 / 3, 33, 830, 465, 500, 3);
+	left->AddFrame(18, 203, 122 / 3, 33, 830, 465, 500, 3);
+	//up->AddFrame(282, 401, 181 / 6, 29, 830, 465, 500, 6);
+	//down->AddFrame(22, 354, 126 / 4, 40, 830, 465, 500, 4);
+	//right->AddFrame(155, 199, 124 / 3, 43, 830, 465, 500, 3);
+	//left->AddFrame(379, 152, 159 / 4, 43, 830, 465, 500, 4);
 
-	idle2 = new Animation();
-	up2 = new Animation();
-	down2 = new Animation();
-	right2 = new Animation();
-	left2 = new Animation();
-
-	idle2->AddFrame(0, 3, 4, 4, 2048, 2048);
-
-	for (int i = 1; i < 5; i++)
-	{
-		up2->AddFrame(i, 0, 4, 4, 2048, 2048);
-		down2->AddFrame(i, 3, 4, 4, 2048, 2048);
-		right2->AddFrame(i, 1, 4, 4, 2048, 2048);
-		left2->AddFrame(i, 2, 4, 4, 2048, 2048);
-	}
+	player->SetAnimation(up);
+	sign->SetAnimation(signIdle);
 
 	player->SetCollider(true);
-	player2->SetCollider(true);
-	tallGrass->SetCollider(true);
+	sign->SetCollider(true);
 }
 
 void Game::Update()
 {
 	glm::vec3 lastPosition = player->GetPosition();
-	glm::vec3 lastPosition2 = player2->GetPosition();
 
 	if (IsKeyPressed(KEY_W))
 	{
 		player->Translate(0, 5, 0);
-		player->UpdateAnimation(up);
+		player->SetAnimation(up);
 	}
 	else if (IsKeyPressed(KEY_S))
 	{
 		player->Translate(0, -5, 0);
-		player->UpdateAnimation(down);
+		player->SetAnimation(down);
 	}
 	else if (IsKeyPressed(KEY_A))
 	{
 		player->Translate(-5, 0, 0);
-		player->UpdateAnimation(left);
+		player->SetAnimation(left);
 	}
 	else if (IsKeyPressed(KEY_D))
 	{
 		player->Translate(5, 0, 0);
-		player->UpdateAnimation(right);
+		player->SetAnimation(right);
 	}
 	else
 	{
-		player->UpdateAnimation(idle);
+		player->SetAnimation(idle);
 	}
 
-	if (IsKeyPressed(KEY_UP))
-	{
-		player2->Translate(0, 5, 0);
-		player2->UpdateAnimation(up2);
-	}
-	else if (IsKeyPressed(KEY_DOWN))
-	{
-		player2->Translate(0, -5, 0);
-		player2->UpdateAnimation(down2);
-	}
-	else if (IsKeyPressed(KEY_LEFT))
-	{
-		player2->Translate(-5, 0, 0);
-		player2->UpdateAnimation(left2);
-	}
-	else if (IsKeyPressed(KEY_RIGHT))
-	{
-		player2->Translate(5, 0, 0);
-		player2->UpdateAnimation(right2);
-	}
-	else
-	{
-		player2->UpdateAnimation(idle2);
-	}
-
-	if (CollisionManager::CheckCollision(player, tallGrass))
+	if (CollisionManager::CheckCollision(player, sign))
 	{
 		player->SetPosition(lastPosition.x, lastPosition.y, lastPosition.z);
 	}
 
-	if (CollisionManager::CheckCollision(player2, tallGrass))
-	{
-		player2->SetPosition(lastPosition2.x, lastPosition2.y, lastPosition2.z);
-	}
+	player->UpdateAnimation();
+	sign->UpdateAnimation();
 
 	grass->Draw();
-	tallGrass->Draw();
+	sign->Draw();
 	player->Draw();
-	player2->Draw();
 }
 
 void Game::End()
 {
+	delete signIdle;
+	delete idle;
+	delete up;
+	delete down;
+	delete right;
+	delete left;
 	delete player;
-	delete player2;
-	delete tallGrass;
+	delete sign;
 	delete grass;
 }
