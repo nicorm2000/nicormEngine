@@ -7,8 +7,35 @@ Render::Render(Window* window)
 {
     this->window = window;
 
-    projection = glm::ortho(0.0f, (float)window->GetWidth(), 0.0f, (float)window->GetHeight(), 0.1f, 500.0f);
-    view = glm::lookAt(glm::vec3(0, 0, 1), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+    // CAMERA POSITION
+    glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f); // Camera position -> vector un world space that point's to the camera's position
+
+    // CAMERA DIRECTION
+    // For the view matrix, we want z-axis to be positive, so because (in OpenGL) the 
+    // camera points towards the negative z-axis, we want to negate the direction vector
+    glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f); // vector of in what direction it is pointing at
+    glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget); // position vector - origin vector = camera's direction vector    
+
+    // RIGHT AXIS
+    // This represents the positive x-axis of the camera space. First we use an up vector
+    // that points upwards in world space, and then we do a cross product on the up vector
+    // and the direction vector. The result is a vector perpendicular to both vectors,
+    // getting a vector that points in the positive x-axis's direction.
+    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
+
+    // UP AXIS
+    // We take the cross product of the right and direction vector and we get the vector
+    // that points to the camera's positive y-axis.
+    glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
+
+    // LOOK AT MATRIX
+    // Creates a view matrix that looks at a given target (position, direction, up).
+    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f),
+        glm::vec3(0.0f, 0.0f, 0.0f),
+        glm::vec3(0.0f, 1.0f, 0.0f));
+
+    projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
 }
 
 Render::~Render()
@@ -28,7 +55,7 @@ void Render::SetDepth()
 
 void Render::ClearScreen()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void Render::ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a)

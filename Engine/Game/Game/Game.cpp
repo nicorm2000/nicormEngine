@@ -69,7 +69,7 @@ void Game::Start()
 
 	grass = new Sprite(renderer, "res/bg.png");
 	grass->SetColor(glm::vec3(1, 1, 1));
-	grass->SetPosition(400, 400, 0);
+	grass->SetPosition(400, 400, -100);
 	grass->SetScale(800, 800, 100);
 
 	sign = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
