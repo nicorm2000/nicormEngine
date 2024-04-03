@@ -31,9 +31,8 @@ Render::Render(Window* window)
 
     // LOOK AT MATRIX
     // Creates a view matrix that looks at a given target (position, direction, up).
-    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f),
-        glm::vec3(0.0f, 0.0f, 0.0f),
-        glm::vec3(0.0f, 1.0f, 0.0f));
+    
+    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
     projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
 }
@@ -45,6 +44,16 @@ Render::~Render()
         window = nullptr;
         delete window;
     }
+}
+
+//Borrar porque no va
+void Render::RotateCamera()
+{
+    const float radius = 5.0f;
+    float a = sin(glfwGetTime()) * radius;
+    float b = cos(glfwGetTime()) * radius;
+    
+    view = glm::lookAt(glm::vec3(a, 0.0, b), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
 }
 
 void Render::SetDepth()

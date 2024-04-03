@@ -24,6 +24,8 @@ public:
 
 	void SetDepth();
 
+	void RotateCamera();
+
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
 	void SwapBuffers(GLFWwindow* window);
