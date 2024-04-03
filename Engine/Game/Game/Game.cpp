@@ -69,18 +69,18 @@ void Game::Start()
 
 	grass = new Sprite(renderer, "res/bg.png");
 	grass->SetColor(glm::vec3(1, 1, 1));
-	grass->SetPosition(400, 400, -100);
-	grass->SetScale(800, 800, 100);
+	grass->SetPosition(0, 0, -10);
+	grass->SetScale(10, 10, 1);
 
 	sign = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
 	sign->SetColor(glm::vec3(1, 1, 1));
-	sign->SetPosition(550, 550, 0);
-	sign->SetScale(100, 100, 100);
+	sign->SetPosition(0, 0, -9);
+	sign->SetScale(5, 5, 1);
 
 	player = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
 	player->SetColor(glm::vec3(1, 1, 1));
-	player->SetPosition(400, 200, 0);
-	player->SetScale(100, 100, 100);
+	player->SetPosition(0, 0, -8);
+	player->SetScale(3, 3, 1);
 
 	signIdle = new Animation();
 	idle = new Animation();
@@ -103,9 +103,6 @@ void Game::Start()
 
 	player->SetAnimation(up);
 	sign->SetAnimation(signIdle);
-
-	player->SetCollider(true);
-	sign->SetCollider(true);
 }
 
 void Game::Update()
@@ -114,22 +111,22 @@ void Game::Update()
 
 	if (IsKeyPressed(KEY_W))
 	{
-		player->Translate(0, 5, 0);
+		player->Translate(0, 0.1, 0);
 		player->SetAnimation(up);
 	}
 	else if (IsKeyPressed(KEY_S))
 	{
-		player->Translate(0, -5, 0);
+		player->Translate(0, -0.1, 0);
 		player->SetAnimation(down);
 	}
 	else if (IsKeyPressed(KEY_A))
 	{
-		player->Translate(-5, 0, 0);
+		player->Translate(-0.1, 0, 0);
 		player->SetAnimation(left);
 	}
 	else if (IsKeyPressed(KEY_D))
 	{
-		player->Translate(5, 0, 0);
+		player->Translate(0.1, 0, 0);
 		player->SetAnimation(right);
 	}
 	else
@@ -137,10 +134,10 @@ void Game::Update()
 		player->SetAnimation(idle);
 	}
 
-	if (CollisionManager::CheckCollision(player, sign))
-	{
-		player->SetPosition(lastPosition.x, lastPosition.y, lastPosition.z);
-	}
+	//if (CollisionManager::CheckCollision(player, sign))
+	//{
+	//	player->SetPosition(lastPosition.x, lastPosition.y, lastPosition.z);
+	//}
 
 	player->UpdateAnimation();
 	sign->UpdateAnimation();
