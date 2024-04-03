@@ -24,6 +24,8 @@ Render::Render(Window* window)
     glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
     glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
 
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+
     // UP AXIS
     // We take the cross product of the right and direction vector and we get the vector
     // that points to the camera's positive y-axis.
@@ -32,7 +34,7 @@ Render::Render(Window* window)
     // LOOK AT MATRIX
     // Creates a view matrix that looks at a given target (position, direction, up).
     
-    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
     projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
 }
