@@ -20,6 +20,12 @@ Render::~Render()
     }
 }
 
+void Render::SetDepth()
+{
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+}
+
 void Render::ClearScreen()
 {
     glClear(GL_COLOR_BUFFER_BIT);

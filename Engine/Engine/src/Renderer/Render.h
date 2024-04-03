@@ -22,6 +22,8 @@ public:
 	Render(Window* window);
 	~Render();
 
+	void SetDepth();
+
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
 	void SwapBuffers(GLFWwindow* window);

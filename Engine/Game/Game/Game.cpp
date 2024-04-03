@@ -65,6 +65,8 @@ Game::~Game()
 
 void Game::Start()
 {
+	renderer->SetDepth();
+
 	grass = new Sprite(renderer, "res/bg.png");
 	grass->SetColor(glm::vec3(1, 1, 1));
 	grass->SetPosition(400, 400, 0);
