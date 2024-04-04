@@ -124,78 +124,7 @@ float Camera::GetFar()
 	return far;
 }
 
-float Camera::GetAspect()
-{
-	return aspectRatio;
-}
-
-void Camera::SetFOV(float fov)
-{
-	this->fov = fov;
-	//UpdateProjection();
-}
-
-void Camera::SetYaw(float yaw)
-{
-	this->yaw = yaw;
-}
-
-void Camera::SetPitch(float pitch)
-{
-	this->pitch = pitch;
-}
-
-void Camera::SetTarget(Entity* target)
-{
-	this->target = target;
-}
-
-void Camera::SetSensitivity(float sensitivity)
-{
-	this->sensitivity = sensitivity;
-}
-
-void Camera::SetOffset(float offset)
-{
-	this->offset = offset;
-}
-
-void Camera::SetFollowStatus(bool status)
-{
-	followTarget = status;
-}
-
-float Camera::GetFOV()
-{
-	return fov;
-}
-
-float Camera::GetSensitivity()
-{
-	return sensitivity;
-}
-
-float Camera::GetYaw()
-{
-	return yaw;
-}
-
-float Camera::GetPitch()
-{
-	return pitch;
-}
-
-float Camera::GetNear()
-{
-	return near;
-}
-
-float Camera::GetFar()
-{
-	return far;
-}
-
-float Camera::GetAspect()
+float Camera::GetAspectRatio()
 {
 	return aspectRatio;
 }

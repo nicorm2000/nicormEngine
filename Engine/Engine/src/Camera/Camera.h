@@ -62,7 +62,7 @@ public:
 
 	float GetNear();
 	float GetFar();
-	float GetAspect();
+	float GetAspectRatio();
 };
 
 #endif
