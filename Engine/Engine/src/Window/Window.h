@@ -8,20 +8,21 @@
 class DllApi Window
 {
 private:
-	GLFWwindow* glfwWindow;
+	GLFWwindow* window;
 	int width = 0;
 	int height = 0;
-	const char* title = "Engine";
+	const char* title = "Unicorm Engine";
 
 public:
-	Window(int newWidth, int newHeight);
+	Window(int width, int height);
 	~Window();
+
 	int InitLibrary();
 	int CreateWindow();
 	void MakeCurrentContext();
 	bool WindowShouldClose();
 	void PollEvents();
-	void CloseWindow();
+	void TerminateLibrary();
 
 	GLFWwindow* GetWindow();
 

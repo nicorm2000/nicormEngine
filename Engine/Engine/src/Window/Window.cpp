@@ -1,33 +1,43 @@
 #include "Window.h"
 
+void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
+
 Window::Window(int newWidth, int newHeight)
 {
-    glfwWindow = nullptr;
-    width = newWidth;
-    height = newHeight;
+    this->window = nullptr;
+    this->width = newWidth;
+    this->height = newHeight;
 }
 
 Window::~Window()
 {
-    if (glfwWindow != nullptr)
+    if (window != nullptr)
     {
-        glfwWindow = nullptr;
-        delete glfwWindow;
+        window = nullptr;
+        delete window;
     }
 }
 
 int Window::InitLibrary()
 {
+    //Initialize library
     if (!glfwInit()) return -1;
+
+    //Specify the major version of OpenGL
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    //Specify the minor version of OpenGL
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    //Specify whether the OpenGL context should be forward-compatible, will only support features from the specified version and earlier versions
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 }
 
 int Window::CreateWindow()
 {
-    glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL);
+    window = glfwCreateWindow(width, height, title, NULL, NULL);
 
-    if (!glfwWindow)
+    if (!window)
     {
-        CloseWindow();
+        TerminateLibrary();
 
         return -1;
     }
@@ -36,12 +46,14 @@ int Window::CreateWindow()
 
 void Window::MakeCurrentContext()
 {
-    glfwMakeContextCurrent(glfwWindow);
+    // Make the window's context current
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback);
 }
 
 bool Window::WindowShouldClose()
 {
-    return glfwWindowShouldClose(glfwWindow);
+    return glfwWindowShouldClose(window);
 }
 
 void Window::PollEvents()
@@ -49,14 +61,15 @@ void Window::PollEvents()
     glfwPollEvents();
 }
 
-void Window::CloseWindow()
+void Window::TerminateLibrary()
 {
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 
 GLFWwindow* Window::GetWindow()
 {
-    return glfwWindow;
+    return window;
 }
 
 int Window::GetWidth()
@@ -67,4 +80,9 @@ int Window::GetWidth()
 int Window::GetHeight()
 {
     return height;
+}
+
+void FramebufferSizeCallback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
 }

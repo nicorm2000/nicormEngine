@@ -67,7 +67,7 @@ int BaseGame::Run()
 
 	End();
 
-	window->CloseWindow();
+	window->TerminateLibrary();
 
 	return 0;
 }
