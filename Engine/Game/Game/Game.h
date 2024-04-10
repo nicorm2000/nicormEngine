@@ -16,6 +16,10 @@ private:
 	Animation* right;
 
 	float time;
+	float cameraSpeed;
+	float cameraSpeedMultiplier;
+	float deltaTime;
+	float lastFrame;
 
 	glm::vec3 cameraPos;
 

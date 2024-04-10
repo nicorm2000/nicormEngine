@@ -76,3 +76,8 @@ bool BaseGame::IsKeyPressed(int keycode)
 {
 	return input->IsKeyPressed(keycode, window);
 }
+
+float BaseGame::GetFrameTime()
+{
+	return glfwGetTime();
+}

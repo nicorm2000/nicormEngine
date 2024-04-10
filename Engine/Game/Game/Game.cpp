@@ -1,8 +1,6 @@
 #include "Game.h"
 #include "Timer/Timer.h"
 
-const float cameraSpeed = 0.25f;
-
 Game::Game()
 {
 	player = nullptr;
@@ -15,8 +13,11 @@ Game::Game()
 	left = nullptr;
 	right = nullptr;
 	time = 0;
-
-	cameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	cameraSpeed = 0.25f;
+	cameraSpeedMultiplier = 5.0f;
+	deltaTime = 0.0f;
+	lastFrame = 0.0f;
+	cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 }
 
 Game::~Game()
@@ -111,6 +112,12 @@ void Game::Start()
 
 void Game::Update()
 {
+	float currentFrame = GetFrameTime();
+	deltaTime = currentFrame - lastFrame;
+	lastFrame = currentFrame;
+
+	cameraSpeed = cameraSpeedMultiplier * deltaTime;
+
 	glm::vec3 lastPosition = player->GetPosition();
 
 	if (IsKeyPressed(KEY_0))

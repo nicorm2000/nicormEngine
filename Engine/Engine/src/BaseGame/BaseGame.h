@@ -31,6 +31,7 @@ public:
 	virtual void End() = 0;
 
 	bool IsKeyPressed(int keycode);
+	float GetFrameTime();
 };
 
 #endif
