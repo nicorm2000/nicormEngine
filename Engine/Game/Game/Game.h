@@ -17,6 +17,8 @@ private:
 
 	float time;
 
+	glm::vec3 cameraPos;
+
 public:
 	Game();
 	~Game();

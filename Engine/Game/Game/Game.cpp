@@ -1,6 +1,8 @@
 #include "Game.h"
 #include "Timer/Timer.h"
 
+const float cameraSpeed = 0.25f;
+
 Game::Game()
 {
 	player = nullptr;
@@ -13,6 +15,8 @@ Game::Game()
 	left = nullptr;
 	right = nullptr;
 	time = 0;
+
+	cameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 Game::~Game()
@@ -70,7 +74,7 @@ void Game::Start()
 	grass = new Sprite(renderer, "res/bg.png");
 	grass->SetColor(glm::vec3(1, 1, 1));
 	grass->SetPosition(0, 0, -10);
-	grass->SetScale(10, 10, 1);
+	grass->SetScale(50, 50, 1);
 
 	sign = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
 	sign->SetColor(glm::vec3(1, 1, 1));
@@ -109,22 +113,22 @@ void Game::Update()
 {
 	glm::vec3 lastPosition = player->GetPosition();
 
-	if (IsKeyPressed(KEY_W))
+	if (IsKeyPressed(KEY_0))
 	{
 		player->Translate(0, 0.1, 0);
 		player->SetAnimation(up);
 	}
-	else if (IsKeyPressed(KEY_S))
+	else if (IsKeyPressed(KEY_1))
 	{
 		player->Translate(0, -0.1, 0);
 		player->SetAnimation(down);
 	}
-	else if (IsKeyPressed(KEY_A))
+	else if (IsKeyPressed(KEY_2))
 	{
 		player->Translate(-0.1, 0, 0);
 		player->SetAnimation(left);
 	}
-	else if (IsKeyPressed(KEY_D))
+	else if (IsKeyPressed(KEY_3))
 	{
 		player->Translate(0.1, 0, 0);
 		player->SetAnimation(right);
@@ -132,6 +136,23 @@ void Game::Update()
 	else
 	{
 		player->SetAnimation(idle);
+	}
+
+	if (IsKeyPressed(KEY_W))
+	{
+		renderer->RotateCamera(cameraPos += cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
+	}
+	else if (IsKeyPressed(KEY_S))
+	{
+		renderer->RotateCamera(cameraPos -= cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
+	}
+	else if (IsKeyPressed(KEY_A))
+	{
+		renderer->RotateCamera(cameraPos -= glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
+	}
+	else if (IsKeyPressed(KEY_D))
+	{
+		renderer->RotateCamera(cameraPos += glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
 	}
 
 	//if (CollisionManager::CheckCollision(player, sign))

@@ -24,7 +24,7 @@ public:
 
 	void SetDepth();
 
-	void RotateCamera();
+	void RotateCamera(glm::vec3 pos);
 
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);

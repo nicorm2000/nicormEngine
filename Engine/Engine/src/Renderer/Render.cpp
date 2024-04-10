@@ -49,13 +49,17 @@ Render::~Render()
 }
 
 //Borrar porque no va
-void Render::RotateCamera()
+void Render::RotateCamera(glm::vec3 pos)
 {
+    glm::vec3 cameraPos = glm::vec3(pos);
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
     const float radius = 5.0f;
     float a = sin(glfwGetTime()) * radius;
     float b = cos(glfwGetTime()) * radius;
     
-    view = glm::lookAt(glm::vec3(a, 0.0, b), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+    view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 }
 
 void Render::SetDepth()
