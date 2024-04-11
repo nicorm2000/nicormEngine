@@ -18,13 +18,33 @@ private:
 	glm::mat4 view;
 	glm::mat4 projection;
 
+	glm::vec3 cameraF;
+	glm::vec3 cameraP;
+
+	float yaw;
+	float pitch;
+	float sensitivity;
+	float fov;
+
 public:
 	Render(Window* window);
 	~Render();
 
 	void SetDepth();
 
-	void RotateCamera(glm::vec3 pos);
+	void UpdateCameraPos(glm::vec3 pos);
+	void UpdateProjection();
+	void UpdateDirection();
+	void SetYaw(float yaw);
+	void SetPitch(float pitch);
+	float GetYaw();
+	float GetPitch();
+	void SetSensitivity(float sensitivity);
+	float GetSensitivity();
+	void SetFront(glm::vec3 front);
+	glm::vec3 GetFront();
+	void SetFOV(float fov);
+	float GetFOV();
 
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);

@@ -19,6 +19,7 @@ class DllApi Input
 private:
 	static Window* window;
 	static Camera* camera;
+	static Render* renderer;
 
 	static list<int> keysDown;
 	static glm::vec2 lastPosition;
@@ -30,7 +31,7 @@ public:
 	~Input();
 
 
-	static void Init(Window* wind, Camera* cam);
+	static void Init(Window* wind, Camera* cam, Render* render);
 	static void SetCamera(Camera* cam);
 	//static bool IsKeyPressed(int keycode);
 	static bool IsKeyPressed(int keycode, Window* window);

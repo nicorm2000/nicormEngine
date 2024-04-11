@@ -5,11 +5,16 @@
 
 Render::Render(Window* window)
 {
+    yaw = -90.f;
+    pitch = 0.f;
+    sensitivity = 0.5f;
+    fov = 100;
+
     this->window = window;
 
     // CAMERA POSITION
     glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f); // Camera position -> vector un world space that point's to the camera's position
-
+    cameraP = cameraPos;
     // CAMERA DIRECTION
     // For the view matrix, we want z-axis to be positive, so because (in OpenGL) the 
     // camera points towards the negative z-axis, we want to negate the direction vector
@@ -25,7 +30,7 @@ Render::Render(Window* window)
     glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
 
     glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-
+    cameraF = cameraFront;
     // UP AXIS
     // We take the cross product of the right and direction vector and we get the vector
     // that points to the camera's positive y-axis.
@@ -36,7 +41,7 @@ Render::Render(Window* window)
     
     view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
-    projection = glm::perspective(glm::radians(90.0f), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
+    projection = glm::perspective(glm::radians(fov), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
 }
 
 Render::~Render()
@@ -48,18 +53,86 @@ Render::~Render()
     }
 }
 
+void Render::UpdateProjection()
+{
+    projection = glm::perspective(glm::radians(GetFOV()), (float)window->GetWidth() / (float)window->GetHeight(), 0.1f, 2000.0f);
+}
+
 //Borrar porque no va
-void Render::RotateCamera(glm::vec3 pos)
+void Render::UpdateCameraPos(glm::vec3 pos)
 {
     glm::vec3 cameraPos = glm::vec3(pos);
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    cameraP = cameraPos;
     glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
     const float radius = 5.0f;
     float a = sin(glfwGetTime()) * radius;
     float b = cos(glfwGetTime()) * radius;
     
-    view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+    view = glm::lookAt(cameraPos, cameraPos + cameraF, cameraUp);
+}
+
+void Render::UpdateDirection()
+{
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 direction;
+    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.y = sin(glm::radians(pitch));
+    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+
+    SetFront(glm::normalize(direction));
+
+    view = glm::lookAt(cameraP, cameraP + cameraF, cameraUp);
+}
+
+void Render::SetFront(glm::vec3 front)
+{
+    this->cameraF = front;
+}
+
+glm::vec3 Render::GetFront()
+{
+    return cameraF;
+}
+
+void Render::SetYaw(float yaw)
+{
+    this->yaw = yaw;
+}
+
+void Render::SetPitch(float pitch)
+{
+    this->pitch = pitch;
+}
+
+void Render::SetSensitivity(float sensitivity)
+{
+    this->sensitivity = sensitivity;
+}
+
+float Render::GetSensitivity()
+{
+    return sensitivity;
+}
+float Render::GetYaw()
+{
+    return yaw;
+}
+
+float Render::GetPitch()
+{
+    return pitch;
+}
+
+void Render::SetFOV(float fov)
+{
+    this->fov = fov;
+    UpdateProjection();
+}
+
+float Render::GetFOV()
+{
+    return fov;
 }
 
 void Render::SetDepth()

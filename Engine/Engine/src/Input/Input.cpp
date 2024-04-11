@@ -2,6 +2,7 @@
 
 Window* Input::window = nullptr;
 Camera* Input::camera = nullptr;
+Render* Input::renderer = nullptr;
 
 list<int> Input::keysDown = std::list<int>();
 glm::vec2 Input::lastPosition = glm::vec2(0.0f);
@@ -10,6 +11,7 @@ bool Input::firstMouse = true;
 Input::Input(Window* window)
 {
 	glfwSetInputMode(window->GetWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	//lastPosition = glm::vec2(window->GetWidth() / 2.0f, window->GetHeight() / 2.0f);
 }
 
 //Input::Input()
@@ -21,10 +23,11 @@ Input::~Input()
 
 }
 
-void Input::Init(Window* wind, Camera* cam)
+void Input::Init(Window* wind, Camera* cam, Render* render)
 {
 	window = wind;
-	SetCamera(cam);
+	renderer = render;
+	//SetCamera(cam);
 
 	glfwSetKeyCallback(window->GetWindow(), KeyCallback);
 	glfwSetCursorPosCallback(window->GetWindow(), MouseCallback);
@@ -78,19 +81,36 @@ void Input::MouseCallback(GLFWwindow* window, double posX, double posY)
 	lastPosition.x = posX;
 	lastPosition.y = posY;
 
-	offsetPosition.x *= camera->GetSensitivity();
-	offsetPosition.y *= camera->GetSensitivity();
+	float sensitivity = 0.1f;
 
-	camera->SetYaw(camera->GetYaw() + offsetPosition.x);
-	camera->SetPitch(camera->GetPitch() + offsetPosition.y);
+	//// const float sensitivity = 0.1f;
+	offsetPosition.x *= renderer->GetSensitivity() * sensitivity;
+	offsetPosition.y *= renderer->GetSensitivity() * sensitivity;
+	//// offsetPosition.x *= camera->GetSensitivity();
+	////offsetPosition.y *= camera->GetSensitivity();
+	
+	renderer->SetYaw(renderer->GetYaw() + offsetPosition.x);
+	renderer->SetPitch(renderer->GetPitch() + offsetPosition.y);
+	////camera->SetYaw(camera->GetYaw() + offsetPosition.x);
+	////camera->SetPitch(camera->GetPitch() + offsetPosition.y);
 
-	camera->Rotate();
+	////camera->Rotate();
+	if (renderer->GetPitch() > 89.0f)renderer->SetPitch(89.0f);
+	if (renderer->GetPitch() < -89.0f)renderer->SetPitch(-89.0f);
+
+	renderer->UpdateDirection();
 }
 
 void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 {
-	camera->SetFOV(camera->GetFOV() - (float)yoffset);
+	renderer->SetFOV(renderer->GetFOV() - (float)yoffset);
 
-	if (camera->GetFOV() < 1.0f) camera->SetFOV(1.0f);
-	if (camera->GetFOV() > 45.0f) camera->SetFOV(45.0f);
+	if (renderer->GetFOV() < 1.0f)
+		renderer->SetFOV(1.0f);
+	if (renderer->GetFOV() > 120.0f)
+		renderer->SetFOV(120.0f);
+	//camera->SetFOV(camera->GetFOV() - (float)yoffset);
+	//
+	//if (camera->GetFOV() < 1.0f) camera->SetFOV(1.0f);
+	//if (camera->GetFOV() > 45.0f) camera->SetFOV(45.0f);
 }

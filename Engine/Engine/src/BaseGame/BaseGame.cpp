@@ -7,6 +7,7 @@ BaseGame::BaseGame()
 	window = nullptr;
 	input = nullptr;
 	collisionManager = nullptr;
+	camera = nullptr;
 }
 
 BaseGame::~BaseGame()
@@ -32,6 +33,12 @@ BaseGame::~BaseGame()
 		collisionManager = nullptr;
 		delete collisionManager;
 	}
+
+	if (camera != nullptr)
+	{
+		delete camera;
+		camera = nullptr;
+	}
 }
 
 int BaseGame::Run()
@@ -49,6 +56,8 @@ int BaseGame::Run()
 	renderer->InitGLEW();
 
 	renderer->InitMaterial();
+
+	Input::Init(window, camera, renderer);
 
 	Start();
 

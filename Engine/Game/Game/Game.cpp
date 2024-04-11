@@ -147,19 +147,19 @@ void Game::Update()
 
 	if (IsKeyPressed(KEY_W))
 	{
-		renderer->RotateCamera(cameraPos += cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
+		renderer->UpdateCameraPos(cameraPos += cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
 	}
 	else if (IsKeyPressed(KEY_S))
 	{
-		renderer->RotateCamera(cameraPos -= cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
+		renderer->UpdateCameraPos(cameraPos -= cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
 	}
 	else if (IsKeyPressed(KEY_A))
 	{
-		renderer->RotateCamera(cameraPos -= glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
+		renderer->UpdateCameraPos(cameraPos -= glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
 	}
 	else if (IsKeyPressed(KEY_D))
 	{
-		renderer->RotateCamera(cameraPos += glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
+		renderer->UpdateCameraPos(cameraPos += glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
 	}
 
 	//if (CollisionManager::CheckCollision(player, sign))

@@ -10,6 +10,7 @@
 #include "Shape/Shape.h"
 #include "Sprite/Sprite.h"
 #include "Export.h"
+#include "Camera/Camera.h"
 
 class DllApi BaseGame
 {
@@ -17,6 +18,7 @@ private:
 	Window* window;
 	Input* input;
 	CollisionManager* collisionManager;
+	Camera* camera;
 
 protected:
 	Render* renderer;
