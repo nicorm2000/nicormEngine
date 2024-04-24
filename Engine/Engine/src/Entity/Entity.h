@@ -24,6 +24,9 @@ protected:
 	glm::vec3 rotateVector;
 	glm::vec3 scaleVector;
 
+	virtual void SetUniforms();
+	virtual void UpdateShader();
+
 public:
 	Entity();
 	~Entity();

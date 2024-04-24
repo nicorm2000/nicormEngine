@@ -12,8 +12,8 @@ class DllApi Camera : public Entity
 {
 protected:
 	//Mas adelante
-	//void SetUniforms() override;
-	//void UpdateShader() override;
+	void SetUniforms() override;
+	void UpdateShader() override;
 	
 	void UpdateDirection();
 	void UpdateView();

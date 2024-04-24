@@ -146,3 +146,21 @@ void Entity::Scale(float x, float y, float z)
 	scaleVector = glm::vec3(scaleMatrix[0].x, scaleMatrix[1].y, scaleMatrix[2].z);
 	UpdateModelMatrix();
 }
+
+void Entity::SetUniforms()
+{
+	//Dep
+	//renderer->SetUniform(uniformModel, "model");
+	//renderer->SetUniform(uniformView, "view");
+	//renderer->SetUniform(uniformProjection, "projection");
+	//
+	//renderer->SetLocation(locationPosition, "aPos");
+	//renderer->SetLocation(locationNormal, "aNor");
+	//renderer->SetLocation(locationTexCoord, "aTex");
+}
+
+void Entity::UpdateShader()
+{
+	//Dep
+	//renderer->UpdateMVP(uniformModel, uniformView, uniformProjection, matrix.model);
+}

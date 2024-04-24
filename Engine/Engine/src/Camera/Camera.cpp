@@ -167,32 +167,18 @@ void Camera::UpdateProjection()
 	renderer->SetProjection(projection);
 }
 
-//void Camera::SetUniforms()
-//{
-//	Entity::SetUniforms();
-//	renderer->SetUniform(uniformViewPosition, "viewPosition");
-//}
-//
-//void Camera::UpdateShader()
-//{
-//	renderer->UseShader();
-//	Entity::UpdateShader();
-//	renderer->UpdateVec3(uniformViewPosition, transform.position);
-//	renderer->CleanShader();
-//}void Camera::UpdateDirection()
-//{
-//	glm::vec3 direction;
-//	direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-//	direction.y = sin(glm::radians(pitch));
-//	direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-//
-//	SetDirection(direction);
-//
-//	if (target != nullptr)
-//	{
-//		if (followTarget) SetPosition(target->GetPosition() - transform.forward * offset);
-//		else SetPosition(target->GetPosition());
-//	}
-//
-//	UpdateView();
-//}
+void Camera::SetUniforms()
+{
+	//Dep
+	//Entity::SetUniforms();
+	//renderer->SetUniform(uniformViewPosition, "viewPosition");
+}
+
+void Camera::UpdateShader()
+{
+	//Dep
+	//renderer->UseShader();
+	//Entity::UpdateShader();
+	//renderer->UpdateVec3(uniformViewPosition, transform.position);
+	//renderer->CleanShader();
+}
