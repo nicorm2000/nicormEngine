@@ -14,10 +14,10 @@ protected:
 	//Mas adelante
 	//void SetUniforms() override;
 	//void UpdateShader() override;
-	//
-	//void UpdateDirection();
-	//void UpdateView();
-	//void UpdateProjection();
+	
+	void UpdateDirection();
+	void UpdateView();
+	void UpdateProjection();
 
 	glm::mat4 view;
 	glm::mat4 projection;

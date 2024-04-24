@@ -5,6 +5,9 @@
 
 Render::Render(Window* window)
 {
+    view = glm::mat4(0.f);
+    projection = glm::mat4(0.f);
+
     yaw = -90.f;
     pitch = 0.f;
     sensitivity = 0.5f;
@@ -133,6 +136,16 @@ void Render::SetFOV(float fov)
 float Render::GetFOV()
 {
     return fov;
+}
+
+void Render::SetView(glm::mat4 view)
+{
+    this->view = view;
+}
+
+void Render::SetProjection(glm::mat4 projection)
+{
+    this->projection = projection;
 }
 
 void Render::SetDepth()

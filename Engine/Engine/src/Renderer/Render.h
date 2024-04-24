@@ -46,6 +46,9 @@ public:
 	void SetFOV(float fov);
 	float GetFOV();
 
+	void SetView(glm::mat4 view);
+	void SetProjection(glm::mat4 projection);
+
 	void ClearScreen();
 	void ClearScreenWithColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
 	void SwapBuffers(GLFWwindow* window);
