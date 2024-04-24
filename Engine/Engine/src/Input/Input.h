@@ -26,15 +26,12 @@ private:
 	static bool firstMouse;
 
 public:
-	Input(Window* window);
-	//Input();
+	Input();
 	~Input();
-
 
 	static void Init(Window* wind, Camera* cam, Render* render);
 	static void SetCamera(Camera* cam);
-	//static bool IsKeyPressed(int keycode);
-	static bool IsKeyPressed(int keycode, Window* window);
+	static bool IsKeyPressed(int keycode);
 	static bool IsKeyDown(int keycode);
 
 	static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);

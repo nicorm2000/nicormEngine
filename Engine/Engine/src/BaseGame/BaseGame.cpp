@@ -83,7 +83,7 @@ int BaseGame::Run()
 
 bool BaseGame::IsKeyPressed(int keycode)
 {
-	return input->IsKeyPressed(keycode, window);
+	return input->IsKeyPressed(keycode);
 }
 
 float BaseGame::GetFrameTime()

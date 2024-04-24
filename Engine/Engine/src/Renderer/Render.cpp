@@ -5,6 +5,7 @@
 
 Render::Render(Window* window)
 {
+    this->shader = nullptr;
     view = glm::mat4(0.f);
     projection = glm::mat4(0.f);
 
@@ -53,6 +54,12 @@ Render::~Render()
     {
         window = nullptr;
         delete window;
+    }
+
+    if (shader != nullptr)
+    {
+        delete shader;
+        shader = nullptr;
     }
 }
 

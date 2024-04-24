@@ -8,15 +8,10 @@ list<int> Input::keysDown = std::list<int>();
 glm::vec2 Input::lastPosition = glm::vec2(0.0f);
 bool Input::firstMouse = true;
 
-Input::Input(Window* window)
+Input::Input()
 {
-	glfwSetInputMode(window->GetWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	//lastPosition = glm::vec2(window->GetWidth() / 2.0f, window->GetHeight() / 2.0f);
-}
 
-//Input::Input()
-//{
-//}
+}
 
 Input::~Input()
 {
@@ -40,7 +35,7 @@ void Input::SetCamera(Camera* cam)
 	camera = cam;
 }
 
-bool Input::IsKeyPressed(int keycode, Window* window)
+bool Input::IsKeyPressed(int keycode)
 {
 	int aux = glfwGetKey(window->GetWindow(), keycode);
 	return aux == GLFW_PRESS;
