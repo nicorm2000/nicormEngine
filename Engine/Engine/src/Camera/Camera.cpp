@@ -1,6 +1,5 @@
 #include "Camera.h"
 
-//Dep agregar la herencia de : Entity(renderer)
 Camera::Camera(Render* renderer) : Entity(renderer)
 {
 	view = glm::mat4(1.0f);
