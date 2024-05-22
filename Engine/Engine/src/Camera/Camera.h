@@ -11,7 +11,6 @@ using namespace std;
 class DllApi Camera : public Entity
 {
 protected:
-	//Mas adelante
 	void SetUniforms() override;
 	void UpdateShader() override;
 	

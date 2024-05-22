@@ -57,7 +57,7 @@ int BaseGame::Run()
 
 	renderer->InitMaterial();
 
-	///camera = new Camera(renderer);
+	//camera = new Camera(renderer);
 	//camera->Init(45.f, window->GetWidth(), window->GetHeight(), 0.1f, 100.f);
 	//camera->SetSensitivity(0.25f);
 

@@ -44,7 +44,7 @@ Entity::Entity()
 
 Entity::Entity(Render* renderer)
 {
-
+	this->renderer = renderer;
 }
 
 Entity::~Entity()

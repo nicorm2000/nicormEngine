@@ -192,7 +192,9 @@
   <ItemGroup>
     <None Include="lib\Engine.dll" />
     <None Include="shaders\Basic.shader" />
+    <None Include="shaders\fragment.shader" />
     <None Include="shaders\Textures.shader" />
+    <None Include="shaders\vertex.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h" />
