@@ -24,10 +24,12 @@
     <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="src\Color\Color.cpp" />
+    <ClCompile Include="src\Entity3D\Entity3D.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Entity2D\Entity2D.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Material\Material.cpp" />
+    <ClCompile Include="src\ModelImporter\ModelImporter.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\Renderer\Render.cpp" />
     <ClCompile Include="src\Shader\Shader.cpp" />
@@ -44,6 +46,7 @@
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\CollisionManager\CollisionManager.h" />
     <ClInclude Include="src\Color\Color.h" />
+    <ClInclude Include="src\Entity3D\Entity3D.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Entity2D\Entity2D.h" />
     <ClInclude Include="src\Export.h" />
@@ -51,6 +54,7 @@
     <ClInclude Include="src\Keycodes.h" />
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Matrix.h" />
+    <ClInclude Include="src\ModelImporter\ModelImporter.h" />
     <ClInclude Include="src\Player\Player.h" />
     <ClInclude Include="src\Renderer\Render.h" />
     <ClInclude Include="src\Shader\Shader.h" />

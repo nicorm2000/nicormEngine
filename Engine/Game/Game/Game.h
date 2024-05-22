@@ -21,6 +21,9 @@ private:
 	float deltaTime;
 	float lastFrame;
 
+	bool firstPerson;
+	bool thirdPerson;
+
 	glm::vec3 cameraPos;
 
 public:

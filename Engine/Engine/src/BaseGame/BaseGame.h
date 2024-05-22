@@ -14,13 +14,11 @@
 
 class DllApi BaseGame
 {
-private:
+protected:
 	Window* window;
 	Input* input;
 	CollisionManager* collisionManager;
 	Camera* camera;
-
-protected:
 	Render* renderer;
 
 public:

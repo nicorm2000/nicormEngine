@@ -22,6 +22,7 @@ private:
 	glm::mat4 projection;
 
 	glm::vec3 cameraF;
+	glm::vec3 cameraUp;
 	glm::vec3 cameraP;
 
 	float yaw;
@@ -46,6 +47,8 @@ public:
 	float GetSensitivity();
 	void SetFront(glm::vec3 front);
 	glm::vec3 GetFront();
+	void SetUp(glm::vec3 up);
+	glm::vec3 GetUp();
 	void SetFOV(float fov);
 	float GetFOV();
 

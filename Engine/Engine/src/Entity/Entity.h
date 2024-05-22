@@ -10,6 +10,24 @@ class DllApi Entity
 protected:
 	Render* renderer;
 
+	//Entity* parent;
+	//list<Entity*> nodes;
+	//
+	//VolumeAABB* localVolume;
+	//VolumeAABB* globalVolume;
+	//bool volumeDirty;
+	//bool drawVolume;
+
+	unsigned int uniformModel;
+	unsigned int uniformView;
+	unsigned int uniformProjection;
+	unsigned int locationPosition;
+	unsigned int locationNormal;
+	unsigned int locationTexCoord;
+
+	//bool IsCanDraw();
+	//void UpdateGlobalVolume();
+
 	unsigned int VAO; //Vertex Array Object
 	unsigned int VBO; //Vertex Buffer Object
 	unsigned int EBO; //Element Buffer Object
@@ -27,8 +45,24 @@ protected:
 	virtual void SetUniforms();
 	virtual void UpdateShader();
 
+private:
+	//glm::quat EulerToQuat(glm::vec3 euler);
+	//glm::vec3 QuatToVec(glm::quat quat, glm::vec3 euler);
+	//glm::quat GetRotationByMatrix(glm::mat4 mat);
+	//glm::vec3 ToEulerRad(glm::quat rot);
+	//glm::vec3 NormalizeAngles(glm::vec3 angles);
+	//float NormalizeAngle(float angle);
+	//
+	//void UpdateMatrix();
+	//void UpdateTransform();
+	//
+	//void UpdateNodesPos();
+	//void UpdateNodesRot();
+	//void UpdateNodesScale();
+
 public:
 	Entity();
+	Entity(Render* renderer);
 	~Entity();
 
 	void UpdateModelMatrix();
@@ -49,5 +83,5 @@ public:
 	void Rotate(float x, float y, float z);
 	void Scale(float x, float y, float z);
 
-	virtual void Draw() = 0;
+	virtual void Draw();
 };

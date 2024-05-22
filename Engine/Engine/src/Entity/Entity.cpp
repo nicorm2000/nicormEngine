@@ -42,6 +42,11 @@ Entity::Entity()
 	renderer = nullptr;
 }
 
+Entity::Entity(Render* renderer)
+{
+
+}
+
 Entity::~Entity()
 {
 	if (renderer != nullptr)
@@ -49,6 +54,15 @@ Entity::~Entity()
 		renderer = nullptr;
 		delete renderer;
 	}
+}
+
+void Entity::Draw()
+{
+	//for (list<Entity*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+	//{
+	//	(*it)->Draw();
+	//}
+	Draw();
 }
 
 void Entity::UpdateModelMatrix()

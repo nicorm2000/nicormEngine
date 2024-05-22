@@ -18,6 +18,9 @@ Game::Game()
 	deltaTime = 0.0f;
 	lastFrame = 0.0f;
 	cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+
+	firstPerson = true;
+	thirdPerson = false;
 }
 
 Game::~Game()
@@ -112,6 +115,12 @@ void Game::Start()
 
 void Game::Update()
 {
+	if (IsKeyPressed(KEY_P))
+	{
+		firstPerson = !firstPerson;
+		thirdPerson = !thirdPerson;
+	}
+
 	float currentFrame = GetFrameTime();
 	deltaTime = currentFrame - lastFrame;
 	lastFrame = currentFrame;
@@ -145,22 +154,44 @@ void Game::Update()
 		player->SetAnimation(idle);
 	}
 
-	if (IsKeyPressed(KEY_W))
+	if (firstPerson && !thirdPerson)
 	{
-		renderer->UpdateCameraPos(cameraPos += cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
+		if (IsKeyPressed(KEY_W))
+		{
+			renderer->UpdateCameraPos(cameraPos += cameraSpeed * renderer->GetFront());
+		}
+		else if (IsKeyPressed(KEY_S))
+		{
+			renderer->UpdateCameraPos(cameraPos -= cameraSpeed * renderer->GetFront());
+		}
+		else if (IsKeyPressed(KEY_A))
+		{
+			renderer->UpdateCameraPos(cameraPos -= glm::normalize(glm::cross(renderer->GetFront(), renderer->GetUp())) * cameraSpeed);
+		}
+		else if (IsKeyPressed(KEY_D))
+		{
+			renderer->UpdateCameraPos(cameraPos += glm::normalize(glm::cross(renderer->GetFront(), renderer->GetUp())) * cameraSpeed);
+		}
 	}
-	else if (IsKeyPressed(KEY_S))
-	{
-		renderer->UpdateCameraPos(cameraPos -= cameraSpeed * glm::vec3(0.0f, 0.0f, -1.0f));
-	}
-	else if (IsKeyPressed(KEY_A))
-	{
-		renderer->UpdateCameraPos(cameraPos -= glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
-	}
-	else if (IsKeyPressed(KEY_D))
-	{
-		renderer->UpdateCameraPos(cameraPos += glm::normalize(glm::cross(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f))) * cameraSpeed);
-	}
+	///if (!firstPerson && thirdPerson)
+	///{
+	///	if (IsKeyPressed(KEY_U))
+	///	{
+	///		renderer->UpdateCameraPos(cameraPos += cameraSpeed);
+	///	}
+	///	else if (IsKeyPressed(KEY_J))
+	///	{
+	///		renderer->UpdateCameraPos(cameraPos -= cameraSpeed);
+	///	}
+	///	else if (IsKeyPressed(KEY_H))
+	///	{
+	///		renderer->UpdateCameraPos(cameraPos -= glm::normalize(glm::cross(renderer->GetFront(), renderer->GetUp())) * cameraSpeed);
+	///	}
+	///	else if (IsKeyPressed(KEY_K))
+	///	{
+	///		renderer->UpdateCameraPos(cameraPos += glm::normalize(glm::cross(renderer->GetFront(), renderer->GetUp())) * cameraSpeed);
+	///	}
+	///}
 
 	//if (CollisionManager::CheckCollision(player, sign))
 	//{

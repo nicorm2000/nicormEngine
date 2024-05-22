@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 //Dep agregar la herencia de : Entity(renderer)
-Camera::Camera(Render* renderer)
+Camera::Camera(Render* renderer) : Entity(renderer)
 {
 	view = glm::mat4(1.0f);
 	projection = glm::mat4(1.0f);
@@ -16,10 +16,10 @@ Camera::Camera(Render* renderer)
 	near = 0.0f;
 	far = 0.0f;
 
-	sensitivity = 0.0f;
+	sensitivity = 0.5f;
 
 	target = nullptr;
-	offset = 0.0f;
+	offset = 0.0f;	
 	followTarget = false;
 }
 
