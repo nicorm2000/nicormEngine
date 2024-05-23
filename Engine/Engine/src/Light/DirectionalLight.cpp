@@ -19,18 +19,18 @@ void DirectionalLight::UseLight()
 void DirectionalLight::UpdateShader()
 {
 	Light::UpdateShader();
-	//renderer->UpdateLightVec3(uniformDirection, direction);
+	renderer->UpdateLightVec3(uniformDirection, direction);
 	SetUniforms();
 }
 
 void DirectionalLight::SetUniforms()
 {
-	//renderer->SetUniform(uniformColor, "directionalLight.color");
-	//renderer->SetUniform(uniformDirection, "directionalLight.direction");
-	//renderer->SetUniform(uniformAmbient, "directionalLight.ambient");
-	//renderer->SetUniform(uniformDiffuse, "directionalLight.diffuse");
-	//renderer->SetUniform(uniformSpecular, "directionalLight.specular");
-	//renderer->SetUniform(uniformEnabled, "directionalLight.enabled");
+	renderer->SetUniform(uniformColor, "directionalLight.color");
+	renderer->SetUniform(uniformDirection, "directionalLight.direction");
+	renderer->SetUniform(uniformAmbient, "directionalLight.ambient");
+	renderer->SetUniform(uniformDiffuse, "directionalLight.diffuse");
+	renderer->SetUniform(uniformSpecular, "directionalLight.specular");
+	renderer->SetUniform(uniformEnabled, "directionalLight.enabled");
 }
 
 void DirectionalLight::SetDirection(glm::vec3 direction)

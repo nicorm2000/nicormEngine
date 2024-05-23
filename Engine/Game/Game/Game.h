@@ -6,7 +6,7 @@ class Game : public BaseGame
 {
 private:
 	Sprite* player;
-	Sprite* grass;
+	Sprite* bg;
 	Sprite* sign;
 	Animation* signIdle;
 	Animation* idle;

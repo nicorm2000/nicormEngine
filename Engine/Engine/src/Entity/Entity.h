@@ -3,6 +3,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Renderer/Render.h"
+#include "Matrix.h"
+#include "Transform.h"
 #include "Export.h"
 
 class DllApi Entity
@@ -84,4 +86,7 @@ public:
 	void Scale(float x, float y, float z);
 
 	virtual void Draw();
+
+	//Matrix model;
+	Transform transform;
 };

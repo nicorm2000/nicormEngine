@@ -175,6 +175,5 @@ void Entity::SetUniforms()
 
 void Entity::UpdateShader()
 {
-	//Dep
 	//renderer->UpdateMVP(uniformModel, uniformView, uniformProjection, matrix.model);
 }

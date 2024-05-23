@@ -27,13 +27,13 @@ void Light::UseLight()
 
 void Light::UpdateShader()
 {
-	//renderer->UseShader();
-	//Entity::UpdateShader();
-	//renderer->UpdateLightVec3(uniformColor, color.GetColorRGB());
-	//renderer->UpdateLightVec3(uniformAmbient, ambient);
-	//renderer->UpdateLightVec3(uniformDiffuse, diffuse);
-	//renderer->UpdateLightVec3(uniformSpecular, specular);
-	//renderer->UpdateLightStatus(uniformEnabled, enabled);
+	renderer->UseShader();
+	Entity::UpdateShader();
+	renderer->UpdateLightVec3(uniformColor, color.GetColorRGB());
+	renderer->UpdateLightVec3(uniformAmbient, ambient);
+	renderer->UpdateLightVec3(uniformDiffuse, diffuse);
+	renderer->UpdateLightVec3(uniformSpecular, specular);
+	renderer->UpdateLightStatus(uniformEnabled, enabled);
 }
 
 void Light::SetAmbient(glm::vec3 ambient)

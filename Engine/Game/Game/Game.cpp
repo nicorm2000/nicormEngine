@@ -5,7 +5,7 @@ Game::Game()
 {
 	player = nullptr;
 	sign = nullptr;
-	grass = nullptr;
+	bg = nullptr;
 	signIdle = nullptr;
 	idle = nullptr;
 	up = nullptr;
@@ -35,9 +35,9 @@ Game::~Game()
 		delete sign;
 	}
 
-	if (grass != nullptr) {
-		grass = nullptr;
-		delete grass;
+	if (bg != nullptr) {
+		bg = nullptr;
+		delete bg;
 	}
 
 	if (signIdle != nullptr) {
@@ -75,10 +75,12 @@ void Game::Start()
 {
 	renderer->SetDepth();
 
-	grass = new Sprite(renderer, "res/bg.png");
-	grass->SetColor(glm::vec3(1, 1, 1));
-	grass->SetPosition(0, 0, -10);
-	grass->SetScale(50, 50, 1);
+	bg = new Sprite(renderer, "res/bg.png");
+	bg->SetColor(glm::vec3(1, 1, 1));
+	bg->SetPosition(0, -2, 0);
+	bg->SetScale(20, 20, 1);
+	bg->SetRotationX(90);
+	bg->SetRotationZ(180);
 
 	sign = new Sprite(renderer, "res/Sonic_Mania_Sprite_Sheet.png");
 	sign->SetColor(glm::vec3(1, 1, 1));
@@ -201,7 +203,7 @@ void Game::Update()
 	player->UpdateAnimation();
 	sign->UpdateAnimation();
 
-	grass->Draw();
+	bg->Draw();
 	sign->Draw();
 	player->Draw();
 }
@@ -216,5 +218,5 @@ void Game::End()
 	delete left;
 	delete player;
 	delete sign;
-	delete grass;
+	delete bg;
 }

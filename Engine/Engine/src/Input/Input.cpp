@@ -103,8 +103,8 @@ void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 		renderer->SetFOV(1.0f);
 	if (renderer->GetFOV() > 120.0f)
 		renderer->SetFOV(120.0f);
-	camera->SetFOV(camera->GetFOV() - (float)yoffset);
-	
-	if (camera->GetFOV() < 1.0f) camera->SetFOV(1.0f);
-	if (camera->GetFOV() > 45.0f) camera->SetFOV(45.0f);
+	//camera->SetFOV(camera->GetFOV() - (float)yoffset);
+	//
+	//if (camera->GetFOV() < 1.0f) camera->SetFOV(1.0f);
+	//if (camera->GetFOV() > 45.0f) camera->SetFOV(45.0f);
 }
