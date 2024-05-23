@@ -1,0 +1,76 @@
+﻿  Animation.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Animation\Animation.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  BaseGame.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\BaseGame\BaseGame.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  BSP.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\BSP\BSP.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Camera.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Camera\Camera.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  CollisionManager.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\CollisionManager\CollisionManager.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Color.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Color\Color.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Entity2D.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Entity2D\Entity2D.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Entity3D.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Entity3D\Entity3D.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Entity.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Entity\Entity.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Input.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Input\input.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  DirectionalLight.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Light\DirectionalLight.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  PointLight.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Light\PointLight.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Light.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Light\Light.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  SpotLight.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Light\SpotLight.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Line.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Line\Line.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Material.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Material\Material.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  MaterialManager.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Material\MaterialManager.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  SolidMaterial.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Material\SolidMaterial.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  TextureMaterial.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Material\TextureMaterial.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Mesh.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Mesh\Mesh.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Generating Code...
+  Compiling...
+  ModelImporter.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\ModelImporter\ModelImporter.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  OcclusionCulling.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\OcclusionCulling\OcclusionCulling.h(4,10): fatal  error C1083: Cannot open include file: 'Export.h': No such file or directory
+  PlaneBSP.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\PlaneBSP\PlaneBSP.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Plane.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Plane\Plane.h(4,10): fatal  error C1083: Cannot open include file: 'Export.h': No such file or directory
+  Player.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Player\Player.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Renderer.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Renderer\Renderer.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Shader.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Shader\Shader.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Shape.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Shape\Shape.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Sprite.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Sprite\Sprite.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  TextureImporter.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\TextureImporter\TextureImporter.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  TileMap.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Tilemap\Tilemap.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Tile.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Tile\Tile.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Timer.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Timer\Timer.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  tinyxml2.cpp
+  Volume.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Volume\Volume.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  VolumeAABB.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Volume\VolumeAABB.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Window.cpp
+C:\Users\Nico\Desktop\nicormEngine\Engine\BT_GraphicEngine_dll\src\Window\Window.h(4,10): fatal  error C1083: Cannot open include file: 'glew.h': No such file or directory
+  Generating Code...

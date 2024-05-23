@@ -1,0 +1,64 @@
+#include "MaterialManager.h"
+
+SolidMaterial* MaterialManager::solidMaterial = nullptr;
+TextureMaterial* MaterialManager::textureMaterial = nullptr;
+
+MaterialManager::MaterialManager()
+{
+	solidMaterial = nullptr;
+	textureMaterial = nullptr;
+}
+
+MaterialManager::~MaterialManager()
+{
+}
+
+void MaterialManager::Init(Renderer* renderer)
+{
+	solidMaterial = new SolidMaterial(renderer);
+	solidMaterial->Init();
+	solidMaterial->SetAmbient(glm::vec3(0.5f, 0.5f, 0.5f));
+	solidMaterial->SetDiffuse(glm::vec3(0.4f, 0.4f, 0.4f));
+	solidMaterial->SetSpecular(glm::vec3(0.5f, 0.5f, 0.5f));
+	solidMaterial->SetShininess(64.f);
+
+	textureMaterial = new TextureMaterial(renderer);
+	textureMaterial->Init();
+	textureMaterial->SetDiffuse(0);
+	textureMaterial->SetSpecular(1);
+	textureMaterial->SetShininess(64.f);
+}
+
+void MaterialManager::DeInit()
+{
+	if (solidMaterial != nullptr)
+	{
+		delete solidMaterial;
+		solidMaterial = nullptr;
+	}
+	if (textureMaterial != nullptr)
+	{
+		delete textureMaterial;
+		textureMaterial = nullptr;
+	}
+}
+
+void MaterialManager::SetSolidMaterial(SolidMaterial* solidMat)
+{
+	solidMaterial = solidMat;
+}
+
+void MaterialManager::SetTextureMaterial(TextureMaterial* textureMat)
+{
+	textureMaterial = textureMat;
+}
+
+SolidMaterial* MaterialManager::GetSolidMaterial()
+{
+	return solidMaterial;
+}
+
+TextureMaterial* MaterialManager::GetTextureMaterial()
+{
+	return textureMaterial;
+}
