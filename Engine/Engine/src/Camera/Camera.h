@@ -13,7 +13,7 @@ class DllApi Camera : public Entity
 protected:
 	void SetUniforms() override;
 	void UpdateShader() override;
-	
+
 	void UpdateDirection();
 	void UpdateView();
 	void UpdateProjection();
@@ -36,7 +36,6 @@ protected:
 	Entity* target;
 	float offset;
 	bool followTarget;
-
 public:
 	Camera(Render* renderer);
 	~Camera();
@@ -62,6 +61,15 @@ public:
 	float GetNear();
 	float GetFar();
 	float GetAspectRatio();
+
+
+	//void UpdateCameraPos(glm::vec3 pos);
+	//void UpdateProjection();
+	//void UpdateDirection();
+	//void SetFront(glm::vec3 front);
+	//glm::vec3 GetFront();
+	//void SetUp(glm::vec3 up);
+	//glm::vec3 GetUp();
 };
 
 #endif

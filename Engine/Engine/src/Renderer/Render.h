@@ -61,6 +61,9 @@ public:
 	void SwapBuffers(GLFWwindow* window);
 
 	int InitGLEW();
+	void InitShader();
+
+	//sacar
 	void InitMaterial();
 
 	void CreateBuffers(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);

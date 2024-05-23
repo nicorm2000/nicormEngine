@@ -21,6 +21,7 @@ Game::Game()
 
 	firstPerson = true;
 	thirdPerson = false;
+	//directionalLight = nullptr;
 }
 
 Game::~Game()
@@ -69,6 +70,12 @@ Game::~Game()
 		right = nullptr;
 		delete right;
 	}
+
+	//if (directionalLight != nullptr)
+	//{
+	//	directionalLight = nullptr;
+	//	delete directionalLight;
+	//}
 }
 
 void Game::Start()
@@ -92,6 +99,9 @@ void Game::Start()
 	player->SetPosition(0, 0, -8);
 	player->SetScale(3, 3, 1);
 
+	//camera->SetTarget(player);
+	//camera->SetOffset(10);
+
 	signIdle = new Animation();
 	idle = new Animation();
 	up = new Animation();
@@ -113,10 +123,19 @@ void Game::Start()
 
 	player->SetAnimation(up);
 	sign->SetAnimation(signIdle);
+
+	//directionalLight = new DirectionalLight(renderer);
+	//directionalLight->color.SetColorRGB(255, 255, 255);
+	//directionalLight->SetDirection(glm::vec3(-0.2f, -1.0f, -0.3f));
+	//directionalLight->SetAmbient(glm::vec3(1.f, 1.f, 1.f));
+	//directionalLight->SetDiffuse(glm::vec3(0.6f, 0.6f, 0.6f));
+	//directionalLight->SetSpecular(glm::vec3(0.25f, 0.25f, 0.25f));
 }
 
 void Game::Update()
 {
+	//camera->Update();
+	//directionalLight->UseLight();
 	if (IsKeyPressed(KEY_P))
 	{
 		firstPerson = !firstPerson;

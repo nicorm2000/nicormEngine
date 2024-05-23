@@ -79,7 +79,6 @@ void Render::UpdateCameraPos(glm::vec3 pos)
 
 void Render::UpdateDirection()
 {
-	bool firstPerson = false;
 	glm::vec3 direction;
 	direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	direction.y = sin(glm::radians(pitch));
@@ -188,6 +187,12 @@ int Render::InitGLEW()
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+
+void Render::InitShader()
+{
+	//shader = new Shader();
+	//shader->CreateShader("../src/shaders/vertex.shader", "../src/shaders/fragment.shader");
 }
 
 void Render::InitMaterial()
@@ -411,14 +416,17 @@ void Render::UpdateCameraView(unsigned int uniformView, glm::vec3 position)
 {
 	glUniform3f(uniformView, position.x, position.y, position.z);
 }
+
 void Render::UpdateLightVec3(unsigned int uniformLightVec3, glm::vec3 light)
 {
 	glUniform3f(uniformLightVec3, light.x, light.y, light.z);
 }
+
 void Render::UpdateLightFloat(unsigned int uniformLightFloat, float value)
 {
 	glUniform1f(uniformLightFloat, value);
 }
+
 void Render::UpdateLightStatus(unsigned int uniformLightStatus, bool status)
 {
 	glUniform1i(uniformLightStatus, status);

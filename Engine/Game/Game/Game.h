@@ -1,6 +1,10 @@
 #pragma once
 
 #include "BaseGame/BaseGame.h"
+#include "Light/Light.h"
+#include "Light/DirectionalLight.h"
+#include "Light/PointLight.h"
+#include "Light/SpotLight.h"
 
 class Game : public BaseGame
 {
@@ -14,7 +18,7 @@ private:
 	Animation* down;
 	Animation* left;
 	Animation* right;
-
+	//DirectionalLight* directionalLight;
 	float time;
 	float cameraSpeed;
 	float cameraSpeedMultiplier;
