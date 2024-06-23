@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{c56e9b70-cd20-4829-87ba-ce08007a1eed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\Shaders">
+      <UniqueIdentifier>{a08730fe-af8c-40f6-98cf-0541f05a000c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\BaseGame">
+      <UniqueIdentifier>{1a99fd21-6584-49f9-9c39-dc702108f796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Visual">
+      <UniqueIdentifier>{40f1a717-f67d-4466-ae77-1e4a79a764e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Interact">
+      <UniqueIdentifier>{94d89381-684a-4d3f-8645-3f51a4178b01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Entity">
+      <UniqueIdentifier>{2e3857a5-36ab-437c-a31a-259372ed09df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Managers">
+      <UniqueIdentifier>{dbfd77a1-ef73-4af3-94de-2598792589e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\BaseGame">
+      <UniqueIdentifier>{d4a64ad7-1f80-4592-84ba-e789aa2bc7c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Interact">
+      <UniqueIdentifier>{b916ba7a-02e2-4a30-ad1a-6a24058e810c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Entity">
+      <UniqueIdentifier>{959cda60-a245-456b-96a7-2ce4f1ee5b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Visual">
+      <UniqueIdentifier>{e6673aaf-1948-4d16-abb3-43696bd1eeaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Managers">
+      <UniqueIdentifier>{baeb5fc2-7fdd-400a-9e7a-8177b854e3f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Shader">
+      <UniqueIdentifier>{f6ba2ede-588f-4ac2-acd4-c41c16d72aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Shader">
+      <UniqueIdentifier>{aefb876c-61c1-42f6-9d4d-da8b16c422fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Material">
+      <UniqueIdentifier>{35b1526b-1d50-417d-b909-75df9eb0f2c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Material">
+      <UniqueIdentifier>{1a6177de-5da1-4894-9fd0-570da834cf2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Light">
+      <UniqueIdentifier>{58c874ce-4f86-49e0-a785-c8ab3d4ecd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Light">
+      <UniqueIdentifier>{adc2895f-1311-4d0e-bfc6-a2dc1433be92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Imgui">
+      <UniqueIdentifier>{869895dc-9578-4c49-8504-19c1e9310f07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Imgui\Master">
+      <UniqueIdentifier>{ffcfe99f-9177-498f-8c18-92ac42bbebd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Imgui\Master\Source">
+      <UniqueIdentifier>{6c8d698d-b1ef-47a5-a750-b8ec69b5abd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Imgui\Master\Imgur">
+      <UniqueIdentifier>{ea03bda9-a39c-4987-9512-55a70fce32d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Mesh">
+      <UniqueIdentifier>{84001d92-52a3-4639-85b1-0cf881f4b82e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Importer">
+      <UniqueIdentifier>{40a36cfa-90a6-4303-bfa7-6c34d24cf08e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{899ed602-0b6b-48c3-9fb1-fa16b7db9c4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\MyMesh">
+      <UniqueIdentifier>{deee2740-7162-4f1e-baaa-71e7a7a415c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{c6dff739-13f1-4635-bdd1-90aa2ccbe590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Object">
+      <UniqueIdentifier>{90cd60a1-933a-47ef-be2d-2bdf14e3364c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Component">
+      <UniqueIdentifier>{31b34d4b-d892-469c-9a51-1e062f5a839c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Transform">
+      <UniqueIdentifier>{aac0a272-d0e0-4290-ba8f-1f06600c486d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Space">
+      <UniqueIdentifier>{7ea7dd25-528a-41e3-8c89-a7880d044aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Behaviour">
+      <UniqueIdentifier>{1d92e2a6-3052-4e37-bc8c-9acd0b917d54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entity2">
+      <UniqueIdentifier>{95e5bbb4-4394-455c-9d66-b0f8dbb739da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObject">
+      <UniqueIdentifier>{486c6d8c-23b9-44b8-bfcd-3e1bbffc3c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Data">
+      <UniqueIdentifier>{4b3a1921-dae0-4c3b-b3fd-4245f8255f29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Importer2">
+      <UniqueIdentifier>{8a4a4b82-a275-49bc-9a0b-db2b8c9d5ebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Vertex2">
+      <UniqueIdentifier>{c6a775c6-2287-429d-ba10-d11a6703234e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Texture2">
+      <UniqueIdentifier>{68acf2c5-1ac3-4e1e-b50f-2775f65b5ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mesh2">
+      <UniqueIdentifier>{f0968486-db8d-4ded-a2b2-6667d3f2aaae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Extras">
+      <UniqueIdentifier>{c4989400-82b1-4bfc-b7cd-346d915fe889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Camera2">
+      <UniqueIdentifier>{b6ff391d-be49-4756-a76e-cfd8f4eb1f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input2">
+      <UniqueIdentifier>{bc93dc7c-f42e-4ac3-8cb9-b5e75dcc6f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Frustrum">
+      <UniqueIdentifier>{d41727ea-0ef8-4f7b-9fb6-1906b7a2d4da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BoundingVolume">
+      <UniqueIdentifier>{10dfc63f-b351-47e6-9c8e-d145079276a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Collision">
+      <UniqueIdentifier>{a803bfac-6866-47b9-a56f-2571c343f1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Line">
+      <UniqueIdentifier>{1ca4e79f-4486-485b-937c-fe49907f6296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Model">
+      <UniqueIdentifier>{73cc2d8e-c224-4778-a8ec-0e76feabf625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entity3d">
+      <UniqueIdentifier>{5605b732-e927-44ff-b1b6-85aaebae6ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Camera">
+      <UniqueIdentifier>{67832890-07c1-4e8e-ac80-b1bb4cac1df4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Plane">
+      <UniqueIdentifier>{f5e78df4-539c-4185-98e9-c8feff8315c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BSP">
+      <UniqueIdentifier>{da348a2c-c33a-4a9c-b21a-3f714c6d56a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MaterialManager">
+      <UniqueIdentifier>{3809011d-7e9a-49b4-abd8-07c45d45629f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\solidMaterial">
+      <UniqueIdentifier>{efec83e9-c0cc-4e28-ba92-367c37774ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\textureMaterial">
+      <UniqueIdentifier>{99fa6ad3-2842-424a-a35c-b234189dcdc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\color">
+      <UniqueIdentifier>{b96b90fb-9005-4ee4-89ec-863effa286f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BaseGame\BaseGame.cpp">
+      <Filter>Archivos de origen\BaseGame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Input.cpp">
+      <Filter>Archivos de origen\Interact</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Entity.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity2D\Entity2D.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animation\Animation.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\Camera.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collision\Collision.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Renderer.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Shape.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite\Sprite.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture\MyTexture.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureImporter\TextureImporter.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureImporter\stb_image.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tile\TileMap.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tile\Tile.cpp">
+      <Filter>Archivos de origen\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time\Time.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window\Window.cpp">
+      <Filter>Archivos de origen\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tile\tinyxml2.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader\Shader.cpp">
+      <Filter>Archivos de origen\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Light\light.cpp">
+      <Filter>Archivos de origen\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Light\directionalLight.cpp">
+      <Filter>Archivos de origen\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Light\pointLight.cpp">
+      <Filter>Archivos de origen\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Light\spotLight.cpp">
+      <Filter>Archivos de origen\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LightManager\lightManager.cpp">
+      <Filter>Archivos de origen\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\MyImGui.cpp">
+      <Filter>Archivos de encabezado\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Source\imgui_impl_glfw.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Source\imgui_impl_opengl3.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Imgui\imgui.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Imgui\imgui_demo.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Imgui\imgui_draw.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Imgui\imgui_tables.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGui\ImGuiMaster\Imgui\imgui_widgets.cpp">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Importer\Importer.cpp">
+      <Filter>Archivos de encabezado\Importer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyMesh\Mesh.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object\Object.cpp">
+      <Filter>src\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Component.cpp">
+      <Filter>src\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transform\Transform.cpp">
+      <Filter>src\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Behaviour\Behaviour.cpp">
+      <Filter>src\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity2\Entity2.cpp">
+      <Filter>src\Entity2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\GameObject.cpp">
+      <Filter>src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh2\Mesh2.cpp">
+      <Filter>src\Mesh2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Importer\Importer2.cpp">
+      <Filter>src\Importer2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera2\Camera2.cpp">
+      <Filter>src\Camera2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input2\Input2.cpp">
+      <Filter>src\Input2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\line\line.cpp">
+      <Filter>src\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model\Model.cpp">
+      <Filter>src\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Entity3D.cpp">
+      <Filter>src\Entity3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\occlusionCulling.cpp">
+      <Filter>src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plan\Plane.cpp">
+      <Filter>src\Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collision\AABB.cpp">
+      <Filter>src\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BSP\BSP.cpp">
+      <Filter>src\BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\Material.cpp">
+      <Filter>Archivos de encabezado\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\solidMaterial.cpp">
+      <Filter>src\solidMaterial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\textureMaterial.cpp">
+      <Filter>src\textureMaterial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MaterialManager\materialManager.cpp">
+      <Filter>src\MaterialManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Color\color.cpp">
+      <Filter>src\color</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mikkai\Minterface.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Juli\Utilitis.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BaseGame\BaseGame.h">
+      <Filter>Archivos de encabezado\BaseGame</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animation\Animation.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Atlas\Atlas.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Entity.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity2D\Entity2D.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite\Sprite.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shape\Shape.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>Archivos de encabezado\Interact</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Exports\Exports.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\Camera.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\Collision.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Renderer.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture\MyTexture.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tile\Tile.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tile\TileMap.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureImporter\TextureImporter.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureImporter\stb_image.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tile\tinyxml2.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Time\Time.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window\Window.h">
+      <Filter>Archivos de encabezado\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Internal\Internal.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader\Shader.h">
+      <Filter>Archivos de encabezado\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\Material.h">
+      <Filter>Archivos de encabezado\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\vertexs.h">
+      <Filter>Archivos de encabezado\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LightManager\lightManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Light\DirectionalLight.h">
+      <Filter>Archivos de encabezado\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Light\light.h">
+      <Filter>Archivos de encabezado\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Light\pointLight.h">
+      <Filter>Archivos de encabezado\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Light\spotLight.h">
+      <Filter>Archivos de encabezado\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\MyImGui.h">
+      <Filter>Archivos de encabezado\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Source\imgui_impl_glfw.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Source\imgui_impl_opengl3.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Source\imgui_impl_opengl3_loader.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imconfig.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imgui.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imgui_internal.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imstb_textedit.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imstb_rectpack.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imstb_truetype.h">
+      <Filter>Archivos de encabezado\Imgui\Master\Imgur</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Importer\Importer.h">
+      <Filter>Archivos de encabezado\Importer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyMesh\Mesh.h">
+      <Filter>Archivos de encabezado\MyMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object\Object.h">
+      <Filter>src\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object\HideFlags.h">
+      <Filter>src\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component\Component.h">
+      <Filter>src\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform\Transform.h">
+      <Filter>src\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Space\Space.h">
+      <Filter>src\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Behaviour\Behaviour.h">
+      <Filter>src\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity2\Entity2.h">
+      <Filter>src\Entity2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\GameObject.h">
+      <Filter>src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Importer\Importer2.h">
+      <Filter>src\Importer2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model\Model.h">
+      <Filter>src\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vertex\Vertex.h">
+      <Filter>src\Vertex2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture2\Texture2.h">
+      <Filter>src\Texture2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh2\Mesh2.h">
+      <Filter>src\Mesh2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Importer\assimpIncludes.h">
+      <Filter>src\Extras</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera2\Camera2.h">
+      <Filter>src\Camera2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input2\Input2.h">
+      <Filter>src\Input2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input2\KeyState.h">
+      <Filter>src\Input2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input2\KeyCode.h">
+      <Filter>src\Input2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plan\Plane.h">
+      <Filter>src\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Frustum\Frustrum.h">
+      <Filter>src\Frustrum</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BoundingVolume\BoundingVolume.h">
+      <Filter>src\BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\Sphere.h">
+      <Filter>src\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\SquareAABB.h">
+      <Filter>src\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\AABB.h">
+      <Filter>src\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\line\line.h">
+      <Filter>src\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Entity3D.h">
+      <Filter>src\Entity3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\occlusionCulling.h">
+      <Filter>src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BSP\BSP.h">
+      <Filter>src\BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MaterialManager\MaterialManager.h">
+      <Filter>src\MaterialManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\solidMaterial.h">
+      <Filter>src\solidMaterial</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\textureMaterial.h">
+      <Filter>src\textureMaterial</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Color\color.h">
+      <Filter>src\color</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mikkai\Minterface.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="Shaders\fragment.shader">
+      <Filter>res\Shaders</Filter>
+    </None>
+    <None Include="Shaders\vertex.shader">
+      <Filter>res\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="src\ImGui\ImGuiMaster\Source\imgui.natvis">
+      <Filter>Archivos de encabezado\Imgui\Master\Source</Filter>
+    </Natvis>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+// Los archivos de sugerencia ayudan al IDE de Visual Studio a interpretar los identificadores de Visual C++
+// por ejemplo, los nombres de funciones y macros.
+// Para obtener más información, consulte https://go.microsoft.com/fwlink/?linkid=865984
+#define GLFWAPI __declspec(dllexport)
+#define GLFWAPI __declspec(dllimport)
+#define GLFWAPI __attribute__((visibility("default")))
+#define GLFWAPI

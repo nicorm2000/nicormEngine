@@ -1,0 +1,132 @@
+#include "Mesh2.h"
+namespace MikkaiEngine
+{
+	Mesh::Mesh()
+	{
+		render = nullptr;
+
+		material = nullptr;
+		color = Color();
+
+		vertexs = std::vector<Vertex>();
+		indexes = std::vector<uint>();
+		textures = std::vector<Texture>();
+
+		VAO = 0;
+		VBO = 0;
+		EBO = 0;
+
+		uniformColor = 0;
+		uniformAlpha = 0;
+		uniformBaseTexture = 0;
+		uniformUseTexture = 0;
+
+		locationPosition = 0;
+		locationNormal = 0;
+		locationTexCoord = 0;
+	}
+
+	Mesh::Mesh(Renderer* render, std::vector<Vertex> vertexs, std::vector<uint> indexes, std::vector<Texture> textures)
+	{
+		this->render = render;
+
+		material = nullptr;
+		color = Color();
+
+		this->vertexs = vertexs;
+		this->indexes = indexes;
+		this->textures = textures;
+
+		VAO = 0;
+		VBO = 0;
+		EBO = 0;
+
+		uniformColor = 0;
+		uniformAlpha = 0;
+		uniformBaseTexture = 0;
+		uniformUseTexture = 0;
+
+		locationPosition = 0;
+		locationNormal = 0;
+		locationTexCoord = 0;
+	}
+
+	Mesh::~Mesh()
+	{
+	}
+
+	void Mesh::Init()
+	{
+		SetUniforms();
+
+		render->GenBuffers(VAO, VBO, EBO);
+		if (vertexs.size() == 0)
+		{
+			render->BindBuffer(VAO, VBO, vertexs.size() * sizeof(Vertex), 0);
+		}
+		else
+		{
+			render->BindBuffer(VAO, VBO, vertexs.size() * sizeof(Vertex), &vertexs[0]);
+		}
+
+		if (indexes.size() == 0)
+		{
+			render->BindIndexes(EBO, indexes.size() * sizeof(unsigned int), 0);
+		}
+		else
+		{
+			render->BindIndexes(EBO, indexes.size() * sizeof(unsigned int), &indexes[0]);
+		}
+
+		render->SetBaseAttribs(locationPosition, 3, sizeof(Vertex), (void*)0);
+		render->SetBaseAttribs(locationNormal, 3, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+		render->SetBaseAttribs(locationTexCoord, 2, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+	}
+
+	void Mesh::Draw()
+	{
+		for (int i = 0; i < textures.size(); i++)
+		{
+			render->UseTexture(i, textures[i].id);
+		}
+
+		UpdateShader();
+
+		render->Draw(VAO, indexes.size());
+
+		render->CleanTexture();
+	}
+
+	void Mesh::DeInit()
+	{
+		render->UnBind(VAO, VBO, EBO);
+
+		vertexs.clear();
+		indexes.clear();
+		textures.clear();
+	}
+
+	void Mesh::SetUniforms()
+	{
+		render->SetUniform(uniformColor, "color");
+		render->SetUniform(uniformAlpha, "a");
+		render->SetUniform(uniformBaseTexture, "baseTexture");
+		render->SetUniform(uniformUseTexture, "useTexture");
+		
+		render->SetLocation(locationPosition, "aPos");
+		render->SetLocation(locationNormal, "aNor");
+		render->SetLocation(locationTexCoord, "aTex");
+	}
+
+	void Mesh::UpdateShader()
+	{
+		render->UpdateBoolValue(uniformUseTexture, textures.size() > 0);
+		if (textures.size() > 0)
+			render->UpdateTexture(uniformBaseTexture, textures[0].id);
+
+		if (material != nullptr)
+			material->UpdateShader();
+		render->UpdateColor(uniformColor, uniformAlpha, color.GetColor());
+	}
+}
+
