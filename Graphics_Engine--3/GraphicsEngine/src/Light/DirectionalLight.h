@@ -27,6 +27,4 @@ namespace MikkaiEngine
 
 }
 
-
-
-#endif // !LIGHT_H
+#endif

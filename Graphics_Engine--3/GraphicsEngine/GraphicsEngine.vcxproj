@@ -197,7 +197,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\BaseGame\BaseGame.cpp" />
     <ClCompile Include="src\Behaviour\Behaviour.cpp" />
-    <ClCompile Include="src\BSP\BSP.cpp" />
     <ClCompile Include="src\Camera2\Camera2.cpp" />
     <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\Camera\occlusionCulling.cpp" />
@@ -222,7 +221,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClCompile Include="src\Importer\Importer2.cpp" />
     <ClCompile Include="src\Input2\Input2.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
-    <ClCompile Include="src\LightManager\lightManager.cpp" />
     <ClCompile Include="src\Light\directionalLight.cpp" />
     <ClCompile Include="src\Light\light.cpp" />
     <ClCompile Include="src\Light\pointLight.cpp" />
@@ -258,7 +256,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\BaseGame\BaseGame.h" />
     <ClInclude Include="src\Behaviour\Behaviour.h" />
     <ClInclude Include="src\BoundingVolume\BoundingVolume.h" />
-    <ClInclude Include="src\BSP\BSP.h" />
     <ClInclude Include="src\Camera2\Camera2.h" />
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Camera\occlusionCulling.h" />

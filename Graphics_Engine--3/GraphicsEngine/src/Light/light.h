@@ -2,7 +2,6 @@
 #define LIGHT_H
 
 #include "Exports/Exports.h"
-//#include "Entity/Entity.h"
 #include "GLM/ext/matrix_transform.hpp"
 #include "Entity2/Entity2.h"
 namespace MikkaiEngine
@@ -40,4 +39,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !LIGHT_H
+#endif

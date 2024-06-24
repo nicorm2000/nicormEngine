@@ -29,4 +29,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !MATERIAL_MANAGER_H
+#endif

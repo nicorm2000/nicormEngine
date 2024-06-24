@@ -71,5 +71,4 @@ namespace MikkaiEngine
 	{
 		this->outerCutOff = outerCutOff;
 	}
-
 }

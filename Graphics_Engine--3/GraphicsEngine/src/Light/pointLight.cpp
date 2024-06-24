@@ -6,7 +6,6 @@ namespace MikkaiEngine
 	uint PointLight::_uniformPointLightsQuantity;
 	PointLight::PointLight(Renderer* render) : Light(render)
 	{
-
 		constant = 0;
 		linear = 0;
 		quadratic = 0;

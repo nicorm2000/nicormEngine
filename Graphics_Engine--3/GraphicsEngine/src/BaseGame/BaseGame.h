@@ -17,7 +17,6 @@
 #include "Entity/Entity3D.h"
 #include "Camera/occlusionCulling.h"
 #include "MaterialManager/MaterialManager.h"
-#include "BSP/BSP.h"
 
 class GraficosEngine_API BaseGame {
 private:

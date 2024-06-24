@@ -14,7 +14,6 @@ bool auxCheck = false;
 float lastX = 0;
 float lastY = 0;
 bool firstMouse = true;
-
 using namespace MikkaiEngine;
 
 int Down, Left, Right, Up;
@@ -33,15 +32,19 @@ glm::vec3 cubePositions[] = {
 };
 
 glm::vec3 pointLightPositions[] = {
-		glm::vec3(0.7f,  0.2f,  2.0f),
+		glm::vec3(5.7f,  0.2f,  2.0f),
 		glm::vec3(2.3f, -3.3f, -4.0f),
-		glm::vec3(-4.0f,  2.0f, -12.0f),
-		glm::vec3(0.0f,  0.0f, -3.0f)
+		glm::vec3(-4.0f,  2.0f, -8.0f),
+		glm::vec3(-6.0f,  0.0f, -0.0f)
 };
 Game::Game() {
 	MainLoop(960, 540, "Mikkai Engine");
 	if (_a != nullptr)
 		_a = nullptr;
+	if (_b != nullptr)
+		_b = nullptr;
+	if (_t != nullptr)
+		_t = nullptr;
 	if (_dirLight != nullptr)
 		_dirLight = nullptr;
 	for (int i = 0; i < 4; i++)
@@ -90,7 +93,6 @@ void Game::Init() {
 
 	_cam->SetSensitivity(0.25f);
 	_cam->SetOffset(10.f);
-	MikkaiEngine::OcclusionCulling::Init(_cam);//TODOOOOOOOOOOOOOOOO/////////////
 
 	_dirLight = new MikkaiEngine::DirectionLight(_renderer);
 	_dirLight->Init();
@@ -158,7 +160,6 @@ void Game::Update()
 	_cam->Update();
 	LightsUpdate();
 	processInput();
-	MikkaiEngine::OcclusionCulling::Update();//TODOOOOOOOOOOOOOOOO/////////////
 }
 
 void Game::DrawOnlyEntity(Entity2* e)

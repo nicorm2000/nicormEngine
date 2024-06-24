@@ -157,9 +157,6 @@
     <Filter Include="src\Plane">
       <UniqueIdentifier>{f5e78df4-539c-4185-98e9-c8feff8315c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BSP">
-      <UniqueIdentifier>{da348a2c-c33a-4a9c-b21a-3f714c6d56a4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\MaterialManager">
       <UniqueIdentifier>{3809011d-7e9a-49b4-abd8-07c45d45629f}</UniqueIdentifier>
     </Filter>
@@ -243,9 +240,6 @@
     <ClCompile Include="src\Light\spotLight.cpp">
       <Filter>Archivos de origen\Light</Filter>
     </ClCompile>
-    <ClCompile Include="src\LightManager\lightManager.cpp">
-      <Filter>Archivos de origen\Light</Filter>
-    </ClCompile>
     <ClCompile Include="src\ImGui\MyImGui.cpp">
       <Filter>Archivos de encabezado\Imgui</Filter>
     </ClCompile>
@@ -323,9 +317,6 @@
     </ClCompile>
     <ClCompile Include="src\Collision\AABB.cpp">
       <Filter>src\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BSP\BSP.cpp">
-      <Filter>src\BSP</Filter>
     </ClCompile>
     <ClCompile Include="src\Material\Material.cpp">
       <Filter>Archivos de encabezado\Material</Filter>
@@ -550,9 +541,6 @@
     </ClInclude>
     <ClInclude Include="src\Camera\occlusionCulling.h">
       <Filter>src\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="src\BSP\BSP.h">
-      <Filter>src\BSP</Filter>
     </ClInclude>
     <ClInclude Include="src\MaterialManager\MaterialManager.h">
       <Filter>src\MaterialManager</Filter>
