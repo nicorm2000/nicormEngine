@@ -50,13 +50,11 @@ public:
 	void UpdateWindowsLights();
 	void UpdateWindowsDirectionLights();
 	void UpdateWindowsModel();
-	void UpdateWindowsCamera();
 private:
 	const char* glsl_version;
 	Window* _window;
 	bool ShowEntity2List;
 	bool ShowModelList;
-	bool ShowCamera2;
 	bool ShowLights;
 };
 

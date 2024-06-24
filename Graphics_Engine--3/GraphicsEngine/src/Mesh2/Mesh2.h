@@ -22,7 +22,6 @@ namespace MikkaiEngine
 		void Draw();
 		void DeInit();
 
-
 		MikkaiEngine::Material* material;
 		Color color;
 

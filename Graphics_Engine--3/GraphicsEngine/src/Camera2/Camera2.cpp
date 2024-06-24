@@ -167,7 +167,7 @@ namespace MikkaiEngine
 	}
 	glm::vec3 Camera2::getPos()
 	{
-		return  Entity2::getPos();
+		return Entity2::getPos();
 	}
 
 	float Camera2::GetYaw()

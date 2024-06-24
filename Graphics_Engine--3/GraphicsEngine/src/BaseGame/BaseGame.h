@@ -32,9 +32,8 @@ protected:
 	Time* _time;
 	Camera* _mainCamera;
 	MikkaiEngine::Camera2* _mainCamera2;
-	MikkaiEngine::BSP* _bsp;
 	MyImGui* _myImgui;
-	//glm::vec4 backgroundColor;
+
 public:
 	Renderer* GetRenderer();
 	//----------C y D------------

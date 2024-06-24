@@ -98,7 +98,7 @@ namespace MikkaiEngine
 		vector <vec3> getExtremos() { return extremos; };
 		void addBoundsToVisualAABB(vector<glm::vec3> childAABB);
 		void setAABBView(vector<Mesh*> meshes);
-		bool canDrawThisFrame();
+		//bool canDrawThisFrame();
 
 		void draw();
 
@@ -114,7 +114,7 @@ namespace MikkaiEngine
 		vector<glm::vec3> aabb;
 		vector<glm::vec3> localAABB;
 
-		bool drawThisFrame;
+		//bool drawThisFrame;
 
 		MikkaiEngine::aabb* volume;
 		MikkaiEngine::aabb* originVolume;

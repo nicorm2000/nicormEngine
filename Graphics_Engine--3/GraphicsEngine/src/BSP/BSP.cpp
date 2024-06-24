@@ -24,44 +24,19 @@ namespace MikkaiEngine
 	{
 		for (std::list<Entity2*>::iterator it2 = entities.begin(); it2 != entities.end(); ++it2)
 		{
-			bool dibujable = true;
-			for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
-			{
-				if (!AskBox((*it), (*it2)))
-				{
-					dibujable = false;
-					break;
-				}
-			}
-			if (dibujable) {
-
-				//(*it2)->setDraw();
-				DrawOnlyEntity(*it2);
-			}
+			DrawOnlyEntity(*it2);
 		}
 	}
 
 	void BSP::DrawOnlyEntity(Entity2* e)
 	{
-		for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
+		if (e->getMeshes().size() > 0)
+			e->draw();
+		if (e->getChildren().size() > 0)
 		{
-			bool dibujar = true;
-			if (!AskBox((*it), e))
+			for (int i = 0; i < e->getChildren().size(); i++)
 			{
-				dibujar = false;
-				break;
-			}
-			if (dibujar)
-			{
-				if (e->getMeshes().size() > 0)
-					e->draw();
-				if (e->getChildren().size() > 0)
-				{
-					for (int i = 0; i < e->getChildren().size(); i++)
-					{
-						DrawOnlyEntity(e->getChildren()[i]);
-					}
-				}
+				DrawOnlyEntity(e->getChildren()[i]);
 			}
 		}
 	}
@@ -70,7 +45,7 @@ namespace MikkaiEngine
 	{
 		for (int i = 0; i < entity->getExtremos().size(); i++)
 			if ((plan->GetSide(camera->getPos()) == plan->GetSide(entity->getExtremos()[i])))
-				return true;	
+				return true;
 		return false;
 	}
 
@@ -114,28 +89,4 @@ namespace MikkaiEngine
 		//	(*it)->SwitchCanDrawStatus();
 		//}
 	}
-
-	//void BSP::UpdateNodeVolume(Entity2* node)
-	//{
-	//	bool drawEntity = true;
-	//
-	//	for (std::list<PlaneBSP*>::iterator itP = planes.begin(); itP != planes.end(); ++itP)
-	//	{
-	//		if (node->GetGlobalVolume()->IsOnPlane(*(*itP)->plane) != (*itP)->plane->GetSide(camera->GetPos()))
-	//		{
-	//			drawEntity = false;
-	//			break;
-	//		}
-	//	}
-	//	node->visible = drawEntity;
-	//
-	//	std::list<Entity*> nodes = node->GetNodes();
-	//	if (!nodes.empty())
-	//	{
-	//		for (std::list<Entity*>::iterator itN = nodes.begin(); itN != nodes.end(); ++itN)
-	//		{
-	//			UpdateNodeVolume((*itN));
-	//		}
-	//	}
-	//}
 }

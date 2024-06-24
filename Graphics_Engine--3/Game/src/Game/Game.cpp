@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 float rotation = 0;
 float rotationForce = 2;
 
@@ -17,8 +16,6 @@ float lastY = 0;
 bool firstMouse = true;
 
 using namespace MikkaiEngine;
-
-
 
 int Down, Left, Right, Up;
 
@@ -42,13 +39,9 @@ glm::vec3 pointLightPositions[] = {
 		glm::vec3(0.0f,  0.0f, -3.0f)
 };
 Game::Game() {
-	MainLoop(960, 540, "In Lovyng");
-	//if (_Wall1!=nullptr)
-	//	_Wall1 = nullptr;
+	MainLoop(960, 540, "Mikkai Engine");
 	if (_a != nullptr)
 		_a = nullptr;
-	//if (_floor!=nullptr)
-	//	_floor				  =nullptr;
 	if (_dirLight != nullptr)
 		_dirLight = nullptr;
 	for (int i = 0; i < 4; i++)
@@ -64,50 +57,40 @@ Game::Game() {
 Game::~Game() {}
 
 void Game::Init() {
-
-	//_tex = new MyTexture("res/e.png", false);
-	//_tex2 = new MyTexture("res/f.png", false);
-
 	vec3 a = { 1,1,1 };
-	//defaultM = new MaterialS{ _tex,_tex2,32.0f };
 	_renderer->SetDepth();
 	_cam = _mainCamera2;
 	color::RGBA colorFondoRGBA(glm::vec4(0, 0, 0, 0));
 	SetBackGroundColor(colorFondoRGBA);
-	//_entity3d = new MikkaiEngine::Entity3D(_renderer, "res/h/model.obj");
 	_entity3dScene = new MikkaiEngine::Entity3D(_renderer, "res/i/scene.fbx");
-	//_entity3d->model->GetBaseNode()->Init();
+	_entity3d2 = new MikkaiEngine::Entity3D(_renderer, "res/i/Jeep_done.fbx");
 	MikkaiEngine::Entity2* wantedNode = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
 	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke1");
 	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke2");
 	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke3");
 	MikkaiEngine::Entity2* wantedNode4 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke4");
-	MikkaiEngine::Entity2* wantedNodeBsp1 = _entity3dScene->model->GetBaseNode()->GetNode("bsp1");
-	MikkaiEngine::Entity2* wantedNodeBsp2 = _entity3dScene->model->GetBaseNode()->GetNode("bsp2");
-	MikkaiEngine::Entity2* wantedNodeBsp3 = _entity3dScene->model->GetBaseNode()->GetNode("bsp3");
+	MikkaiEngine::Entity2* wantedNodeBsp1 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane1");
+	MikkaiEngine::Entity2* wantedNodeBsp2 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane2");
+	MikkaiEngine::Entity2* wantedNodeBsp3 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane3");
+	MikkaiEngine::Entity2* node1 = _entity3d2->model->GetBaseNode();
+	node1->SetScale(glm::vec3(0.01f,0.01f, 0.01f));
+	node1->SetPos(glm::vec3(6.5f, 0.0f, -6.5f));
+	node1->SetRot(glm::vec3(0.0f, 10.0f, 0.0f));
+
 	planos.push_back(wantedNodeBsp1);
 	planos.push_back(wantedNodeBsp2);
 	planos.push_back(wantedNodeBsp3);
-	tankesitos.push_back(wantedNode);
-	tankesitos.push_back(wantedNode1);
-	tankesitos.push_back(wantedNode2);
-	tankesitos.push_back(wantedNode3);
-	tankesitos.push_back(wantedNode4);
+	sceneObjects.push_back(wantedNode);
+	sceneObjects.push_back(wantedNode1);
+	sceneObjects.push_back(wantedNode2);
+	sceneObjects.push_back(wantedNode3);
+	sceneObjects.push_back(node1);
+
 	_cam->SetTarget(_entity3dScene->model->GetBaseNode()->getTransform());
-	//tankesitos.push_back(wantedNodeBsp);
-	if (wantedNode != nullptr)
-	{
-		_modeloTanke = new MikkaiEngine::Model(GetRenderer());
-		_modeloTanke->SetBaseNode(wantedNode);
-	}
-	if (_modeloTanke == nullptr)
-	{
-		_modeloTanke = _entity3dScene->model;
-	}
-	_modeloTanke->GetBaseNode()->Init();
+
 	_cam->SetSensitivity(0.25f);
 	_cam->SetOffset(10.f);
-	MikkaiEngine::OcclusionCulling::Init(_cam);
+	MikkaiEngine::OcclusionCulling::Init(_cam);//TODOOOOOOOOOOOOOOOO/////////////
 
 	_dirLight = new MikkaiEngine::DirectionLight(_renderer);
 	_dirLight->Init();
@@ -156,21 +139,8 @@ void Game::Init() {
 
 	_cam->ToogleEjes();
 
-	_bsp = new MikkaiEngine::BSP(_renderer, _cam);
-
 	_a = _cam;
 	_t = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
-	//_bsp->AddEntity(wantedNode1);
-
-	_bsp->AddEntity(wantedNode);
-	_bsp->AddEntity(wantedNode1);
-	_bsp->AddEntity(wantedNode2);
-	_bsp->AddEntity(wantedNode3);
-	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
-	{
-		_bsp->AddPlane((*it));
-	}
-
 
 	_renderer->SetBackgroundColor(vec4((float)(255.f / 255.f), (float)(192.f / 255.f), (float)(203.f / 255.f), 0.5f));
 }
@@ -188,11 +158,27 @@ void Game::Update()
 	_cam->Update();
 	LightsUpdate();
 	processInput();
-	MikkaiEngine::OcclusionCulling::Update();
-
+	MikkaiEngine::OcclusionCulling::Update();//TODOOOOOOOOOOOOOOOO/////////////
 }
+
+void Game::DrawOnlyEntity(Entity2* e)
+{
+	if (e->getMeshes().size() > 0)
+		e->draw();
+	if (e->getChildren().size() > 0)
+	{
+		for (int i = 0; i < e->getChildren().size(); i++)
+		{
+			DrawOnlyEntity(e->getChildren()[i]);
+		}
+	}
+}
+
 void Game::Draw() {
-	_bsp->Draw();
+	for (std::list<Entity2*>::iterator it = sceneObjects.begin(); it != sceneObjects.end(); it++)
+	{
+		DrawOnlyEntity(*it);
+	}
 	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
 	{
 		(*it)->setDraw();
@@ -228,21 +214,6 @@ void Game::processInput()
 		z -= _cam->GetUp();
 	_cam->Move(z * _time->_deltaTime * speed);
 
-	glm::vec3 a(0);
-	if (Input::IsKeyPressed(Input::KEY_W))
-		a += _a->GetFront();
-	if (Input::IsKeyPressed(Input::KEY_S))
-		a -= _a->GetFront();
-	if (Input::IsKeyPressed(Input::KEY_A))
-		a -= _a->GetRight();
-	if (Input::IsKeyPressed(Input::KEY_D))
-		a += _a->GetRight();
-	if (Input::IsKeyPressed(Input::KEY_Q))
-		a += _a->GetUp();
-	if (Input::IsKeyPressed(Input::KEY_E))
-		a -= _a->GetUp();
-	_a->Move(a * _time->_deltaTime * speed);
-
 	glm::vec3 t(0);
 	if (Input::IsKeyPressed(Input::KEY_UP))
 	{
@@ -270,7 +241,7 @@ void Game::processInput()
 		_cam->UpdateCameraType();
 	if ((int)_cam->GetCameraType() == 2)//TPS
 	{
-		Input::UpdateCameraOrientation(_cam, _cam->GetTarget()->getposition(), 0, 0);
+		Input::UpdateCameraOrientation(_cam, _t->getPos(), 0, 0);
 	}
 	if (Input::IsKeyDown(Input::KEY_SPACE))
 		_cam->ToogleEjes();

@@ -66,10 +66,6 @@ void MyImGui::Update()
     {
         UpdateWindowsModel();
     }
-    if (ShowCamera2)
-    {
-        UpdateWindowsCamera();
-    }
     if (ShowLights)
     {
         UpdateWindowsLights();
@@ -111,10 +107,6 @@ void MyImGui::UpdateMainWindows()
     {
         ShowModelList = !ShowModelList;
     }
-    if (ImGui::Button("CAMERA2", ImVec2(ImGui::GetWindowWidth(), 20)))
-    {
-        ShowCamera2 = !ShowCamera2;
-    }
     if (ImGui::Button("LIGHTS", ImVec2(ImGui::GetWindowWidth(), 20)))
     {
         ShowLights = !ShowLights;
@@ -140,10 +132,10 @@ void baseEntity2Edit(Entity2* it)
         vec3 rot = (it)->getRot();
         vec3 scale = (it)->getScale();
         vec3 color = (it)->getColor();
-        if ((it)->canDrawThisFrame())
-            ImGui::Text("Se dibuja");
-        else
-            ImGui::Text("No Se dibuja");
+        //if ((it)->canDrawThisFrame())
+        //    ImGui::Text("Se dibuja");
+        //else
+        //    ImGui::Text("No Se dibuja");
         if (ImGui::SliderFloat3(("pos "+(it)->getName()).c_str(), (float*)&pos, -15.0f, 15.0f))
             (it)->SetPos(pos);
         if (ImGui::SliderFloat3(("rot "+(it)->getName()).c_str(), (float*)&rot, -180.0f, 180.0f))
@@ -267,14 +259,6 @@ void MyImGui::UpdateWindowsModel()
             baseEntity2Edit((*it)->model->GetBaseNode());
         }
     }
-    ImGui::End();
-}
-
-void MyImGui::UpdateWindowsCamera()
-{
-    ImGui::Begin("CAMERA");
-    Camera2* it = Camera2::_mainCamera;
-    //(ImGui::SliderFloat(((it)->getName() + " Speed").c_str(), (float*)&(it)->MovementSpeed, -10.0f, 10.0f));
     ImGui::End();
 }
 

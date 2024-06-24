@@ -19,7 +19,7 @@ namespace MikkaiEngine
 
 	protected:
 		// model data 
-		string          directory;
+		string directory;
 		Entity2* baseNode;
 		Renderer* shader;
 
