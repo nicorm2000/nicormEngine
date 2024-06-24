@@ -233,7 +233,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClCompile Include="src\Mesh2\Mesh2.cpp" />
     <ClCompile Include="src\Mikkai\Minterface.cpp" />
     <ClCompile Include="src\Model\Model.cpp" />
-    <ClCompile Include="src\MyMesh\Mesh.cpp" />
     <ClCompile Include="src\Object\Object.cpp" />
     <ClCompile Include="src\Plan\Plane.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />

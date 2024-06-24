@@ -267,9 +267,6 @@
     <ClCompile Include="src\Importer\Importer.cpp">
       <Filter>Archivos de encabezado\Importer</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyMesh\Mesh.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\Object\Object.cpp">
       <Filter>src\Object</Filter>
     </ClCompile>
