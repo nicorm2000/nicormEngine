@@ -31,4 +31,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !SOLID_MATERIAL_H
+#endif

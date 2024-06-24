@@ -44,4 +44,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !LINE_H
+#endif

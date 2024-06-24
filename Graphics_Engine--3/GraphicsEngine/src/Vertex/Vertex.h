@@ -25,4 +25,4 @@ namespace MikkaiEngine
     };
 }
 
-#endif // !VERTEX
+#endif

@@ -27,8 +27,6 @@ namespace MikkaiEngine
 		return _name;
 	}
 
-
-
 #pragma endregion
 #pragma region SETTERS
 	void Object::SetnameOBJ(string name)
@@ -43,9 +41,6 @@ namespace MikkaiEngine
 
 #pragma endregion
 #pragma region OPERATORS
-
-
-
 
 
 	bool Object::operator==(const Object& x) const

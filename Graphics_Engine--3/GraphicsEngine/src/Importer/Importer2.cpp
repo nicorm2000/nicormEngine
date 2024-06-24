@@ -15,20 +15,22 @@ namespace MikkaiEngine
         render = rend;
 
         Assimp::Importer importer;
-        const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+        const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);// Read the model file using Assimp
+
         if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
         {
             std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
             return nullptr;
         }
-        directory = path.substr(0, path.find_last_of('/'));
-        textures_loaded.clear();
+
+        directory = path.substr(0, path.find_last_of('/'));// Extract the directory from the path
+        textures_loaded.clear();// Clear previously loaded textures
 
         Entity2* model = new Entity2(render);
         model->Init();
         model->setName(scene->mRootNode->mName.C_Str());
 
-        ProcessNode(model, glm::mat4(1.f), scene->mRootNode, scene);
+        ProcessNode(model, glm::mat4(1.f), scene->mRootNode, scene);// Recursively process the root node and its children
 
         return model;
     }
@@ -38,11 +40,11 @@ namespace MikkaiEngine
         Entity2* entityNode = nullptr;
         std::string name = node->mName.C_Str();
 
-        if (name.find("$AssimpFbx$") != std::string::npos)
+        if (name.find("$AssimpFbx$") != std::string::npos)// Check for Assimp-specific FBX transformation pivots
         {
             entityNode = parent;
 
-            if (name.find("RotationPivot") != std::string::npos && name.find("Inverse") == std::string::npos)
+            if (name.find("RotationPivot") != std::string::npos && name.find("Inverse") == std::string::npos)// Handle RotationPivot nodes
             {
                 aiMatrix4x4 matrix = node->mTransformation;
 
@@ -51,7 +53,7 @@ namespace MikkaiEngine
                 mat[2][0] = (float)matrix.a3; mat[2][1] = (float)matrix.b3;  mat[2][2] = (float)matrix.c3; mat[2][3] = (float)matrix.d3;
                 mat[3][0] = (float)matrix.a4; mat[3][1] = (float)matrix.b4;  mat[3][2] = (float)matrix.c4; mat[3][3] = (float)matrix.d4;
             }
-            if (name.find("Pivot") == std::string::npos)
+            if (name.find("Pivot") == std::string::npos)// Apply transformations for non-Pivot nodes
             {
                 glm::mat4 m;
                 aiMatrix4x4 matrix = node->mTransformation;
@@ -66,6 +68,7 @@ namespace MikkaiEngine
         }
         else
         {
+            // Create a new entity for nodes that are not Assimp FBX pivots
             entityNode = new Entity2(render);
             aiMatrix4x4 matrix = node->mTransformation;
             glm::mat4 m;
@@ -75,30 +78,28 @@ namespace MikkaiEngine
             m[2][0] = (float)matrix.a3; m[2][1] = (float)matrix.b3;  m[2][2] = (float)matrix.c3; m[2][3] = (float)matrix.d3;
             m[3][0] = (float)matrix.a4; m[3][1] = (float)matrix.b4;  m[3][2] = (float)matrix.c4; m[3][3] = (float)matrix.d4;
             m *= mat;
-            //mat = m;
             
             entityNode->setName(name);
-            if (node->mNumMeshes > 0)
+            if (node->mNumMeshes > 0)// If the node has meshes, process them
             {
                 std::vector<Mesh*> meshes = std::vector<Mesh*>();
                 for (uint i = 0; i < node->mNumMeshes; i++)
                 {
                     aiMesh* aiMesh = scene->mMeshes[node->mMeshes[i]];
-                    meshes.push_back(ProcessMesh(aiMesh, scene));
+                    meshes.push_back(ProcessMesh(aiMesh, scene));// Process each mesh
                 }
                 entityNode->SetMeshes( meshes);
                 entityNode->SetMatrix(m);
             }
-            else
+            else// Handle nodes without meshes
             {
                 entityNode = new Entity2(render);
                 entityNode->setName(name + "pivot");
                 entityNode->SetMatrix(m);
-
             }
         }
 
-        for (uint i = 0; i < node->mNumChildren; i++)
+        for (uint i = 0; i < node->mNumChildren; i++)// Recursively process all children of the node
         {
             ProcessNode(entityNode, mat, node->mChildren[i], scene);
         }
@@ -107,7 +108,7 @@ namespace MikkaiEngine
             entityNode->Init();
         }
 
-        if (name.find("$AssimpFbx$") == std::string::npos)
+        if (name.find("$AssimpFbx$") == std::string::npos)// Add the entity node to its parent if it's not an Assimp-specific FBX pivot
         {
             parent->AddChildren(entityNode);
             entityNode->setName(name);
@@ -124,16 +125,17 @@ namespace MikkaiEngine
         vector<unsigned int> indices;
         vector<Texture> textures;
 
-        for (unsigned int i = 0; i < mesh->mNumVertices; i++)
+        for (unsigned int i = 0; i < mesh->mNumVertices; i++)// Process vertices
         {
             Vertex vertex;
-            glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
-            // positions
+            glm::vec3 vector;
+            // We declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
+            // Positions
             vector.x = mesh->mVertices[i].x;
             vector.y = mesh->mVertices[i].y;
             vector.z = mesh->mVertices[i].z;
             vertex.Position = vector;
-            // normals
+            // Normals
             if (mesh->HasNormals())
             {
                 vector.x = mesh->mNormals[i].x;
@@ -141,8 +143,8 @@ namespace MikkaiEngine
                 vector.z = mesh->mNormals[i].z;
                 vertex.Normal = vector;
             }
-            // texture coordinates
-            if (mesh->mTextureCoords[0]) // does the mesh contain texture coordinates?
+            // Texture coordinates
+            if (mesh->mTextureCoords[0]) // Does the mesh contain texture coordinates?
             {
                 glm::vec2 vec;
                 vec.x = mesh->mTextureCoords[0][i].x;
@@ -150,19 +152,22 @@ namespace MikkaiEngine
                 vertex.TexCoords = vec;
             }
             else
+            {
                 vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+            }
 
             vertices.push_back(vertex);
         }
-        // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
+        // Now walk through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
         for (unsigned int i = 0; i < mesh->mNumFaces; i++)
         {
             aiFace face = mesh->mFaces[i];
-            // retrieve all indices of the face and store them in the indices vector
+
             for (unsigned int j = 0; j < face.mNumIndices; j++)
-                indices.push_back(face.mIndices[j]);
+                indices.push_back(face.mIndices[j]);// Add the face's indices to the indices vector
         }
-        aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+
+        aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];// Process material
 
         std::vector<Texture> baseColorMaps = LoadMaterialTextures(material, aiTextureType_BASE_COLOR, "base_color");
         textures.insert(textures.end(), baseColorMaps.begin(), baseColorMaps.end());
@@ -194,6 +199,7 @@ namespace MikkaiEngine
             mat = MaterialManager::GetSolidMaterial();
         }
 
+        // Create a mesh and process it with its corresponding color and material
         Mesh* m = new Mesh(render,vertices, indices, textures);
         m->Init();
         m->color = Color(color.r, color.g, color.b);
@@ -201,32 +207,31 @@ namespace MikkaiEngine
 
         return m;
     }
-    ///
-    ///checks all material textures of a given type and loads the textures if they're not loaded yet.
-    /// the required info is returned as a Texture struct.
-    ///
+
     std::vector<Texture> Importer2::LoadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName)
     {
+        // Checks all material textures of a given type and loads the textures if they're not loaded yet. The required info is returned as a Texture struct.
         std::vector<Texture> textures;
         uint texturesCount = mat->GetTextureCount(type);
 
         for (uint i = 0; i < texturesCount; i++)
         {
             aiString str;
-            mat->GetTexture(type, i, &str);
+            mat->GetTexture(type, i, &str);// Get the texture filepath
 
             bool skip = false;
             for (uint j = 0; j < textures_loaded.size(); j++)
             {
                 if (std::strcmp(textures_loaded[j].path.data(), str.C_Str()) == 0)
                 {
-                    textures.push_back(textures_loaded[j]);
+                    textures.push_back(textures_loaded[j]);// Use the loaded texture if there is a texture already loaded
                     skip = true;
                     break;
                 }
             }
             if (!skip)
             {
+                // Load and store the texture if not already loaded
                 std::string path = directory + '/' + str.C_Str();
                 Texture texture = TextureImporter::LoadTexture(path.c_str(), true);
                 texture.type = typeName;
@@ -235,6 +240,7 @@ namespace MikkaiEngine
                 textures_loaded.push_back(texture);
             }
         }
+        // Return all loaded textures
         return textures;
     }
 }

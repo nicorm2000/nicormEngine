@@ -17,41 +17,39 @@ namespace MikkaiEngine
 		Transform(GameObject* gameObject, Entity2* ourEntity);
 		~Transform();
 
-		vec3 getposition()			        { return m_pos			; };
-		vec3 getMatPos()					{ return localModel[3]  ; };
-		vec3 geteulerAngles()		        { return m_eulerRot		; };
-		vec3 getlocalScale()		        { return m_scale		; };
-		
-		mat4 getWorldModel()				{ return worldModel     ; };
-		mat4 getLocalModel()				{ return localModel     ; };
-		mat4 getParentModel()				{ return parentModel    ; };
+		vec3 getposition() { return m_pos; };
+		vec3 getMatPos() { return localModel[3]; };
+		vec3 geteulerAngles() { return m_eulerRot; };
+		vec3 getlocalScale() { return m_scale; };
 
-		glm::vec3 getRight()	;
-		glm::vec3 getUp()		;
-		glm::vec3 getBackward() ;
-		glm::vec3 getForward()  ;
-		
-		void setposition   (vec3 v) { m_pos      = v; };
+		mat4 getWorldModel() { return worldModel; };
+		mat4 getLocalModel() { return localModel; };
+		mat4 getParentModel() { return parentModel; };
+
+		glm::vec3 getRight();
+		glm::vec3 getUp();
+		glm::vec3 getBackward();
+		glm::vec3 getForward();
+
+		void setposition(vec3 v) { m_pos = v; };
 		void seteulerAngles(vec3 v) { m_eulerRot = v; updateTransformRotation(); };
 		void setRotX(float x);
 		void setRotY(float y);
 		void setRotZ(float z);
 
-		void setlocalScale (vec3 v) { m_scale    = v;};
+		void setlocalScale(vec3 v) { m_scale = v; };
 
 		void setForward(vec3 v);
-		void setRight  (vec3 v);
-		void setUp     (vec3 v);
+		void setRight(vec3 v);
+		void setUp(vec3 v);
 
 
-		void setWorldModel (mat4 v) { worldModel  = v; }
-		void setLocalModel (mat4 v) { localModel  = v; }
+		void setWorldModel(mat4 v) { worldModel = v; }
+		void setLocalModel(mat4 v) { localModel = v; }
 		void setParentModel(mat4 v) { parentModel = v; }
-
 
 		void updateLocalModelMatrix();
 
-		
 	protected:
 	private:
 
@@ -64,7 +62,7 @@ namespace MikkaiEngine
 		glm::mat4 parentModel;
 
 		void updateTransformRotation();
-		
+
 	};
 #pragma region OTHERS
 	vec3 static QuatToVec(quat quat, vec3 vec);
@@ -72,4 +70,5 @@ namespace MikkaiEngine
 #pragma endregion
 
 }
-#endif // !TRANSFORM_H
+
+#endif

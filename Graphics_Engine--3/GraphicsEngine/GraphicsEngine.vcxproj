@@ -274,7 +274,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\Entity\Entity3D.h" />
     <ClInclude Include="src\Entity\vertexs.h" />
     <ClInclude Include="src\Exports\Exports.h" />
-    <ClInclude Include="src\Frustum\Frustrum.h" />
     <ClInclude Include="src\GameObject\GameObject.h" />
     <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imconfig.h" />
     <ClInclude Include="src\ImGui\ImGuiMaster\Imgui\imgui.h" />
@@ -309,7 +308,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\Mikkai\Minterface.h" />
     <ClInclude Include="src\Model\Model.h" />
     <ClInclude Include="src\MyMesh\Mesh.h" />
-    <ClInclude Include="src\Object\HideFlags.h" />
     <ClInclude Include="src\Object\Object.h" />
     <ClInclude Include="src\Plan\Plane.h" />
     <ClInclude Include="src\Renderer\Renderer.h" />

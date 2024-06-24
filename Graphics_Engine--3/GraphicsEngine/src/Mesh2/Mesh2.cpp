@@ -112,7 +112,7 @@ namespace MikkaiEngine
 		render->SetUniform(uniformAlpha, "a");
 		render->SetUniform(uniformBaseTexture, "baseTexture");
 		render->SetUniform(uniformUseTexture, "useTexture");
-		
+
 		render->SetLocation(locationPosition, "aPos");
 		render->SetLocation(locationNormal, "aNor");
 		render->SetLocation(locationTexCoord, "aTex");
@@ -129,4 +129,3 @@ namespace MikkaiEngine
 		render->UpdateColor(uniformColor, uniformAlpha, color.GetColor());
 	}
 }
-

@@ -39,4 +39,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !PLANE_H
+#endif

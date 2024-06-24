@@ -3,9 +3,9 @@ namespace MikkaiEngine
 {
 	Model::Model(Renderer* rend)
 	{
-		directory   =   ""			;
-		baseNode	=   nullptr		;
-		shader		= rend			;
+		directory = "";
+		baseNode = nullptr;
+		shader = rend;
 	}
 	Model::~Model()
 	{

@@ -62,10 +62,6 @@ namespace MikkaiEngine
 		m_eulerRot = vec3(0, 0, 0);
 		m_scale = vec3(1);
 
-		//forward = vec3(0, 0, 1);
-		//right = vec3(1, 0, 0);
-		//up = vec3(0, 1, 0);
-
 		worldModel = mat4(1);
 		localModel = mat4(1);
 		parentModel = mat4(1);
@@ -79,10 +75,6 @@ namespace MikkaiEngine
 		 m_eulerRot = vec3(0,0,0);
 		 m_scale = vec3(1);
 		 
-		//forward = vec3(0,0,1);
-		//right = vec3(1,0,0);
-		//up = vec3(0,1,0);
-		 
 		 worldModel = mat4(1);
 		 localModel = mat4(1);
 		 parentModel = mat4(1);
@@ -94,9 +86,6 @@ namespace MikkaiEngine
 	Transform::~Transform()
 	{
 	}
-
-
-
 
 	void Transform::setForward(vec3 v)
 	{

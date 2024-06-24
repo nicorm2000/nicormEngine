@@ -2,7 +2,6 @@
 #define OBJECT_H
 
 #include "Exports/Exports.h"
-#include "HideFlags.h"
 #include <string>
 #include <list>
 using namespace std;

@@ -115,9 +115,6 @@
     <Filter Include="src\GameObject">
       <UniqueIdentifier>{486c6d8c-23b9-44b8-bfcd-3e1bbffc3c32}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Data">
-      <UniqueIdentifier>{4b3a1921-dae0-4c3b-b3fd-4245f8255f29}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Importer2">
       <UniqueIdentifier>{8a4a4b82-a275-49bc-9a0b-db2b8c9d5ebd}</UniqueIdentifier>
     </Filter>
@@ -138,9 +135,6 @@
     </Filter>
     <Filter Include="src\Input2">
       <UniqueIdentifier>{bc93dc7c-f42e-4ac3-8cb9-b5e75dcc6f3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Frustrum">
-      <UniqueIdentifier>{d41727ea-0ef8-4f7b-9fb6-1906b7a2d4da}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BoundingVolume">
       <UniqueIdentifier>{10dfc63f-b351-47e6-9c8e-d145079276a8}</UniqueIdentifier>
@@ -485,9 +479,6 @@
     <ClInclude Include="src\Object\Object.h">
       <Filter>src\Object</Filter>
     </ClInclude>
-    <ClInclude Include="src\Object\HideFlags.h">
-      <Filter>src\Object</Filter>
-    </ClInclude>
     <ClInclude Include="src\Component\Component.h">
       <Filter>src\Component</Filter>
     </ClInclude>
@@ -538,9 +529,6 @@
     </ClInclude>
     <ClInclude Include="src\Plan\Plane.h">
       <Filter>src\Plane</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Frustum\Frustrum.h">
-      <Filter>src\Frustrum</Filter>
     </ClInclude>
     <ClInclude Include="src\BoundingVolume\BoundingVolume.h">
       <Filter>src\BoundingVolume</Filter>

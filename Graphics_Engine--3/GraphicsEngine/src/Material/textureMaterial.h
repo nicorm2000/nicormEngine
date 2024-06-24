@@ -26,4 +26,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif // !TEXTURE_MATERIAL_H
+#endif
