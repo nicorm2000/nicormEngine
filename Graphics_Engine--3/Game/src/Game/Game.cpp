@@ -60,18 +60,17 @@ Game::Game() {
 Game::~Game() {}
 
 void Game::Init() {
-	vec3 a = { 1,1,1 };
 	_renderer->SetDepth();
 	_cam = _mainCamera2;
 	color::RGBA colorFondoRGBA(glm::vec4(0, 0, 0, 0));
 	SetBackGroundColor(colorFondoRGBA);
 	_entity3dScene = new MikkaiEngine::Entity3D(_renderer, "res/i/scene.fbx");
-	_entity3d2 = new MikkaiEngine::Entity3D(_renderer, "res/i/Jeep_done.fbx");
+	_entity3dScene2 = new MikkaiEngine::Entity3D(_renderer, "res/i/Jeep_done.fbx");
 	MikkaiEngine::Entity2* wantedNode = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
 	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane1");
 	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane2");
 	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane3");
-	MikkaiEngine::Entity2* node1 = _entity3d2->model->GetBaseNode();
+	MikkaiEngine::Entity2* node1 = _entity3dScene2->model->GetBaseNode();
 	node1->SetScale(glm::vec3(0.01f,0.01f, 0.01f));
 	node1->SetPos(glm::vec3(6.5f, 0.0f, -6.5f));
 	node1->SetRot(glm::vec3(0.0f, 10.0f, 0.0f));
@@ -137,7 +136,7 @@ void Game::Init() {
 	_a = _cam;
 	_t = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
 
-	_renderer->SetBackgroundColor(vec4((float)(255.f / 255.f), (float)(192.f / 255.f), (float)(203.f / 255.f), 0.5f));
+	_renderer->SetBackgroundColor(vec4((float)(140.f / 255.f), (float)(224.f / 255.f), (float)(216.f / 255.f), 0.5f));
 }
 
 void Game::Deinit()
@@ -240,7 +239,7 @@ void Game::processInput()
 	if (Input::IsKeyDown(Input::KEY_SPACE))
 		_cam->ToogleEjes();
 
-	if (Input::IsKeyDown(Input::KEY_UP))
+	if (Input::IsKeyDown(Input::KEY_F1))
 	{
 		for (std::list<MikkaiEngine::Entity2*>::iterator it2 = MikkaiEngine::Entity2::EntitysLists.begin(); it2 != MikkaiEngine::Entity2::EntitysLists.end(); ++it2)
 			if (*it2 == _a && it2 != MikkaiEngine::Entity2::EntitysLists.begin())
@@ -250,7 +249,7 @@ void Game::processInput()
 			}
 	}
 
-	if (Input::IsKeyDown(Input::KEY_DOWN))
+	if (Input::IsKeyDown(Input::KEY_F2))
 	{ 
 		for (std::list<MikkaiEngine::Entity2*>::iterator it2 = MikkaiEngine::Entity2::EntitysLists.begin(); it2 != MikkaiEngine::Entity2::EntitysLists.end(); ++it2)
 			if (*it2 == _a && it2 != MikkaiEngine::Entity2::EntitysLists.end())
