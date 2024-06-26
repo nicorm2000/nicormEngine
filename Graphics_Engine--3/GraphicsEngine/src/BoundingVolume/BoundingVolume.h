@@ -1,7 +1,6 @@
 #ifndef BOUNDINGVOLUME_H
 #define BOUNDINGVOLUME_H
 
-//#include "Camera/occlusionCulling.h"
 #include "Plan/Plane.h"
 
 namespace MikkaiEngine
@@ -18,4 +17,4 @@ namespace MikkaiEngine
 		virtual bool isOnPlane(plane plane) = 0;
 	};
 }
-#endif // !BOUNDINGVOLUME_H
+#endif

@@ -5,8 +5,6 @@
 #include "../Shape/Shape.h"
 #include "../Sprite/Sprite.h"
 #include "../Time/Time.h"
-#include "../Collision/Collision.h"
-#include "../Tile/TileMap.h"
 #include "../Camera/Camera.h"
 #include "../LightManager/lightManager.h"
 #include "../ImGui/MyImGui.h"
@@ -15,7 +13,6 @@
 #include "Input2/Input2.h"
 #include "Model/Model.h"
 #include "Entity/Entity3D.h"
-#include "Camera/occlusionCulling.h"
 #include "MaterialManager/MaterialManager.h"
 
 class GraficosEngine_API BaseGame {

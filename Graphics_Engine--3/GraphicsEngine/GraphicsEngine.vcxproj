@@ -225,7 +225,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClCompile Include="src\Light\light.cpp" />
     <ClCompile Include="src\Light\pointLight.cpp" />
     <ClCompile Include="src\Light\spotLight.cpp" />
-    <ClCompile Include="src\line\line.cpp" />
     <ClCompile Include="src\MaterialManager\materialManager.cpp" />
     <ClCompile Include="src\Material\Material.cpp" />
     <ClCompile Include="src\Material\solidMaterial.cpp" />
@@ -254,14 +253,12 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\Atlas\Atlas.h" />
     <ClInclude Include="src\BaseGame\BaseGame.h" />
     <ClInclude Include="src\Behaviour\Behaviour.h" />
-    <ClInclude Include="src\BoundingVolume\BoundingVolume.h" />
     <ClInclude Include="src\Camera2\Camera2.h" />
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Camera\occlusionCulling.h" />
     <ClInclude Include="src\Collision\AABB.h" />
     <ClInclude Include="src\Collision\Collision.h" />
     <ClInclude Include="src\Collision\Sphere.h" />
-    <ClInclude Include="src\Collision\SquareAABB.h" />
     <ClInclude Include="src\Color\color.h" />
     <ClInclude Include="src\Component\Component.h" />
     <ClInclude Include="src\Entity2D\Entity2D.h" />
@@ -295,7 +292,6 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\Light\light.h" />
     <ClInclude Include="src\Light\pointLight.h" />
     <ClInclude Include="src\Light\spotLight.h" />
-    <ClInclude Include="src\line\line.h" />
     <ClInclude Include="src\MaterialManager\MaterialManager.h" />
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Material\solidMaterial.h" />

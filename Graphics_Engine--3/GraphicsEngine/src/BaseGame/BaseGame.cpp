@@ -7,8 +7,6 @@ BaseGame::BaseGame() {
 	_renderer = nullptr;
 	_time = nullptr;
 	_window = nullptr;
-	//_input2 = nullptr;
-	//backgroundColor = glm::vec4();
 
 }
 BaseGame::~BaseGame() {
@@ -87,7 +85,7 @@ bool BaseGame::IsKeyRelease(Input::KeyCode key) { return Input::IsKeyPressed(key
 bool BaseGame::IsKeyUp(Input::KeyCode key) { return Input::IsKeyUp(key); }
 
 bool BaseGame::InitGlew() {
-	if (glewInit() != GLEW_OK) // tiene que ir despues de la creacion del contexto de glfw si o si
+	if (glewInit() != GLEW_OK)
 	{
 		std::cout << "Glew error" << std::endl;
 		return false;
@@ -131,7 +129,6 @@ void BaseGame::InitRender() {
 void BaseGame::InitTime() {
 	_time = new Time();
 }
-
 
 void BaseGame::SetBackGroundColor(color::RGBA color) {
 	_renderer->SetBackgroundColor(color.GetColorV4());

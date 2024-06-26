@@ -55,9 +55,6 @@
     <Filter Include="Archivos de origen\Shader">
       <UniqueIdentifier>{aefb876c-61c1-42f6-9d4d-da8b16c422fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Material">
-      <UniqueIdentifier>{35b1526b-1d50-417d-b909-75df9eb0f2c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Material">
       <UniqueIdentifier>{1a6177de-5da1-4894-9fd0-570da834cf2f}</UniqueIdentifier>
     </Filter>
@@ -78,9 +75,6 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Imgui\Master\Imgur">
       <UniqueIdentifier>{ea03bda9-a39c-4987-9512-55a70fce32d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Mesh">
-      <UniqueIdentifier>{84001d92-52a3-4639-85b1-0cf881f4b82e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Importer">
       <UniqueIdentifier>{40a36cfa-90a6-4303-bfa7-6c34d24cf08e}</UniqueIdentifier>
@@ -136,14 +130,8 @@
     <Filter Include="src\Input2">
       <UniqueIdentifier>{bc93dc7c-f42e-4ac3-8cb9-b5e75dcc6f3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BoundingVolume">
-      <UniqueIdentifier>{10dfc63f-b351-47e6-9c8e-d145079276a8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Collision">
       <UniqueIdentifier>{a803bfac-6866-47b9-a56f-2571c343f1a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Line">
-      <UniqueIdentifier>{1ca4e79f-4486-485b-937c-fe49907f6296}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Model">
       <UniqueIdentifier>{73cc2d8e-c224-4778-a8ec-0e76feabf625}</UniqueIdentifier>
@@ -296,9 +284,6 @@
     </ClCompile>
     <ClCompile Include="src\Input2\Input2.cpp">
       <Filter>src\Input2</Filter>
-    </ClCompile>
-    <ClCompile Include="src\line\line.cpp">
-      <Filter>src\Line</Filter>
     </ClCompile>
     <ClCompile Include="src\Model\Model.cpp">
       <Filter>src\Model</Filter>
@@ -518,20 +503,11 @@
     <ClInclude Include="src\Plan\Plane.h">
       <Filter>src\Plane</Filter>
     </ClInclude>
-    <ClInclude Include="src\BoundingVolume\BoundingVolume.h">
-      <Filter>src\BoundingVolume</Filter>
-    </ClInclude>
     <ClInclude Include="src\Collision\Sphere.h">
-      <Filter>src\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Collision\SquareAABB.h">
       <Filter>src\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\Collision\AABB.h">
       <Filter>src\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="src\line\line.h">
-      <Filter>src\Line</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity\Entity3D.h">
       <Filter>src\Entity3d</Filter>

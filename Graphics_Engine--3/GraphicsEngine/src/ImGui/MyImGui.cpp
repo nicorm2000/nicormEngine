@@ -132,10 +132,6 @@ void baseEntity2Edit(Entity2* it)
         vec3 rot = (it)->getRot();
         vec3 scale = (it)->getScale();
         vec3 color = (it)->getColor();
-        //if ((it)->canDrawThisFrame())
-        //    ImGui::Text("Se dibuja");
-        //else
-        //    ImGui::Text("No Se dibuja");
         if (ImGui::SliderFloat3(("pos "+(it)->getName()).c_str(), (float*)&pos, -15.0f, 15.0f))
             (it)->SetPos(pos);
         if (ImGui::SliderFloat3(("rot "+(it)->getName()).c_str(), (float*)&rot, -180.0f, 180.0f))
@@ -192,7 +188,7 @@ void baseLight2Edit(Light* it)
             (it)->SetDiffuse(dif);
         if (ImGui::SliderFloat3(((it)->getName() + " spe").c_str(), (float*)&spe, 0.0f, 1.0f))
             (it)->SetSpecular(spe);
-        if (ImGui::ColorEdit3(((it)->getName() + " spe").c_str(), (float*)&col))
+        if (ImGui::ColorEdit3(((it)->getName() + " col").c_str(), (float*)&col))
             (it)->SetColor(col);
     }
 }

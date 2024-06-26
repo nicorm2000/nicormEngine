@@ -68,25 +68,18 @@ void Game::Init() {
 	_entity3dScene = new MikkaiEngine::Entity3D(_renderer, "res/i/scene.fbx");
 	_entity3d2 = new MikkaiEngine::Entity3D(_renderer, "res/i/Jeep_done.fbx");
 	MikkaiEngine::Entity2* wantedNode = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
-	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke1");
-	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke2");
-	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke3");
-	MikkaiEngine::Entity2* wantedNode4 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke4");
-	MikkaiEngine::Entity2* wantedNodeBsp1 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane1");
-	MikkaiEngine::Entity2* wantedNodeBsp2 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane2");
-	MikkaiEngine::Entity2* wantedNodeBsp3 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane3");
+	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane1");
+	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane2");
+	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane3");
 	MikkaiEngine::Entity2* node1 = _entity3d2->model->GetBaseNode();
 	node1->SetScale(glm::vec3(0.01f,0.01f, 0.01f));
 	node1->SetPos(glm::vec3(6.5f, 0.0f, -6.5f));
 	node1->SetRot(glm::vec3(0.0f, 10.0f, 0.0f));
 
-	planos.push_back(wantedNodeBsp1);
-	planos.push_back(wantedNodeBsp2);
-	planos.push_back(wantedNodeBsp3);
+	planos.push_back(wantedNode1);
+	planos.push_back(wantedNode2);
+	planos.push_back(wantedNode3);
 	sceneObjects.push_back(wantedNode);
-	sceneObjects.push_back(wantedNode1);
-	sceneObjects.push_back(wantedNode2);
-	sceneObjects.push_back(wantedNode3);
 	sceneObjects.push_back(node1);
 
 	_cam->SetTarget(_entity3dScene->model->GetBaseNode()->getTransform());

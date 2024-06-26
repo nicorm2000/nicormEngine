@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include "../Window/Window.h"
 #if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <GLES2/gl2.h>
 #endif
 #include "GLFW/glfw3.h"
 
