@@ -8,11 +8,11 @@
 
 namespace MikkaiEngine
 {
-	class GraficosEngine_API OcclusionCulling
+	class GraficosEngine_API frustrumCulling
 	{
 	public:
-		OcclusionCulling();
-		~OcclusionCulling();
+		frustrumCulling();
+		~frustrumCulling();
 
 		static void Init(Camera2* camera);
 		static void Update();
@@ -40,4 +40,4 @@ namespace MikkaiEngine
 	};
 }
 
-#endif //!OCCLUSION_CULLING_H
+#endif

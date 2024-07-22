@@ -6,14 +6,14 @@ namespace MikkaiEngine
 	Entity2::Entity2(Renderer* renderer) : GameObject(this)
 	{
 		_renderer = renderer;
-		_locationPosition =0;
-		_locationNormal	  =0;
-		_locationTexCoord =0;
+		_locationPosition = 0;
+		_locationNormal = 0;
+		_locationTexCoord = 0;
 		_color = glm::vec3(1, 1, 1);
 		EntitysLists.push_front(this);
-		 SetnameOBJ("Entity " + std::to_string(CuantityEntitys));
-		 setName("Entity " + std::to_string(CuantityEntitys));
-		 AddDescription("-> || " + getName() + " || ");
+		SetnameOBJ("Entity " + std::to_string(CuantityEntitys));
+		setName("Entity " + std::to_string(CuantityEntitys));
+		AddDescription("-> || " + getName() + " || ");
 		CuantityEntitys++;
 		meshes = vector<Mesh*>();
 		parent = nullptr;
@@ -55,7 +55,7 @@ namespace MikkaiEngine
 		if (parent == nullptr)
 			return getTransform()->getLocalModel();
 		else
-			getGlobMat(parent) * getTransform()->getLocalModel();
+			getGlobMat(parent)* getTransform()->getLocalModel();
 	}
 	mat4 Entity2::getGlobMat(Entity2* matParent)
 	{
@@ -91,9 +91,6 @@ namespace MikkaiEngine
 		updateModelMatrix();
 	}
 
-
-
-
 	glm::vec3 Entity2::GetPos(glm::mat4 mat)
 	{
 		return glm::vec3(mat[3][0], mat[3][1], mat[3][2]);
@@ -128,9 +125,9 @@ namespace MikkaiEngine
 
 		float qMagnitude = glm::sqrt(q.w * q.w + q.x * q.x + q.y * q.y + q.z * q.z);
 		q.w /= qMagnitude;
-		q.x /= qMagnitude*-1;
-		q.y /= qMagnitude*-1;
-		q.z /= qMagnitude*-1;
+		q.x /= qMagnitude * -1;
+		q.y /= qMagnitude * -1;
+		q.z /= qMagnitude * -1;
 
 		return q;
 	}
@@ -157,7 +154,7 @@ namespace MikkaiEngine
 	}
 	Entity2* Entity2::GetNode(std::string nodeName, std::string data)
 	{
-		if (getName().find(nodeName)!= -1 && getName().find(data)!=-1)
+		if (getName().find(nodeName) != -1 && getName().find(data) != -1)
 		{
 			return this;
 		}
@@ -245,12 +242,12 @@ namespace MikkaiEngine
 	{
 		cout << endl << "-----ExampleDebugInfoEntity2------" << endl;
 		Transform* transform = getTransform();
-		cout << "pos: " + VecToString::vec3toString(transform->getposition())		<< std::endl;
-		cout << "rot: " + VecToString::vec3toString(transform->geteulerAngles())		<< std::endl;
-		cout << "sca: " + VecToString::vec3toString(transform->getlocalScale())		<< std::endl;
-		cout << "for: " + VecToString::vec3toString(transform->getForward())			<< std::endl;
-		cout << "up:  " + VecToString::vec3toString(transform->getUp())				<< std::endl;
-		cout << "rig: " + VecToString::vec3toString(transform->getRight())			<< std::endl;
+		cout << "pos: " + VecToString::vec3toString(transform->getposition()) << std::endl;
+		cout << "rot: " + VecToString::vec3toString(transform->geteulerAngles()) << std::endl;
+		cout << "sca: " + VecToString::vec3toString(transform->getlocalScale()) << std::endl;
+		cout << "for: " + VecToString::vec3toString(transform->getForward()) << std::endl;
+		cout << "up:  " + VecToString::vec3toString(transform->getUp()) << std::endl;
+		cout << "rig: " + VecToString::vec3toString(transform->getRight()) << std::endl;
 	}
 	void Entity2::Update()
 	{
@@ -264,10 +261,10 @@ namespace MikkaiEngine
 		_renderer->SetLocation(_locationNormal, "aNor");
 		_renderer->SetUniform(_uniformColor, "color");
 	}
-	//bool Entity2::canDrawThisFrame()
-	//{
-	//	return drawThisFrame;
-	//}
+	bool Entity2::canDrawThisFrame()
+	{
+		return drawThisFrame;
+	}
 	void Entity2::SetMeshes(vector<Mesh*> meshes)
 	{
 		this->meshes = meshes;
@@ -290,31 +287,49 @@ namespace MikkaiEngine
 	void Entity2::UpdateExtremos() {
 		vec3 center = getPos();
 		vec3 extend = vec3(0);
-		if (getVolume()!=nullptr)
+		if (getVolume() != nullptr)
 		{
 			center = getVolume()->getGlobalVolume(getTransform()->getWorldModel()).center;
 			extend = getVolume()->getGlobalVolume(getTransform()->getWorldModel()).extents;
 		}
-			extremos.clear();
-			extremos.push_back(center + vec3(extend.x, extend.y, extend.z));
-			extremos.push_back(center + vec3(extend.x, extend.y, -extend.z));
-			extremos.push_back(center + vec3(extend.x, -extend.y, extend.z));
-			extremos.push_back(center + vec3(-extend.x, extend.y, extend.z));
-			extremos.push_back(center + vec3(extend.x, -extend.y, -extend.z));
-			extremos.push_back(center + vec3(-extend.x, -extend.y, extend.z));
-			extremos.push_back(center + vec3(-extend.x, extend.y, -extend.z));
-			extremos.push_back(center + vec3(-extend.x, -extend.y, -extend.z));
-		
-	
+		extremos.clear();
+		extremos.push_back(center + vec3(extend.x, extend.y, extend.z));
+		extremos.push_back(center + vec3(extend.x, extend.y, -extend.z));
+		extremos.push_back(center + vec3(extend.x, -extend.y, extend.z));
+		extremos.push_back(center + vec3(-extend.x, extend.y, extend.z));
+		extremos.push_back(center + vec3(extend.x, -extend.y, -extend.z));
+		extremos.push_back(center + vec3(-extend.x, -extend.y, extend.z));
+		extremos.push_back(center + vec3(-extend.x, extend.y, -extend.z));
+		extremos.push_back(center + vec3(-extend.x, -extend.y, -extend.z));
+
+
 	}
 	void Entity2::setDraw()
 	{
+		drawThisFrame = false;
+
 		for (int i = 0; i < getChildren().size(); i++)
 		{
 			getChildren()[i]->setWorldModelWithParentModel(getTransform()->getWorldModel());
 			getChildren()[i]->setDraw();
+			addBoundsToAABB(getChildren()[i]->getLocalAABB());
 		}
-		draw();
+		if (!drawThisFrame && meshes.size() > 0 && volume != NULL && volume->isOnFrustum(getTransform()->getWorldModel()))
+		{
+			drawThisFrame = true;
+			draw();
+		}
+		if (children.size() > 0)
+		{
+			for (int i = 0; i < children.size(); i++)
+			{
+				if (children[i]->drawThisFrame)
+				{
+					drawThisFrame = true;
+					break;
+				}
+			}
+		}
 	}
 	void Entity2::Init()
 	{
@@ -322,7 +337,7 @@ namespace MikkaiEngine
 		{
 			children[i]->Init();
 		}
-			generateAABB();
+		generateAABB();
 	}
 	void Entity2::setWorldModelWithParentModel(glm::mat4 parentModel)
 	{
@@ -401,7 +416,7 @@ namespace MikkaiEngine
 		{
 			volume = new MikkaiEngine::aabb(originVolume->min, originVolume->max);
 			volume->update(originVolume->min, originVolume->max);
-			
+
 		}
 
 		for (int i = 0; i < getChildren().size(); i++)
@@ -410,7 +425,7 @@ namespace MikkaiEngine
 			children[i]->setTransformations();
 
 			updateAABBWithChildren(children[i]);
-			
+
 			addBoundsToVisualAABB(children[i]->getLocalAABB());
 		}
 		UpdateExtremos();
@@ -479,7 +494,7 @@ namespace MikkaiEngine
 
 	void Entity2::updateModelMatrix()
 	{
-			getTransform()->updateLocalModelMatrix();
+		getTransform()->updateLocalModelMatrix();
 		if (getParent() != NULL)
 		{
 			getTransform()->setLocalModel(getTransform()->getLocalModel());
@@ -490,7 +505,7 @@ namespace MikkaiEngine
 			getTransform()->setWorldModel(getTransform()->getLocalModel());
 		}
 		setTransformations();
-		
+
 	}
 
 	void Entity2::addBoundsToAABB(vector<glm::vec3> childAABB)

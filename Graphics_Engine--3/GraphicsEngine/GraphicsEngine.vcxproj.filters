@@ -157,6 +157,9 @@
     <Filter Include="src\color">
       <UniqueIdentifier>{b96b90fb-9005-4ee4-89ec-863effa286f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\BoundingVolume">
+      <UniqueIdentifier>{8b314ed8-e304-4948-adbf-2a3431090a7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseGame\BaseGame.cpp">
@@ -291,7 +294,7 @@
     <ClCompile Include="src\Entity\Entity3D.cpp">
       <Filter>src\Entity3d</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera\occlusionCulling.cpp">
+    <ClCompile Include="src\Camera\frustrumCulling.cpp">
       <Filter>src\Camera</Filter>
     </ClCompile>
     <ClCompile Include="src\Plan\Plane.cpp">
@@ -503,16 +506,13 @@
     <ClInclude Include="src\Plan\Plane.h">
       <Filter>src\Plane</Filter>
     </ClInclude>
-    <ClInclude Include="src\Collision\Sphere.h">
-      <Filter>src\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="src\Collision\AABB.h">
       <Filter>src\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity\Entity3D.h">
       <Filter>src\Entity3d</Filter>
     </ClInclude>
-    <ClInclude Include="src\Camera\occlusionCulling.h">
+    <ClInclude Include="src\Camera\frustrumCulling.h">
       <Filter>src\Camera</Filter>
     </ClInclude>
     <ClInclude Include="src\MaterialManager\MaterialManager.h">
@@ -529,6 +529,9 @@
     </ClInclude>
     <ClInclude Include="src\Mikkai\Minterface.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingVolume.h">
+      <Filter>src\BoundingVolume</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

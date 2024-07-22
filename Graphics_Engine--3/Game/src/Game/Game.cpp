@@ -75,16 +75,17 @@ void Game::Init() {
 	node1->SetPos(glm::vec3(6.5f, 0.0f, -6.5f));
 	node1->SetRot(glm::vec3(0.0f, 10.0f, 0.0f));
 
-	planos.push_back(wantedNode1);
-	planos.push_back(wantedNode2);
-	planos.push_back(wantedNode3);
-	sceneObjects.push_back(wantedNode);
 	sceneObjects.push_back(node1);
+	sceneObjects.push_back(wantedNode);
+	sceneObjects.push_back(wantedNode1);
+	sceneObjects.push_back(wantedNode2);
+	sceneObjects.push_back(wantedNode3);
 
-	_cam->SetTarget(_entity3dScene->model->GetBaseNode()->getTransform());
+	_cam->SetTarget(_entity3dScene2->model->GetBaseNode()->getTransform());
 
 	_cam->SetSensitivity(0.25f);
 	_cam->SetOffset(10.f);
+	MikkaiEngine::frustrumCulling::Init(_cam);
 
 	_dirLight = new MikkaiEngine::DirectionLight(_renderer);
 	_dirLight->Init();
@@ -152,6 +153,7 @@ void Game::Update()
 	_cam->Update();
 	LightsUpdate();
 	processInput();
+	MikkaiEngine::frustrumCulling::Update();
 }
 
 void Game::DrawOnlyEntity(Entity2* e)
@@ -170,13 +172,10 @@ void Game::DrawOnlyEntity(Entity2* e)
 void Game::Draw() {
 	for (std::list<Entity2*>::iterator it = sceneObjects.begin(); it != sceneObjects.end(); it++)
 	{
-		DrawOnlyEntity(*it);
-	}
-	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
-	{
 		(*it)->setDraw();
 	}
 }
+
 void Game::UpdateImgui() {}
 
 void Game::LightsUpdate()

@@ -69,7 +69,6 @@ namespace MikkaiEngine
 
 		void Move(vec3 v) { SetPos(getPos() + v); };
 
-
 		mat4 getGlobMat(Entity2* parent);
 		mat4 getGlobMat();
 		void SetMeshes(vector<Mesh*> meshes);
@@ -98,7 +97,7 @@ namespace MikkaiEngine
 		vector <vec3> getExtremos() { return extremos; };
 		void addBoundsToVisualAABB(vector<glm::vec3> childAABB);
 		void setAABBView(vector<Mesh*> meshes);
-		//bool canDrawThisFrame();
+		bool canDrawThisFrame();
 
 		void draw();
 
@@ -114,7 +113,7 @@ namespace MikkaiEngine
 		vector<glm::vec3> aabb;
 		vector<glm::vec3> localAABB;
 
-		//bool drawThisFrame;
+		bool drawThisFrame;
 
 		MikkaiEngine::aabb* volume;
 		MikkaiEngine::aabb* originVolume;
@@ -124,18 +123,11 @@ namespace MikkaiEngine
 		uint _locationTexCoord;
 		uint _uniformColor;
 
-
 		vector <vec3> extremos;
-
 
 		virtual void SetUniforms();
 
-
-		
-
 		void setWorldModelWithParentModel(glm::mat4 parentModel);
-
-		
 
 		void updateModelMatrix();
 
@@ -143,10 +135,7 @@ namespace MikkaiEngine
 
 		vector<glm::vec3> getLocalAABB();
 
-		
-
 		//void updateAABBPositions();
-
 
 		vector<Entity2*> children;
 		Entity2* parent;

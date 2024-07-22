@@ -1,24 +1,24 @@
-#include "occlusionCulling.h"
+#include "frustrumCulling.h"
 
 namespace MikkaiEngine
 {
-	Camera2* OcclusionCulling::cam = nullptr;
+	Camera2* frustrumCulling::cam = nullptr;
 
-	glm::vec3 OcclusionCulling::pointBack = glm::vec3();
-	glm::vec3 OcclusionCulling::pointFront = glm::vec3();
-	glm::vec3 OcclusionCulling::pointTopLeft = glm::vec3();
-	glm::vec3 OcclusionCulling::pointTopRight = glm::vec3();
-	glm::vec3 OcclusionCulling::pointBottomLeft = glm::vec3();
-	glm::vec3 OcclusionCulling::pointBottomRight = glm::vec3();
+	glm::vec3 frustrumCulling::pointBack = glm::vec3();
+	glm::vec3 frustrumCulling::pointFront = glm::vec3();
+	glm::vec3 frustrumCulling::pointTopLeft = glm::vec3();
+	glm::vec3 frustrumCulling::pointTopRight = glm::vec3();
+	glm::vec3 frustrumCulling::pointBottomLeft = glm::vec3();
+	glm::vec3 frustrumCulling::pointBottomRight = glm::vec3();
 
-	plane OcclusionCulling::up    = plane();
-	plane OcclusionCulling::down  = plane();
-	plane OcclusionCulling::left  = plane();
-	plane OcclusionCulling::right = plane();
-	plane OcclusionCulling::front = plane();
-	plane OcclusionCulling::back  = plane();
+	plane frustrumCulling::up    = plane();
+	plane frustrumCulling::down  = plane();
+	plane frustrumCulling::left  = plane();
+	plane frustrumCulling::right = plane();
+	plane frustrumCulling::front = plane();
+	plane frustrumCulling::back  = plane();
 
-	OcclusionCulling::OcclusionCulling()
+	frustrumCulling::frustrumCulling()
 	{
 		cam = nullptr;
 
@@ -37,16 +37,16 @@ namespace MikkaiEngine
 		back  = plane();
 	}
 
-	OcclusionCulling::~OcclusionCulling()
+	frustrumCulling::~frustrumCulling()
 	{
 	}
 
-	void OcclusionCulling::Init(Camera2* camera)
+	void frustrumCulling::Init(Camera2* camera)
 	{
 		cam = camera;
 	}
 
-	void OcclusionCulling::Update()
+	void frustrumCulling::Update()
 	{
 		float fov = cam->getFOV();
 		float aspect = cam->getAspect();
@@ -62,7 +62,7 @@ namespace MikkaiEngine
 		up.SetPositionAndNormal(cam->getPos(), glm::cross(cam->GetRight(), frontFar - cam->GetUp() * halfheight));
 		down.SetPositionAndNormal(cam->getPos(), glm::cross(frontFar + cam->GetUp() * halfheight, cam->GetRight()));
 	}
-	bool OcclusionCulling::IsOnView(std::vector<glm::vec3> aabbPositions)
+	bool frustrumCulling::IsOnView(std::vector<glm::vec3> aabbPositions)
 	{
 		for (short i = 0; i < aabbPositions.size(); i++)
 		{
@@ -77,7 +77,7 @@ namespace MikkaiEngine
 	}
 
 
-	void OcclusionCulling::SetCamera(Camera2* camera)
+	void frustrumCulling::SetCamera(Camera2* camera)
 	{
 		cam = camera;
 	}

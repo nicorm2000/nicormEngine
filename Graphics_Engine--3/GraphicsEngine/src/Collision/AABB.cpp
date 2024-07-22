@@ -1,7 +1,7 @@
 #include "aabb.h"
 #include "GLEW/glew.h"
 #include <GLFW/glfw3.h>
-#include "Camera/occlusionCulling.h"
+#include "Camera/frustrumCulling.h"
 
 namespace MikkaiEngine
 {
@@ -31,7 +31,6 @@ namespace MikkaiEngine
 		center = glm::vec3((max + min) * .5f);
 		extents = glm::vec3(max.x - center.x, max.y - center.y, max.z - center.z);
 	}
-
 
 	aabb::~aabb()
 	{
@@ -81,20 +80,17 @@ namespace MikkaiEngine
 
 		aabb globalAABB(globalCenter, newIi, newIj, newIk);
 
-		return (globalAABB.isOnPlane(OcclusionCulling::left) &&
-			globalAABB.isOnPlane	(OcclusionCulling::right) &&
-			globalAABB.isOnPlane	(OcclusionCulling::up) &&
-			globalAABB.isOnPlane	(OcclusionCulling::down) &&
-			globalAABB.isOnPlane	(OcclusionCulling::back) &&
-			globalAABB.isOnPlane	(OcclusionCulling::front));
+		return (globalAABB.isOnPlane(frustrumCulling::left) &&
+			    globalAABB.isOnPlane(frustrumCulling::right) &&
+			    globalAABB.isOnPlane(frustrumCulling::up) &&
+			    globalAABB.isOnPlane(frustrumCulling::down) &&
+			    globalAABB.isOnPlane(frustrumCulling::back) &&
+			    globalAABB.isOnPlane(frustrumCulling::front));
 	}
 
 	bool aabb::isOnPlane(plane plane)
 	{
 		float r = extents.x * std::abs(plane.GetNormal().x) + extents.y * std::abs(plane.GetNormal().y) + extents.z * std::abs(plane.GetNormal().z);
-
 		return -r <= plane.GetDistanceToPoint(center);
 	}
-
-
 }

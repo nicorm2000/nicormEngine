@@ -14,6 +14,7 @@
 #include "Model/Model.h"
 #include "Entity/Entity3D.h"
 #include "MaterialManager/MaterialManager.h"
+#include "Camera/frustrumCulling.h"
 
 class GraficosEngine_API BaseGame {
 private:
