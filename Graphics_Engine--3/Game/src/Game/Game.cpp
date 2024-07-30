@@ -64,7 +64,7 @@ void Game::Init() {
 	_cam = _mainCamera2;
 	color::RGBA colorFondoRGBA(glm::vec4(0, 0, 0, 0));
 	SetBackGroundColor(colorFondoRGBA);
-	_entity3dScene = new MikkaiEngine::Entity3D(_renderer, "res/i/scene.fbx");
+	_entity3dScene = new MikkaiEngine::Entity3D(_renderer, "res/i/scene2.fbx");
 	_entity3dScene2 = new MikkaiEngine::Entity3D(_renderer, "res/i/Jeep_done.fbx");
 	MikkaiEngine::Entity2* wantedNode = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
 	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("pPlane1");

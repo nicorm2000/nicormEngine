@@ -301,8 +301,6 @@ namespace MikkaiEngine
 		extremos.push_back(center + vec3(-extend.x, -extend.y, extend.z));
 		extremos.push_back(center + vec3(-extend.x, extend.y, -extend.z));
 		extremos.push_back(center + vec3(-extend.x, -extend.y, -extend.z));
-
-
 	}
 	void Entity2::setDraw()
 	{
@@ -404,10 +402,6 @@ namespace MikkaiEngine
 				volume = new MikkaiEngine::aabb(childVolume->min, childVolume->max);
 			}
 		}
-		//else
-		//{
-		//	child->updateAABBWithChildren();
-		//}
 	}
 
 	void Entity2::setTransformations()

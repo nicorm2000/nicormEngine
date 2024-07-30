@@ -56,7 +56,7 @@ namespace MikkaiEngine
 		glm::vec3 frontFar = cam->getFar() * cam->GetFront();
 
 		back.SetPositionAndNormal(cam->getPos() + cam->getNear() * cam->GetFront(), cam->GetFront());
-		front.SetPositionAndNormal(cam->getPos() + frontFar, -cam->GetFront());
+		front.SetPositionAndNormal(cam->getPos() + frontFar, - cam->GetFront());
 		right.SetPositionAndNormal(cam->getPos(), glm::cross(cam->GetUp(), frontFar + cam->GetRight() * halfWidth));
 		left.SetPositionAndNormal(cam->getPos(), glm::cross(frontFar - cam->GetRight() * halfWidth, cam->GetUp()));
 		up.SetPositionAndNormal(cam->getPos(), glm::cross(cam->GetRight(), frontFar - cam->GetUp() * halfheight));
