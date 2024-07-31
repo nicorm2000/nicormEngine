@@ -62,20 +62,6 @@ namespace MikkaiEngine
 		up.SetPositionAndNormal(cam->getPos(), glm::cross(cam->GetRight(), frontFar - cam->GetUp() * halfheight));
 		down.SetPositionAndNormal(cam->getPos(), glm::cross(frontFar + cam->GetUp() * halfheight, cam->GetRight()));
 	}
-	bool frustrumCulling::IsOnView(std::vector<glm::vec3> aabbPositions)
-	{
-		for (short i = 0; i < aabbPositions.size(); i++)
-		{
-			if (back.GetSide(aabbPositions[i]) && front.GetSide(aabbPositions[i]) && right.GetSide(aabbPositions[i])
-				&& left.GetSide(aabbPositions[i]) && up.GetSide(aabbPositions[i]) && down.GetSide(aabbPositions[i]))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 
 	void frustrumCulling::SetCamera(Camera2* camera)
 	{

@@ -88,13 +88,13 @@ namespace MikkaiEngine
                     aiMesh* aiMesh = scene->mMeshes[node->mMeshes[i]];
                     meshes.push_back(ProcessMesh(aiMesh, scene));// Process each mesh
                 }
-                entityNode->SetMeshes( meshes);
+                entityNode->SetMeshes(meshes);
                 entityNode->SetMatrix(m);
             }
             else// Handle nodes without meshes
             {
                 entityNode = new Entity2(render);
-                entityNode->setName(name + "pivot");
+                entityNode->setName(name + " pivot");
                 entityNode->SetMatrix(m);
             }
         }

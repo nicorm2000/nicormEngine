@@ -36,7 +36,7 @@ namespace MikkaiEngine
 	{
 	}
 
-	aabb aabb::getGlobalVolume(glm::mat4 worldModel)
+	aabb aabb::GetGlobalVolume(glm::mat4 worldModel)
 	{
 		glm::vec3 globalCenter{ worldModel * glm::vec4(center, 1.f) };
 

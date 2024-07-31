@@ -17,7 +17,6 @@ namespace MikkaiEngine
 		static void Init(Camera2* camera);
 		static void Update();
 
-		static bool IsOnView(std::vector<glm::vec3> aabb);
 		static void SetCamera(Camera2* camera);
 
 		static plane up;

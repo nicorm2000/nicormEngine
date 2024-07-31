@@ -14,7 +14,7 @@ namespace MikkaiEngine
 		void update(glm::vec3 min, glm::vec3 max);
 		~aabb();
 
-		aabb getGlobalVolume(glm::mat4 worldModel);
+		aabb GetGlobalVolume(glm::mat4 worldModel);
 
 		bool isOnFrustum(glm::mat4 worldModel) override;
 

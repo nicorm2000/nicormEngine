@@ -289,8 +289,8 @@ namespace MikkaiEngine
 		vec3 extend = vec3(0);
 		if (getVolume() != nullptr)
 		{
-			center = getVolume()->getGlobalVolume(getTransform()->getWorldModel()).center;
-			extend = getVolume()->getGlobalVolume(getTransform()->getWorldModel()).extents;
+			center = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).center;
+			extend = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).extents;
 		}
 		extremos.clear();
 		extremos.push_back(center + vec3(extend.x, extend.y, extend.z));
