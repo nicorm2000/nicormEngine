@@ -226,7 +226,7 @@ void Game::processInput()
 	_t->Move(t * _time->_deltaTime * speed);
 
 	if (Input::IsKeyDown(Input::KEY_X))
-		_a->DebugInfo();
+		_t->DebugInfo();
 	if (Input::IsKeyDown(Input::KEY_C))
 		Input::toggle_lock_cursor();
 	if (Input::IsKeyDown(Input::KEY_B))

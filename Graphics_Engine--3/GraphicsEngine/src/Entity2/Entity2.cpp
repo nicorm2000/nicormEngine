@@ -284,24 +284,6 @@ namespace MikkaiEngine
 		this->children.push_back(children);
 	}
 
-	void Entity2::UpdateExtremos() {
-		vec3 center = getPos();
-		vec3 extend = vec3(0);
-		if (getVolume() != nullptr)
-		{
-			center = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).center;
-			extend = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).extents;
-		}
-		extremos.clear();
-		extremos.push_back(center + vec3(extend.x, extend.y, extend.z));
-		extremos.push_back(center + vec3(extend.x, extend.y, -extend.z));
-		extremos.push_back(center + vec3(extend.x, -extend.y, extend.z));
-		extremos.push_back(center + vec3(-extend.x, extend.y, extend.z));
-		extremos.push_back(center + vec3(extend.x, -extend.y, -extend.z));
-		extremos.push_back(center + vec3(-extend.x, -extend.y, extend.z));
-		extremos.push_back(center + vec3(-extend.x, extend.y, -extend.z));
-		extremos.push_back(center + vec3(-extend.x, -extend.y, -extend.z));
-	}
 	void Entity2::setDraw()
 	{
 		drawThisFrame = false;
@@ -316,15 +298,15 @@ namespace MikkaiEngine
 		{
 			drawThisFrame = true;
 			draw();
-		}
-		if (children.size() > 0)
-		{
-			for (int i = 0; i < children.size(); i++)
+			if (children.size() > 0)
 			{
-				if (children[i]->drawThisFrame)
+				for (int i = 0; i < children.size(); i++)
 				{
-					drawThisFrame = true;
-					break;
+					if (children[i]->drawThisFrame)
+					{
+						drawThisFrame = true;
+						break;
+					}
 				}
 			}
 		}
@@ -410,7 +392,6 @@ namespace MikkaiEngine
 		{
 			volume = new MikkaiEngine::aabb(originVolume->min, originVolume->max);
 			volume->update(originVolume->min, originVolume->max);
-
 		}
 
 		for (int i = 0; i < getChildren().size(); i++)
@@ -419,41 +400,7 @@ namespace MikkaiEngine
 			children[i]->setTransformations();
 
 			updateAABBWithChildren(children[i]);
-
-			addBoundsToVisualAABB(children[i]->getLocalAABB());
 		}
-		UpdateExtremos();
-	}
-
-	void Entity2::addBoundsToVisualAABB(vector<glm::vec3> childAABB)
-	{
-		if (childAABB.size() < 1)
-		{
-			return;
-		}
-		else if (localAABB.size() < 1)
-		{
-			localAABB.clear();
-			localAABB.push_back(childAABB[0]);
-			localAABB.push_back(childAABB[1]);
-
-			aabb.clear();
-			aabb.push_back(childAABB[0]);
-			aabb.push_back(childAABB[1]);
-
-			return;
-		}
-
-		localAABB.clear();
-		localAABB.push_back(aabb[0]);
-		localAABB.push_back(aabb[1]);
-
-		if (childAABB[0].x < localAABB[0].x) localAABB[0].x = childAABB[0].x;
-		if (childAABB[1].x > localAABB[1].x) localAABB[1].x = childAABB[1].x;
-		if (childAABB[0].y < localAABB[0].y) localAABB[0].y = childAABB[0].y;
-		if (childAABB[1].y > localAABB[1].y) localAABB[1].y = childAABB[1].y;
-		if (childAABB[0].z < localAABB[0].z) localAABB[0].z = childAABB[0].z;
-		if (childAABB[1].z > localAABB[1].z) localAABB[1].z = childAABB[1].z;
 	}
 
 	void Entity2::setAABBView(vector<Mesh*> meshes)

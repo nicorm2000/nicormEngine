@@ -124,7 +124,7 @@ void baseEntity2Edit(Entity2* it)
 {
     ImGui::Text("-------------");
     bool enabled = (it)->getactive();
-    if (ImGui::Checkbox(((it)->getName() + "enabled").c_str(), &enabled))
+    if (ImGui::Checkbox(((it)->getName()).c_str(), &enabled))
         (it)->setActive(enabled);
     if ((it)->getactive())
     {

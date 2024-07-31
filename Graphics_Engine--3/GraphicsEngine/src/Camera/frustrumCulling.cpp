@@ -4,13 +4,6 @@ namespace MikkaiEngine
 {
 	Camera2* frustrumCulling::cam = nullptr;
 
-	glm::vec3 frustrumCulling::pointBack = glm::vec3();
-	glm::vec3 frustrumCulling::pointFront = glm::vec3();
-	glm::vec3 frustrumCulling::pointTopLeft = glm::vec3();
-	glm::vec3 frustrumCulling::pointTopRight = glm::vec3();
-	glm::vec3 frustrumCulling::pointBottomLeft = glm::vec3();
-	glm::vec3 frustrumCulling::pointBottomRight = glm::vec3();
-
 	plane frustrumCulling::up    = plane();
 	plane frustrumCulling::down  = plane();
 	plane frustrumCulling::left  = plane();
@@ -21,13 +14,6 @@ namespace MikkaiEngine
 	frustrumCulling::frustrumCulling()
 	{
 		cam = nullptr;
-
-		pointBack = glm::vec3();
-		pointFront = glm::vec3();
-		pointTopLeft = glm::vec3();
-		pointTopRight = glm::vec3();
-		pointBottomLeft = glm::vec3();
-		pointBottomRight = glm::vec3();
 
 		up    = plane();
 		down  = plane();

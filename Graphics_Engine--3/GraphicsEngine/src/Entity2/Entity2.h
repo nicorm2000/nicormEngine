@@ -75,7 +75,6 @@ namespace MikkaiEngine
 		void AddMesh(Mesh* mesh) { this->meshes.push_back(mesh); };
 		void SetParent(Entity2* parent);
 		void setChildren(vector<Entity2*> children);
-		void UpdateExtremos();
 		void setDraw();
 		void Init();
 		glm::vec3 GetPos(glm::mat4 mat);
@@ -94,8 +93,6 @@ namespace MikkaiEngine
 		void generateAABB();
 		void updateAABBWithChildren(Entity2* child);
 		void setTransformations();
-		vector <vec3> getExtremos() { return extremos; };
-		void addBoundsToVisualAABB(vector<glm::vec3> childAABB);
 		void setAABBView(vector<Mesh*> meshes);
 		bool canDrawThisFrame();
 
