@@ -160,6 +160,9 @@
     <Filter Include="src\BoundingVolume">
       <UniqueIdentifier>{8b314ed8-e304-4948-adbf-2a3431090a7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\BSP">
+      <UniqueIdentifier>{93927adf-f9cc-4e23-8879-5215977ee865}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseGame\BaseGame.cpp">
@@ -320,6 +323,9 @@
     </ClCompile>
     <ClCompile Include="src\Mikkai\Minterface.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BSP\BSP.cpp">
+      <Filter>src\BSP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -532,6 +538,9 @@
     </ClInclude>
     <ClInclude Include="BoundingVolume.h">
       <Filter>src\BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BSP\BSP.h">
+      <Filter>src\BSP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

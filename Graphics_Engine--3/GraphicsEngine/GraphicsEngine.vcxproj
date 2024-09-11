@@ -197,6 +197,7 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\BaseGame\BaseGame.cpp" />
     <ClCompile Include="src\Behaviour\Behaviour.cpp" />
+    <ClCompile Include="src\BSP\BSP.cpp" />
     <ClCompile Include="src\Camera2\Camera2.cpp" />
     <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\Camera\frustrumCulling.cpp" />
@@ -254,6 +255,7 @@ XCOPY "$(ProjectDir)Shaders" "$(SolutionDir)Shaders\" /e /h /y /s</Command>
     <ClInclude Include="src\Atlas\Atlas.h" />
     <ClInclude Include="src\BaseGame\BaseGame.h" />
     <ClInclude Include="src\Behaviour\Behaviour.h" />
+    <ClInclude Include="src\BSP\BSP.h" />
     <ClInclude Include="src\Camera2\Camera2.h" />
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Camera\frustrumCulling.h" />

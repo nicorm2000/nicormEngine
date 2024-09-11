@@ -4,14 +4,13 @@
 
 const int quantity = 20;
 class Game : BaseGame {
-
+	MikkaiEngine::Entity2* _Wall1;
 	MikkaiEngine::Entity2* _a;
 	MikkaiEngine::Entity2* _b;
 	MikkaiEngine::Entity2* _t;
 	list <MikkaiEngine::Entity2*> sceneObjects;
 	list <MikkaiEngine::Entity2*> planos;
 	MikkaiEngine::Entity3D* _entity3dScene;
-	MikkaiEngine::Entity3D* _entity3dScene2;
 	MikkaiEngine::Model* _modeloTanke;
 	MikkaiEngine::Model* _modeltest2;
 	MikkaiEngine::Camera2* _cam;
@@ -33,7 +32,5 @@ public:
 	void LightsUpdate();
 
 	void processInput();
-
-	void DrawOnlyEntity(MikkaiEngine::Entity2* e);
 };
 #endif

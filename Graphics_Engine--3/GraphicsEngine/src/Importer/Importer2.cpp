@@ -103,11 +103,18 @@ namespace MikkaiEngine
 		{
 			ProcessNode(entityNode, mat, node->mChildren[i], scene);
 		}
+		if (entityNode != nullptr) 
+		{
+			entityNode->Init();
+		}
 
-		parent->AddChildren(entityNode);
-		entityNode->setName(name);
-		entityNode->SetParent(parent);
-		entityNode->Init();
+		if (name.find("$AssimpFbx$") == std::string::npos)
+		{
+			parent->AddChildren(entityNode);
+			entityNode->setName(name);
+			entityNode->SetParent(parent);
+			entityNode->Init();
+		}
 	}
 
 

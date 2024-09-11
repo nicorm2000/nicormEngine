@@ -1,12 +1,6 @@
 #ifndef CAMERA2_H
 #define CAMERA2_H
 #include "Entity2/Entity2.h"
-//#include "Exports/Exports.h"
-//#include "GLM/glm.hpp"
-//#include "GLM/gtc/matrix_transform.hpp"
-//#include "GLM/gtc/type_ptr.hpp"
-//#include "Renderer/Renderer.h"
-//#include "Transform/Transform.h"
 namespace MikkaiEngine
 {
 

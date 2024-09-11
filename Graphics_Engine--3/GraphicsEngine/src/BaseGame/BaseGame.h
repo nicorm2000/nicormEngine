@@ -15,6 +15,7 @@
 #include "Entity/Entity3D.h"
 #include "MaterialManager/MaterialManager.h"
 #include "Camera/frustrumCulling.h"
+#include "BSP/BSP.h"
 
 class GraficosEngine_API BaseGame {
 private:
@@ -30,6 +31,7 @@ protected:
 	Camera* _mainCamera;
 	MikkaiEngine::Camera2* _mainCamera2;
 	MyImGui* _myImgui;
+	MikkaiEngine::BSP* _bsp;
 
 public:
 	Renderer* GetRenderer();
