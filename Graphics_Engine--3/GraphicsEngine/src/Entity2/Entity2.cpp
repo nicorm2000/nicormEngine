@@ -401,6 +401,27 @@ namespace MikkaiEngine
 
 			updateAABBWithChildren(children[i]);
 		}
+
+		UpdateExtremos();
+	}
+
+	void Entity2::UpdateExtremos() {
+		vec3 center = getPos();
+		vec3 extend = vec3(0);
+		if (getVolume() != nullptr)
+		{
+			center = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).center;
+			extend = getVolume()->GetGlobalVolume(getTransform()->getWorldModel()).extents;
+		}
+		extremos.clear();
+		extremos.push_back(center + vec3(extend.x, extend.y, extend.z));
+		extremos.push_back(center + vec3(extend.x, extend.y, -extend.z));
+		extremos.push_back(center + vec3(extend.x, -extend.y, extend.z));
+		extremos.push_back(center + vec3(-extend.x, extend.y, extend.z));
+		extremos.push_back(center + vec3(extend.x, -extend.y, -extend.z));
+		extremos.push_back(center + vec3(-extend.x, -extend.y, extend.z));
+		extremos.push_back(center + vec3(-extend.x, extend.y, -extend.z));
+		extremos.push_back(center + vec3(-extend.x, -extend.y, -extend.z));
 	}
 
 	void Entity2::setAABBView(vector<Mesh*> meshes)

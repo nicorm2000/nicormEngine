@@ -92,6 +92,7 @@ namespace MikkaiEngine
 
 		void generateAABB();
 		void updateAABBWithChildren(Entity2* child);
+		void UpdateExtremos();
 		void setTransformations();
 		void setAABBView(vector<Mesh*> meshes);
 		bool canDrawThisFrame();
@@ -99,6 +100,8 @@ namespace MikkaiEngine
 		void draw();
 
 		vector<glm::vec3> GetlocalAABB() { return localAABB; };
+
+		vector <vec3> getExtremos() { return extremos; }
 	private:
 		friend class MyImGui;
 	protected:

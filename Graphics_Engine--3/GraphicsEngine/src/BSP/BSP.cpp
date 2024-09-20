@@ -38,36 +38,45 @@ namespace MikkaiEngine
 		}
 	}
 
+	void BSP::DrawOnlyEntity(Entity2* e)
+	{
+		for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
+		{
+			bool dibujar = true;
+			if (!AskBox((*it), e)) // pregunto si la camara y si uno de los puntos esta en la misma cara del plano
+			{
+				dibujar = false;
+				break;
+			}
+			if (dibujar)
+			{
+				drawrequ(e);
+			}
+		}
+	}
+
+	void BSP::drawrequ(Entity2* e)
+	{
+		if (e->getMeshes().size() > 0)
+			e->draw();
+		if (e->getChildren().size() > 0)
+		{
+			for (int i = 0; i < e->getChildren().size(); i++)
+			{
+				drawrequ(e->getChildren()[i]);
+			}
+		}
+	}
+
 	bool BSP::AskBox(plane* plan, Entity2* entity)
 	{
-		if (entity->getVolume() == nullptr)
+		for (int i = 0; i < entity->getExtremos().size(); i++)
 		{
-			cout << "esta entidad no tiene volumen: " + entity->getName() << endl;
-			return false;
-		}
-		if (entity->getVolume() == new MikkaiEngine::aabb(vec3(0), vec3(0)))
-		{
-			cout << "esta entidad tiene volumen 0: " + entity->getName() << endl;
-			return false;
-		}
-		bool sameSide = false;
-		vec3 center = entity->getVolume()->center;
-		vec3 extend = entity->getVolume()->extents;
-		vec3 extremo[8] = {
-			center + vec3(extend.x,extend.y,extend.z),
-			center + vec3(extend.x,extend.y,-extend.z),
-			center + vec3(extend.x,-extend.y,extend.z),
-			center + vec3(-extend.x,extend.y,extend.z),
-			center + vec3(extend.x,-extend.y,-extend.z),
-			center + vec3(-extend.x,-extend.y,extend.z),
-			center + vec3(-extend.x,extend.y,-extend.z),
-			center + vec3(-extend.x,-extend.y,-extend.z),
-		};
-		for (int i = 0; i < 8; i++)
-		{
-			bool cameraSide = plan->GetSide(camera->getPos());
-			bool planeSide = plan->GetSide(extremo[i]);
-			if (cameraSide == planeSide)
+			bool A = plan->GetSide(camera->getPos());
+
+			bool B = plan->GetSide(entity->getExtremos()[i]);
+
+			if (A == B)
 				return true;
 		}
 		return false;

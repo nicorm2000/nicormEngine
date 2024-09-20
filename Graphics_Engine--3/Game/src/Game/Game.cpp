@@ -57,6 +57,9 @@ Game::Game() {
 		_Wall1 = nullptr;
 	_spotLight = nullptr;
 	_modeloTanke = nullptr;
+	_modeloTanke1 = nullptr;
+	_modeloTanke2 = nullptr;
+	_modeloTanke3 = nullptr;
 }
 Game::~Game() {}
 
@@ -70,7 +73,6 @@ void Game::Init() {
 	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke1");
 	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke2");
 	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke3");
-	MikkaiEngine::Entity2* wantedNode4 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke4");
 	MikkaiEngine::Entity2* wantedNodeBsp1 = _entity3dScene->model->GetBaseNode()->GetNode("bsp1");
 	MikkaiEngine::Entity2* wantedNodeBsp2 = _entity3dScene->model->GetBaseNode()->GetNode("bsp2");
 	MikkaiEngine::Entity2* wantedNodeBsp3 = _entity3dScene->model->GetBaseNode()->GetNode("bsp3");
@@ -83,7 +85,35 @@ void Game::Init() {
 	sceneObjects.push_back(wantedNode1);
 	sceneObjects.push_back(wantedNode2);
 	sceneObjects.push_back(wantedNode3);
-	sceneObjects.push_back(wantedNode4);
+
+	if (wantedNode != nullptr)
+	{
+		_modeloTanke = new MikkaiEngine::Model(GetRenderer());
+		_modeloTanke->SetBaseNode(wantedNode);
+		_modeloTanke->GetBaseNode()->Init();
+		_modeloTanke->GetBaseNode()->SetPos(0, 0, 0);
+	}
+	if (wantedNode1 != nullptr)
+	{
+		_modeloTanke1 = new MikkaiEngine::Model(GetRenderer());
+		_modeloTanke1->SetBaseNode(wantedNode1);
+		_modeloTanke1->GetBaseNode()->Init();
+		_modeloTanke1->GetBaseNode()->SetPos(-15, 0, 0);
+	}
+	if (wantedNode2 != nullptr)
+	{
+		_modeloTanke2 = new MikkaiEngine::Model(GetRenderer());
+		_modeloTanke2->SetBaseNode(wantedNode2);
+		_modeloTanke2->GetBaseNode()->Init();
+		_modeloTanke2->GetBaseNode()->SetPos(15, 0, 0);
+	}
+	if (wantedNode3 != nullptr)
+	{
+		_modeloTanke3 = new MikkaiEngine::Model(GetRenderer());
+		_modeloTanke3->SetBaseNode(wantedNode3);
+		_modeloTanke3->GetBaseNode()->Init();
+		_modeloTanke3->GetBaseNode()->SetPos(0, 0, -15);
+	}
 
 	_cam->SetSensitivity(0.25f);
 	_cam->SetOffset(10.f);
@@ -148,7 +178,6 @@ void Game::Init() {
 	_bsp->AddEntity(wantedNode1);
 	_bsp->AddEntity(wantedNode2);
 	_bsp->AddEntity(wantedNode3);
-	//_bsp->AddEntity(wantedNode4);
 
 	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
 	{

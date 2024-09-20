@@ -18,6 +18,8 @@ namespace MikkaiEngine
 		void Init() {};
 		void Update() {};
 		void Draw();
+		void DrawOnlyEntity(Entity2* e);
+		void drawrequ(Entity2* e);
 		bool AskBox(plane* plan, Entity2* entity);
 		void DeInit();
 

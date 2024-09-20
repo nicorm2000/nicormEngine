@@ -12,6 +12,9 @@ class Game : BaseGame {
 	list <MikkaiEngine::Entity2*> planos;
 	MikkaiEngine::Entity3D* _entity3dScene;
 	MikkaiEngine::Model* _modeloTanke;
+	MikkaiEngine::Model* _modeloTanke1;
+	MikkaiEngine::Model* _modeloTanke2;
+	MikkaiEngine::Model* _modeloTanke3;
 	MikkaiEngine::Model* _modeltest2;
 	MikkaiEngine::Camera2* _cam;
 	MikkaiEngine::plane* _planeXample;
