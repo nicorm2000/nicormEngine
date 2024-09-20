@@ -9,6 +9,7 @@ namespace MikkaiEngine
 	std::vector<Texture> Importer2::textures_loaded = std::vector<Texture>();
 	std::string Importer2::directory = std::string();
 	std::string assimpfbx = "$AssimpFbx$";
+	std::list <MikkaiEngine::Entity2*> Importer2::planos;
 
 	Entity2* Importer2::LoadModel(Renderer* rend, std::string path)
 	{
@@ -40,6 +41,7 @@ namespace MikkaiEngine
 		Entity2* entityNode = nullptr;
 		std::string name = node->mName.C_Str();
 		std::cout << "GO names: " << name << endl;
+
 		if (name.find("$AssimpFbx$") != std::string::npos)// Check for Assimp-specific FBX transformation pivots
 		{
 			entityNode = parent;
@@ -99,6 +101,11 @@ namespace MikkaiEngine
 			}
 		}
 
+		if (name.find("bsp") != std::string::npos)
+		{
+			Importer2::planos.push_back(entityNode);
+		}
+
 		for (uint i = 0; i < node->mNumChildren; i++)// Recursively process all children of the node
 		{
 			ProcessNode(entityNode, mat, node->mChildren[i], scene);
@@ -116,7 +123,6 @@ namespace MikkaiEngine
 			entityNode->Init();
 		}
 	}
-
 
 	Mesh* Importer2::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	{

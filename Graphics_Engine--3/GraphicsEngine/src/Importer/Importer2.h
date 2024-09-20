@@ -11,6 +11,7 @@ namespace MikkaiEngine
 {
 	class GraficosEngine_API Importer2 {
 	public:
+		static std::list <Entity2*> planos;
 		Importer2() {};
 		~Importer2() {};
 
@@ -26,7 +27,5 @@ namespace MikkaiEngine
 		static std::vector<Texture> LoadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);
 	};
 }
-
-
 
 #endif

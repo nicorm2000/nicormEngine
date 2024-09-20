@@ -73,13 +73,6 @@ void Game::Init() {
 	MikkaiEngine::Entity2* wantedNode1 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke1");
 	MikkaiEngine::Entity2* wantedNode2 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke2");
 	MikkaiEngine::Entity2* wantedNode3 = _entity3dScene->model->GetBaseNode()->GetNode("Tanke3");
-	MikkaiEngine::Entity2* wantedNodeBsp1 = _entity3dScene->model->GetBaseNode()->GetNode("bsp1");
-	MikkaiEngine::Entity2* wantedNodeBsp2 = _entity3dScene->model->GetBaseNode()->GetNode("bsp2");
-	MikkaiEngine::Entity2* wantedNodeBsp3 = _entity3dScene->model->GetBaseNode()->GetNode("bsp3");
-
-	planos.push_back(wantedNodeBsp1);
-	planos.push_back(wantedNodeBsp2);
-	planos.push_back(wantedNodeBsp3);
 
 	sceneObjects.push_back(wantedNode);
 	sceneObjects.push_back(wantedNode1);
@@ -179,7 +172,7 @@ void Game::Init() {
 	_bsp->AddEntity(wantedNode2);
 	_bsp->AddEntity(wantedNode3);
 
-	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
+	for (std::list<Entity2*>::iterator it = MikkaiEngine::Importer2::planos.begin(); it != MikkaiEngine::Importer2::planos.end(); it++)
 	{
 		_bsp->AddPlane(*it);
 	}
@@ -208,7 +201,7 @@ void Game::Update()
 
 void Game::Draw() {
 	_bsp->Draw();
-	for (std::list<Entity2*>::iterator it = planos.begin(); it != planos.end(); it++)
+	for (std::list<Entity2*>::iterator it = MikkaiEngine::Importer2::planos.begin(); it != MikkaiEngine::Importer2::planos.end(); it++)
 	{
 		(*it)->setDraw();
 	}
@@ -287,7 +280,7 @@ void Game::processInput()
 	}
 
 	if (Input::IsKeyDown(Input::KEY_F2))
-	{ 
+	{
 		for (std::list<MikkaiEngine::Entity2*>::iterator it2 = MikkaiEngine::Entity2::EntitysLists.begin(); it2 != MikkaiEngine::Entity2::EntitysLists.end(); ++it2)
 			if (*it2 == _a && it2 != MikkaiEngine::Entity2::EntitysLists.end())
 			{
