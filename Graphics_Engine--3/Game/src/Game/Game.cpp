@@ -85,6 +85,7 @@ void Game::Init() {
 		_modeloTanke->SetBaseNode(wantedNode);
 		_modeloTanke->GetBaseNode()->Init();
 		_modeloTanke->GetBaseNode()->SetPos(0, 0, 0);
+		Entity2::personalList.push_back(wantedNode);
 	}
 	if (wantedNode1 != nullptr)
 	{

@@ -32,19 +32,11 @@ void MyImGui::Init()
 void MyImGui::InitAfterWindow(Window* win)
 {
     glfwMakeContextCurrent(win->GetWindow());
-    glfwSwapInterval(1); // Enable vsync
-    // Setup Dear ImGui context
+    glfwSwapInterval(1);
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-
-    // Setup Dear ImGui style
     ImGui::StyleColorsDark();
-    //ImGui::StyleColorsClassic();
-
-    // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(win->GetWindow(), true);
     ImGui_ImplOpenGL3_Init(glsl_version);
     _window = win;
@@ -52,7 +44,6 @@ void MyImGui::InitAfterWindow(Window* win)
 
 void MyImGui::Update()
 {
-
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
@@ -69,6 +60,10 @@ void MyImGui::Update()
     if (ShowLights)
     {
         UpdateWindowsLights();
+    }
+    if (ShowMyEntitiesList)
+    {
+        UpdateWindowsEntity2My();
     }
 }
 
@@ -99,6 +94,10 @@ bool MyImGui::SliderFloat3(std::string a,vec3 * b, float min, float max)
 void MyImGui::UpdateMainWindows()
 {
     ImGui::Begin("Config");
+    if (ImGui::Button("ENTITY2MY", ImVec2(ImGui::GetWindowWidth(), 20)))
+    {
+        ShowMyEntitiesList = !ShowMyEntitiesList;
+    }
     if (ImGui::Button("ENTITY2",ImVec2(ImGui::GetWindowWidth(),20)))
     {
         ShowEntity2List = !ShowEntity2List;
@@ -128,51 +127,52 @@ void baseEntity2Edit(Entity2* it)
         (it)->setActive(enabled);
     if ((it)->getactive())
     {
-        vec3 pos = (it)->getPos();
-        vec3 rot = (it)->getRot();
-        vec3 scale = (it)->getScale();
-        vec3 color = (it)->getColor();
-        if ((it)->canDrawThisFrame())
-            ImGui::Text("Se dibuja");
+            vec3 pos = (it)->getPos();
+            vec3 rot = (it)->getRot();
+            vec3 scale = (it)->getScale();
+            vec3 color = (it)->getColor();
+            if ((it)->canDrawThisFrame())
+                ImGui::Text("Se dibuja");
+            else
+                ImGui::Text("No Se dibuja");
+            if (ImGui::SliderFloat3(("pos "+(it)->getName()).c_str(), (float*)&pos, -15.0f, 15.0f))
+                (it)->SetPos(pos);
+            if (ImGui::SliderFloat3(("rot "+(it)->getName()).c_str(), (float*)&rot, -180.0f, 180.0f))
+                (it)->SetRotations(rot);
+            if (ImGui::SliderFloat3(("scl "+(it)->getName()).c_str(), (float*)&scale, -0.0f, 3.0f))
+                (it)->SetScale(scale);
+            if (ImGui::ColorEdit3(("clo " + (it)->getName()).c_str(), (float*)&color))
+                (it)->SetColor(color);
+        if ((it)->getChildren().size() > 0)
+        {
+            ImGui::Text("HIJOS: ");
+            for (int i = 0; i < (it)->getChildren().size(); i++)
+                ImGui::Text((it)->getChildren()[i]->getName().c_str());
+        }
         else
-            ImGui::Text("No Se dibuja");
-        if (ImGui::SliderFloat3(("pos "+(it)->getName()).c_str(), (float*)&pos, -15.0f, 15.0f))
-            (it)->SetPos(pos);
-        if (ImGui::SliderFloat3(("rot "+(it)->getName()).c_str(), (float*)&rot, -180.0f, 180.0f))
-            (it)->SetRotations(rot);
-        if (ImGui::SliderFloat3(("scl "+(it)->getName()).c_str(), (float*)&scale, -0.0f, 3.0f))
-            (it)->SetScale(scale);
-        if (ImGui::ColorEdit3(("clo " + (it)->getName()).c_str(), (float*)&color))
-            (it)->SetColor(color);
+        {
+            ImGui::Text("HIJOS: NULL");
+        }
+        if ((it)->getChildren().size()>0)
+            for (int i = 0; i < (it)->getChildren().size(); i++)
+                baseEntity2Edit((it)->getChildren()[i]);
+        if ((it)->getParent()!=nullptr)
+        {
+            ImGui::Text(("PADRE: "+ (it)->getParent()->getName()).c_str());
+        }
+        else
+        {
+            ImGui::Text("PADRE: NULL");
+        }
+        if ((it)->getMeshes().size()>0)
+        {
+            int a = (it)->getMeshes().size();
+            
+            std::string val("MESHES:" + std::to_string(a));
+            ImGui::Text(val.c_str());
+        }
     }
-    if ((it)->getChildren().size() > 0)
-    {
-        ImGui::Text("HIJOS: ");
-        for (int i = 0; i < (it)->getChildren().size(); i++)
-            ImGui::Text((it)->getChildren()[i]->getName().c_str());
-    }
-    else
-    {
-        ImGui::Text("HIJOS: NULL");
-    }
-    if ((it)->getChildren().size()>0)
-        for (int i = 0; i < (it)->getChildren().size(); i++)
-            baseEntity2Edit((it)->getChildren()[i]);
-    if ((it)->getParent()!=nullptr)
-    {
-        ImGui::Text(("PADRE: "+ (it)->getParent()->getName()).c_str());
-    }
-    else
-    {
-        ImGui::Text("PADRE: NULL");
-    }
-    if ((it)->getMeshes().size()>0)
-    {
-        int a = (it)->getMeshes().size();
-        
-        std::string val("MESHES:" + std::to_string(a));
-        ImGui::Text(val.c_str());
-    }
+
     ImGui::Text("-------------");
 }
 void baseLight2Edit(Light* it)
@@ -208,7 +208,19 @@ void DirLightEdit(DirectionLight* it)
             (it)->SetAmbient(dir);
         baseLight2Edit(it);
     }
+}
 
+void MyImGui::UpdateWindowsEntity2My()
+{
+    ImGui::Begin("Entity2My");
+    if (Entity2::personalList.size() > 0)
+    {
+        for (std::list<Entity2*>::iterator it = Entity2::personalList.begin(); it != Entity2::personalList.end(); it++)
+        {
+            baseEntity2Edit(*it);
+        }
+    }
+    ImGui::End();
 }
 
 void MyImGui::UpdateWindowsEntity2()
@@ -261,4 +273,3 @@ void MyImGui::UpdateWindowsModel()
     }
     ImGui::End();
 }
-

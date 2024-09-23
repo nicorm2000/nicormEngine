@@ -13,6 +13,7 @@ namespace MikkaiEngine
 	public:
 		static int CuantityEntitys;
 		static std::list<Entity2*> EntitysLists;
+		static std::list<Entity2*> personalList;
 		
 		Entity2(Renderer* renderer);
 		~Entity2();
@@ -89,7 +90,7 @@ namespace MikkaiEngine
 		vector<Mesh*> getMeshes() { return meshes; };
 		Entity2* GetNode(std::string nodeName);
 		Entity2* GetNode(std::string nodeName, std::string data);
-
+		void SetcanDrawThisFrame(bool a);
 		void generateAABB();
 		void updateAABBWithChildren(Entity2* child);
 		void UpdateExtremos();

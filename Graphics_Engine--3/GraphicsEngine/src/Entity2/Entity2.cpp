@@ -3,6 +3,7 @@ namespace MikkaiEngine
 {
 	int Entity2::CuantityEntitys = 0;
 	std::list<Entity2*> Entity2::EntitysLists;
+	std::list<Entity2*> Entity2::personalList;
 	Entity2::Entity2(Renderer* renderer) : GameObject(this)
 	{
 		_renderer = renderer;
@@ -264,6 +265,10 @@ namespace MikkaiEngine
 	bool Entity2::canDrawThisFrame()
 	{
 		return drawThisFrame;
+	}
+	void Entity2::SetcanDrawThisFrame(bool a)
+	{
+		drawThisFrame = a;
 	}
 	void Entity2::SetMeshes(vector<Mesh*> meshes)
 	{

@@ -24,17 +24,7 @@ namespace MikkaiEngine
 	{
 		for (std::list<Entity2*>::iterator it2 = entities.begin(); it2 != entities.end(); ++it2)
 		{
-			bool dibujable = true;
-			for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
-			{
-				if (!AskBox((*it), (*it2)))
-				{
-					dibujable = false;
-					break;
-				}
-			}
-			if (dibujable)
-				(*it2)->setDraw();
+			drawrequ(*it2);
 		}
 	}
 
@@ -57,15 +47,22 @@ namespace MikkaiEngine
 
 	void BSP::drawrequ(Entity2* e)
 	{
-		if (e->getMeshes().size() > 0)
-			e->draw();
-		if (e->getChildren().size() > 0)
+		for (int i = 0; i < e->getChildren().size(); i++)
 		{
-			for (int i = 0; i < e->getChildren().size(); i++)
+			drawrequ(e->getChildren()[i]);
+		}
+		e->SetcanDrawThisFrame(true);
+		for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
+		{
+			if (!AskBox((*it), e))
 			{
-				drawrequ(e->getChildren()[i]);
+				e->SetcanDrawThisFrame(false);
+				break;
 			}
 		}
+		if ((e)->canDrawThisFrame())
+			if (e->getMeshes().size() > 0)
+				e->draw();
 	}
 
 	bool BSP::AskBox(plane* plan, Entity2* entity)
