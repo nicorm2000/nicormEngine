@@ -181,7 +181,7 @@ void Game::Init() {
 	_a = _cam;
 	_t = _entity3dScene->model->GetBaseNode()->GetNode("Tanke");
 
-	_renderer->SetBackgroundColor(vec4((float)(140.f / 255.f), (float)(224.f / 255.f), (float)(216.f / 255.f), 0.5f));
+	_renderer->SetBackgroundColor(vec4((float)(255.f / 255.f), (float)(247.f / 255.f), (float)(184.f / 255.f), 0.5f));
 }
 
 void Game::Deinit()
