@@ -33,7 +33,7 @@ namespace MikkaiEngine
 		for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
 		{
 			bool dibujar = true;
-			if (!AskBox((*it), e)) // pregunto si la camara y si uno de los puntos esta en la misma cara del plano
+			if (!AskBox((*it), e))
 			{
 				dibujar = false;
 				break;
@@ -120,28 +120,4 @@ namespace MikkaiEngine
 		//	(*it)->SwitchCanDrawStatus();
 		//}
 	}
-
-	//void BSP::UpdateNodeVolume(Entity2* node)
-	//{
-	//	bool drawEntity = true;
-	//
-	//	for (std::list<PlaneBSP*>::iterator itP = planes.begin(); itP != planes.end(); ++itP)
-	//	{
-	//		if (node->GetGlobalVolume()->IsOnPlane(*(*itP)->plane) != (*itP)->plane->GetSide(camera->GetPos()))
-	//		{
-	//			drawEntity = false;
-	//			break;
-	//		}
-	//	}
-	//	node->visible = drawEntity;
-	//
-	//	std::list<Entity*> nodes = node->GetNodes();
-	//	if (!nodes.empty())
-	//	{
-	//		for (std::list<Entity*>::iterator itN = nodes.begin(); itN != nodes.end(); ++itN)
-	//		{
-	//			UpdateNodeVolume((*itN));
-	//		}
-	//	}
-	//}
 }
