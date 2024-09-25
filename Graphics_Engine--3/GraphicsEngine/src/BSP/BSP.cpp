@@ -24,7 +24,7 @@ namespace MikkaiEngine
 	{
 		for (std::list<Entity2*>::iterator it2 = entities.begin(); it2 != entities.end(); ++it2)
 		{
-			drawrequ(*it2);
+			DrawRecursive(*it2);
 		}
 	}
 
@@ -40,16 +40,16 @@ namespace MikkaiEngine
 			}
 			if (dibujar)
 			{
-				drawrequ(e);
+				DrawRecursive(e);
 			}
 		}
 	}
 
-	void BSP::drawrequ(Entity2* e)
+	void BSP::DrawRecursive(Entity2* e)
 	{
 		for (int i = 0; i < e->getChildren().size(); i++)
 		{
-			drawrequ(e->getChildren()[i]);
+			DrawRecursive(e->getChildren()[i]);
 		}
 		e->SetcanDrawThisFrame(true);
 		for (std::list<plane*>::iterator it = planes.begin(); it != planes.end(); ++it)
